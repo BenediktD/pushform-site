@@ -22,6 +22,9 @@
   header.site nav { display: flex; gap: 8px 16px; flex-wrap: wrap; margin-left: auto; }
   header.site nav a { color: #007aff; text-decoration: none; font-size: .95rem; }
   header.site nav a.active { color: #8e8e93; font-weight: 600; }
+  .langsw { display: inline-flex; align-items: center; gap: 4px; }
+  .langsw button { font: inherit; font-size: .82rem; background: transparent; border: 1px solid currentColor; color: inherit; border-radius: 999px; padding: 1px 8px; cursor: pointer; opacity: .6; }
+  .langsw button.on { opacity: 1; font-weight: 700; }
 </style>
 </head>
 <body>
@@ -33,6 +36,7 @@
     <a href="terms.html">Nutzungsbedingungen</a>
     <a href="support.html" class="active">Support</a>
     <a href="impressum.html">Impressum</a>
+    <span class="langsw" role="group" aria-label="Sprache / Language">🌐 <button type="button" data-lang="de">DE</button><button type="button" data-lang="en">EN</button></span>
   </nav>
 </header>
 
@@ -70,5 +74,29 @@ All data stays locally on your device. See the <a href="privacy.html">Privacy Po
 <p><strong>How do I delete my data?</strong><br>
 In the app under "Statistics" for individual workouts, or under "Settings" for all data. When deleting, you can choose whether Apple Health entries are removed too.</p>
 
+<script>
+(function(){
+  var en=document.getElementById('en'); if(!en) return;
+  var start=en.previousElementSibling; while(start&&start.tagName!=='HR'){start=start.previousElementSibling;} if(!start)start=en;
+  var deN=[],enN=[],inEn=false;
+  Array.prototype.forEach.call(document.body.children,function(el){
+    if(el.classList.contains('site')||el.tagName==='SCRIPT')return;
+    if(el===start)inEn=true;
+    (inEn?enN:deN).push(el);
+  });
+  var btns=document.querySelectorAll('.langsw button');
+  function apply(l){
+    deN.forEach(function(e){e.style.display=l==='de'?'':'none';});
+    enN.forEach(function(e){e.style.display=l==='en'?'':'none';});
+    document.documentElement.lang=l;
+    try{localStorage.setItem('pf_lang',l);}catch(e){}
+    btns.forEach(function(b){b.classList.toggle('on',b.getAttribute('data-lang')===l);});
+  }
+  var init;try{init=localStorage.getItem('pf_lang');}catch(e){}
+  if(!init)init=(navigator.language||'en').toLowerCase().indexOf('de')===0?'de':'en';
+  btns.forEach(function(b){b.addEventListener('click',function(){apply(b.getAttribute('data-lang'));});});
+  apply(init);
+})();
+</script>
 </body>
 </html>

@@ -16,7 +16,7 @@
           color: #fff; text-align: center; padding: 24px 20px 46px;
           box-shadow: 0 8px 26px rgba(251, 85, 2, .22); }
   .hero-inner { max-width: 760px; margin: 0 auto; }
-  .hero nav { display: flex; justify-content: center; gap: 8px 18px; flex-wrap: wrap; margin-bottom: 30px; }
+  .hero nav { display: flex; justify-content: center; align-items: center; gap: 8px 18px; flex-wrap: wrap; margin-bottom: 30px; }
   .hero nav a { color: #fff; text-decoration: none; font-weight: 600; font-size: .95rem; opacity: .92; }
   .hero nav a.active { text-decoration: underline; text-underline-offset: 4px; opacity: 1; }
   .hero img { width: 104px; height: 104px; border-radius: 24%; box-shadow: 0 8px 22px rgba(0,0,0,.22); }
@@ -24,6 +24,11 @@
   .hero .tag { font-size: 1.15rem; margin: 0; opacity: .95; }
   .badge { display: inline-block; margin-top: 20px; padding: 8px 16px; border-radius: 999px;
            background: rgba(255,255,255,.22); color: #fff; font-weight: 600; font-size: .9rem; }
+
+  .langsw { display: inline-flex; align-items: center; gap: 4px; }
+  .langsw button { font: inherit; font-size: .82rem; background: transparent; border: 1px solid currentColor;
+                   color: inherit; border-radius: 999px; padding: 1px 8px; cursor: pointer; opacity: .6; }
+  .langsw button.on { opacity: 1; font-weight: 700; }
 
   .wrap { max-width: 760px; margin: 0 auto; padding: 20px; }
   .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin: 30px 0; }
@@ -42,16 +47,17 @@
   <header class="hero">
     <div class="hero-inner">
       <nav>
-        <a href="index.html" class="active">Start</a>
-        <a href="privacy.html">Datenschutz</a>
-        <a href="terms.html">Nutzungsbedingungen</a>
-        <a href="support.html">Support</a>
-        <a href="impressum.html">Impressum</a>
+        <a href="index.html" class="active" data-en="Home">Start</a>
+        <a href="privacy.html" data-en="Privacy">Datenschutz</a>
+        <a href="terms.html" data-en="Terms">Nutzungsbedingungen</a>
+        <a href="support.html" data-en="Support">Support</a>
+        <a href="impressum.html" data-en="Imprint">Impressum</a>
+        <span class="langsw" role="group" aria-label="Sprache / Language">🌐 <button type="button" data-lang="de">DE</button><button type="button" data-lang="en">EN</button></span>
       </nav>
       <img src="icon.png" alt="PushForm App-Icon">
       <h1>PushForm</h1>
-      <p class="tag">Zähle und verfolge deine Liegestützen.</p>
-      <span class="badge">Bald im App Store</span>
+      <p class="tag" data-en="Count and track your push-ups.">Zähle und verfolge deine Liegestützen.</p>
+      <span class="badge" data-en="Coming soon to the App Store">Bald im App Store</span>
     </div>
   </header>
 
@@ -59,45 +65,63 @@
     <section class="features">
       <div class="card">
         <div class="ico">📷</div>
-        <h3>Automatisch zählen</h3>
-        <p>Die Kamera erkennt deine Liegestützen in Echtzeit – komplett auf dem Gerät, ohne Aufnahmen.</p>
+        <h3 data-en="Auto-counting">Automatisch zählen</h3>
+        <p data-en="The camera detects your push-ups in real time — fully on-device, nothing recorded.">Die Kamera erkennt deine Liegestützen in Echtzeit – komplett auf dem Gerät, ohne Aufnahmen.</p>
       </div>
       <div class="card">
         <div class="ico">📈</div>
-        <h3>Trainingsplan</h3>
-        <p>Ein persönlicher Plan, der mit deiner Leistung mitwächst – vom Einstieg bis zum Ziel.</p>
+        <h3 data-en="Training plan">Trainingsplan</h3>
+        <p data-en="A personal plan that grows with you — from your first rep to your goal.">Ein persönlicher Plan, der mit deiner Leistung mitwächst – vom Einstieg bis zum Ziel.</p>
       </div>
       <div class="card">
         <div class="ico">🔥</div>
-        <h3>Streaks & Statistiken</h3>
-        <p>Tagesziele, Serien und Wochen- bzw. Monatsberichte halten dich am Ball.</p>
+        <h3 data-en="Streaks and stats">Streaks & Statistiken</h3>
+        <p data-en="Daily goals, streaks and weekly/monthly reports keep you going.">Tagesziele, Serien und Wochen- bzw. Monatsberichte halten dich am Ball.</p>
       </div>
       <div class="card">
         <div class="ico">🏆</div>
-        <h3>Duell gegen Bestleistung</h3>
-        <p>Tritt gegen deinen eigenen Rekord an und übertriff dich selbst.</p>
+        <h3 data-en="Duel your best">Duell gegen Bestleistung</h3>
+        <p data-en="Compete against your own record and beat it.">Tritt gegen deinen eigenen Rekord an und übertriff dich selbst.</p>
       </div>
       <div class="card">
         <div class="ico">❤️</div>
-        <h3>Apple Health</h3>
-        <p>Trainings und verbrauchte Energie landen optional direkt in Apple Health.</p>
+        <h3 data-en="Apple Health">Apple Health</h3>
+        <p data-en="Workouts and active energy optionally sync to Apple Health.">Trainings und verbrauchte Energie landen optional direkt in Apple Health.</p>
       </div>
       <div class="card">
         <div class="ico">🔒</div>
-        <h3>Privat</h3>
-        <p>Deine Trainings-, Körper- und Kameradaten bleiben auf deinem Gerät.</p>
+        <h3 data-en="Private">Privat</h3>
+        <p data-en="Your workout, body and camera data stay on your device.">Deine Trainings-, Körper- und Kameradaten bleiben auf deinem Gerät.</p>
       </div>
     </section>
 
     <footer>
       © 2026 Benedikt Dierks
       <div class="row">
-        <a href="privacy.html">Datenschutz</a> ·
-        <a href="terms.html">Nutzungsbedingungen</a> ·
-        <a href="support.html">Support</a> ·
-        <a href="impressum.html">Impressum</a>
+        <a href="privacy.html" data-en="Privacy">Datenschutz</a> ·
+        <a href="terms.html" data-en="Terms">Nutzungsbedingungen</a> ·
+        <a href="support.html" data-en="Support">Support</a> ·
+        <a href="impressum.html" data-en="Imprint">Impressum</a>
       </div>
     </footer>
   </div>
+
+<script>
+(function(){
+  var btns = document.querySelectorAll('.langsw button');
+  var nodes = document.querySelectorAll('[data-en]');
+  var de = []; nodes.forEach(function(n){ de.push(n.innerHTML); });
+  function apply(l){
+    nodes.forEach(function(n,i){ n.innerHTML = (l==='en') ? n.getAttribute('data-en') : de[i]; });
+    document.documentElement.lang = l;
+    try { localStorage.setItem('pf_lang', l); } catch(e){}
+    btns.forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-lang')===l); });
+  }
+  var init; try { init = localStorage.getItem('pf_lang'); } catch(e){}
+  if(!init) init = (navigator.language||'en').toLowerCase().indexOf('de')===0 ? 'de' : 'en';
+  btns.forEach(function(b){ b.addEventListener('click', function(){ apply(b.getAttribute('data-lang')); }); });
+  apply(init);
+})();
+</script>
 </body>
 </html>
