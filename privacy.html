@@ -270,7 +270,7 @@ to lodge a complaint with a data protection supervisory authority.</p>
     var inEn=false;
     Array.prototype.forEach.call(document.body.children,function(el){
       if(el.classList.contains('site')||el.tagName==='SCRIPT')return;
-      if(el===start)inEn=true;
+      if(el===start){inEn=true; if(el.tagName==='HR'){el.style.display='none'; return;}}
       (inEn?enN:deN).push(el);
     });
   }
