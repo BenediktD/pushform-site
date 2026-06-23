@@ -25,11 +25,26 @@
   .langsw { display: inline-flex; align-items: center; gap: 4px; }
   .langsw button { font: inherit; font-size: .82rem; background: transparent; border: 1px solid #FB5502; color: #FB5502; border-radius: 999px; padding: 1px 8px; cursor: pointer; opacity: .6; }
   .langsw button.on { opacity: 1; font-weight: 700; }
+  .nav-toggle { display: none; margin-left: auto; background: transparent; border: 1px solid #FB5502;
+                color: #FB5502; border-radius: 10px; padding: 5px 11px; font-size: 1.15rem; line-height: 1; cursor: pointer; }
+  @media (max-width: 600px) {
+    header.site { position: relative; flex-wrap: wrap; }
+    header.site .nav-toggle { display: inline-block; }
+    header.site nav { display: none; position: absolute; top: calc(100% + 6px); right: 0; left: 0; z-index: 50;
+                      flex-direction: column; align-items: flex-start; gap: 14px; margin: 0; padding: 16px;
+                      background: #fff; border: 1px solid #8e8e9333; border-radius: 14px; box-shadow: 0 10px 30px rgba(0,0,0,.16); }
+    header.site.navopen nav { display: flex; }
+    header.site nav a { font-size: 1rem; }
+  }
+  @media (max-width: 600px) and (prefers-color-scheme: dark) {
+    header.site nav { background: #1c1c1e; border-color: #8e8e9355; }
+  }
 </style>
 </head>
 <body>
 <header class="site">
   <a class="brand" href="index.html"><img src="icon.png" alt="PushForm"> PushForm</a>
+  <button class="nav-toggle" type="button" aria-label="Menü / Menu" aria-expanded="false">☰</button>
   <nav>
     <a href="index.html" data-en="Home">Start</a>
     <a href="privacy.html" data-en="Privacy">Datenschutz</a>
@@ -112,6 +127,11 @@ Email: <a href="mailto:pushform@icloud.com">pushform@icloud.com</a></p>
   if(!init){try{init=localStorage.getItem('pf_lang');}catch(e){}}
   if(!init)init=(navigator.language||'en').toLowerCase().indexOf('de')===0?'de':'en';
   btns.forEach(function(b){b.addEventListener('click',function(){apply(b.getAttribute('data-lang'));});});
+  var _hdr=document.querySelector('header'), _tg=document.querySelector('.nav-toggle');
+  if(_tg&&_hdr){
+    _tg.addEventListener('click',function(){var o=_hdr.classList.toggle('navopen');_tg.setAttribute('aria-expanded',o?'true':'false');});
+    Array.prototype.forEach.call(_hdr.querySelectorAll('nav a'),function(a){a.addEventListener('click',function(){_hdr.classList.remove('navopen');_tg.setAttribute('aria-expanded','false');});});
+  }
   apply(init);
 })();
 </script>

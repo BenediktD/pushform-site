@@ -41,11 +41,26 @@
   footer { text-align: center; color: #8e8e93; font-size: .9rem; padding: 10px 0 28px; }
   footer a { color: #FB5502; text-decoration: none; white-space: nowrap; }
   footer .row { margin-top: 6px; }
+  .nav-toggle { display: none; }
+  @media (max-width: 600px) {
+    .hero-inner { position: relative; }
+    .hero .nav-toggle { display: inline-block; position: absolute; top: 0; right: 0; z-index: 50;
+                        background: rgba(255,255,255,.20); border: 1px solid rgba(255,255,255,.65); color: #fff;
+                        border-radius: 10px; padding: 5px 11px; font-size: 1.15rem; line-height: 1; cursor: pointer; }
+    .hero nav { display: none; position: absolute; top: 44px; right: 0; left: 0; z-index: 49;
+                flex-direction: column; align-items: flex-start; gap: 14px; margin: 0 0 12px; padding: 16px;
+                background: #fff; border-radius: 14px; box-shadow: 0 10px 30px rgba(0,0,0,.22); }
+    .hero.navopen nav { display: flex; }
+    .hero nav a { color: #FB5502; opacity: 1; }
+    .hero nav a.active { text-decoration: underline; }
+    .hero .langsw button { border-color: #FB5502; color: #FB5502; }
+  }
 </style>
 </head>
 <body>
   <header class="hero">
     <div class="hero-inner">
+      <button class="nav-toggle" type="button" aria-label="Menü / Menu" aria-expanded="false">☰</button>
       <nav>
         <a href="index.html" class="active" data-en="Home">Start</a>
         <a href="privacy.html" data-en="Privacy">Datenschutz</a>
@@ -135,6 +150,11 @@
   if(!init){try{init=localStorage.getItem('pf_lang');}catch(e){}}
   if(!init)init=(navigator.language||'en').toLowerCase().indexOf('de')===0?'de':'en';
   btns.forEach(function(b){b.addEventListener('click',function(){apply(b.getAttribute('data-lang'));});});
+  var _hdr=document.querySelector('header'), _tg=document.querySelector('.nav-toggle');
+  if(_tg&&_hdr){
+    _tg.addEventListener('click',function(){var o=_hdr.classList.toggle('navopen');_tg.setAttribute('aria-expanded',o?'true':'false');});
+    Array.prototype.forEach.call(_hdr.querySelectorAll('nav a'),function(a){a.addEventListener('click',function(){_hdr.classList.remove('navopen');_tg.setAttribute('aria-expanded','false');});});
+  }
   apply(init);
 })();
 </script>
