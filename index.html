@@ -7,22 +7,44 @@
 <style>
   :root { color-scheme: light dark; }
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-         line-height: 1.6; max-width: 640px; margin: 0 auto; padding: 64px 20px; text-align: center;
-         color: #1c1c1e; background: #fff; }
+         line-height: 1.6; max-width: 640px; margin: 0 auto; padding: 28px 20px 64px; color: #1c1c1e; background: #fff; }
   @media (prefers-color-scheme: dark) { body { color: #e5e5ea; background: #000; } a { color: #0a84ff; } }
   a { color: #007aff; }
-  h1 { font-size: 2rem; }
-  p { color: #8e8e93; }
-  .links a { display: inline-block; margin: 10px; padding: 10px 18px; border-radius: 12px;
+  h1 { font-size: 2rem; margin: 12px 0 4px; }
+  p.tag { color: #8e8e93; }
+  .hero { text-align: center; padding: 8px 0 4px; }
+  .hero img { width: 96px; height: 96px; border-radius: 22%; }
+  .links a { display: inline-block; margin: 8px; padding: 10px 18px; border-radius: 12px;
              background: #007aff; color: #fff; text-decoration: none; font-weight: 600; }
+  header.site { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; padding-bottom: 14px; margin-bottom: 22px; border-bottom: 1px solid #8e8e9333; }
+  header.site .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.15rem; color: inherit; text-decoration: none; }
+  header.site .brand img { width: 40px; height: 40px; border-radius: 22%; }
+  header.site nav { display: flex; gap: 8px 16px; flex-wrap: wrap; margin-left: auto; }
+  header.site nav a { color: #007aff; text-decoration: none; font-size: .95rem; }
+  header.site nav a.active { color: #8e8e93; font-weight: 600; }
 </style>
 </head>
 <body>
-  <h1>PushForm</h1>
-  <p>Zähle und verfolge deine Liegestützen. / Count and track your push-ups.</p>
-  <div class="links">
-    <a href="privacy.html">Datenschutz / Privacy</a>
+<header class="site">
+  <a class="brand" href="index.html"><img src="icon.png" alt="PushForm"> PushForm</a>
+  <nav>
+    <a href="index.html" class="active">Start</a>
+    <a href="privacy.html">Datenschutz</a>
+    <a href="terms.html">Nutzungsbedingungen</a>
     <a href="support.html">Support</a>
+    <a href="impressum.html">Impressum</a>
+  </nav>
+</header>
+<div class="hero">
+  <img src="icon.png" alt="PushForm">
+  <h1>PushForm</h1>
+  <p class="tag">Zähle und verfolge deine Liegestützen. / Count and track your push-ups.</p>
+  <div class="links">
+    <a href="privacy.html">Datenschutz</a>
+    <a href="terms.html">Nutzungsbedingungen</a>
+    <a href="support.html">Support</a>
+    <a href="impressum.html">Impressum</a>
   </div>
+</div>
 </body>
 </html>
