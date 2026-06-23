@@ -3,48 +3,98 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PushForm</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>PushForm – Liegestützen zählen & verfolgen</title>
 <style>
-  :root { color-scheme: light dark; }
+  :root { --brand1: #FB5502; --brand2: #FBC91C; color-scheme: light dark; }
+  * { box-sizing: border-box; }
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-         line-height: 1.6; max-width: 640px; margin: 0 auto; padding: 28px 20px 64px; color: #1c1c1e; background: #fff; }
-  @media (prefers-color-scheme: dark) { body { color: #e5e5ea; background: #000; } a { color: #0a84ff; } }
-  a { color: #007aff; }
-  h1 { font-size: 2rem; margin: 12px 0 4px; }
-  p.tag { color: #8e8e93; }
-  .hero { text-align: center; padding: 8px 0 4px; }
-  .hero img { width: 96px; height: 96px; border-radius: 22%; }
-  .links a { display: inline-block; margin: 8px; padding: 10px 18px; border-radius: 12px;
-             background: #007aff; color: #fff; text-decoration: none; font-weight: 600; }
-  header.site { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; padding-bottom: 14px; margin-bottom: 22px; border-bottom: 1px solid #8e8e9333; }
-  header.site .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.15rem; color: inherit; text-decoration: none; }
-  header.site .brand img { width: 40px; height: 40px; border-radius: 22%; }
-  header.site nav { display: flex; gap: 8px 16px; flex-wrap: wrap; margin-left: auto; }
-  header.site nav a { color: #007aff; text-decoration: none; font-size: .95rem; }
-  header.site nav a.active { color: #8e8e93; font-weight: 600; }
+         margin: 0; color: #1c1c1e; background: #fff; line-height: 1.6; }
+  @media (prefers-color-scheme: dark) { body { color: #e5e5ea; background: #000; } }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 20px; }
+
+  .hero { background: linear-gradient(135deg, var(--brand1), var(--brand2));
+          border-radius: 28px; padding: 24px 24px 40px; color: #fff; text-align: center;
+          box-shadow: 0 12px 34px rgba(251, 85, 2, .28); }
+  .hero nav { display: flex; justify-content: center; gap: 8px 18px; flex-wrap: wrap; margin-bottom: 30px; }
+  .hero nav a { color: #fff; text-decoration: none; font-weight: 600; font-size: .95rem; opacity: .92; }
+  .hero nav a.active { text-decoration: underline; text-underline-offset: 4px; opacity: 1; }
+  .hero img { width: 104px; height: 104px; border-radius: 24%; box-shadow: 0 8px 22px rgba(0,0,0,.22); }
+  .hero h1 { font-size: 2.4rem; margin: 18px 0 6px; letter-spacing: -.02em; }
+  .hero .tag { font-size: 1.15rem; margin: 0; opacity: .95; }
+  .badge { display: inline-block; margin-top: 20px; padding: 8px 16px; border-radius: 999px;
+           background: rgba(255,255,255,.22); color: #fff; font-weight: 600; font-size: .9rem; }
+
+  .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin: 30px 0; }
+  .card { background: #f5f5f7; border-radius: 18px; padding: 20px; }
+  @media (prefers-color-scheme: dark) { .card { background: #1c1c1e; } }
+  .card .ico { font-size: 1.9rem; line-height: 1; }
+  .card h3 { margin: 12px 0 6px; font-size: 1.06rem; }
+  .card p { margin: 0; color: #8e8e93; font-size: .95rem; }
+
+  footer { text-align: center; color: #8e8e93; font-size: .9rem; padding: 10px 0 28px; }
+  footer a { color: #007aff; text-decoration: none; white-space: nowrap; }
+  footer .row { margin-top: 6px; }
 </style>
 </head>
 <body>
-<header class="site">
-  <a class="brand" href="index.html"><img src="icon.png" alt="PushForm"> PushForm</a>
-  <nav>
-    <a href="index.html" class="active">Start</a>
-    <a href="privacy.html">Datenschutz</a>
-    <a href="terms.html">Nutzungsbedingungen</a>
-    <a href="support.html">Support</a>
-    <a href="impressum.html">Impressum</a>
-  </nav>
-</header>
-<div class="hero">
-  <img src="icon.png" alt="PushForm">
-  <h1>PushForm</h1>
-  <p class="tag">Zähle und verfolge deine Liegestützen. / Count and track your push-ups.</p>
-  <div class="links">
-    <a href="privacy.html">Datenschutz</a>
-    <a href="terms.html">Nutzungsbedingungen</a>
-    <a href="support.html">Support</a>
-    <a href="impressum.html">Impressum</a>
+  <div class="wrap">
+    <header class="hero">
+      <nav>
+        <a href="index.html" class="active">Start</a>
+        <a href="privacy.html">Datenschutz</a>
+        <a href="terms.html">Nutzungsbedingungen</a>
+        <a href="support.html">Support</a>
+        <a href="impressum.html">Impressum</a>
+      </nav>
+      <img src="icon.png" alt="PushForm App-Icon">
+      <h1>PushForm</h1>
+      <p class="tag">Zähle und verfolge deine Liegestützen.</p>
+      <span class="badge">Bald im App Store</span>
+    </header>
+
+    <section class="features">
+      <div class="card">
+        <div class="ico">📷</div>
+        <h3>Automatisch zählen</h3>
+        <p>Die Kamera erkennt deine Liegestützen in Echtzeit – komplett auf dem Gerät, ohne Aufnahmen.</p>
+      </div>
+      <div class="card">
+        <div class="ico">📈</div>
+        <h3>Trainingsplan</h3>
+        <p>Ein persönlicher Plan, der mit deiner Leistung mitwächst – vom Einstieg bis zum Ziel.</p>
+      </div>
+      <div class="card">
+        <div class="ico">🔥</div>
+        <h3>Streaks & Statistiken</h3>
+        <p>Tagesziele, Serien und Wochen- bzw. Monatsberichte halten dich am Ball.</p>
+      </div>
+      <div class="card">
+        <div class="ico">🏆</div>
+        <h3>Duell gegen Bestleistung</h3>
+        <p>Tritt gegen deinen eigenen Rekord an und übertriff dich selbst.</p>
+      </div>
+      <div class="card">
+        <div class="ico">❤️</div>
+        <h3>Apple Health</h3>
+        <p>Trainings und verbrauchte Energie landen optional direkt in Apple Health.</p>
+      </div>
+      <div class="card">
+        <div class="ico">🔒</div>
+        <h3>Privat</h3>
+        <p>Deine Trainings-, Körper- und Kameradaten bleiben auf deinem Gerät.</p>
+      </div>
+    </section>
+
+    <footer>
+      © 2026 Benedikt Dierks
+      <div class="row">
+        <a href="privacy.html">Datenschutz</a> ·
+        <a href="terms.html">Nutzungsbedingungen</a> ·
+        <a href="support.html">Support</a> ·
+        <a href="impressum.html">Impressum</a>
+      </div>
+    </footer>
   </div>
-</div>
 </body>
 </html>
