@@ -49,7 +49,7 @@
 <p>PushForm ist eine App zum Zählen und Verfolgen von Liegestützen. Datenschutz ist uns wichtig:
 <strong>Deine Trainings-, Körper- und Kameradaten bleiben ausschließlich lokal auf deinem Gerät.</strong>
 Es gibt kein Benutzerkonto und keine Werbung. Zur Verbesserung der App können – nur mit deiner
-Einwilligung – <strong>anonyme Nutzungsstatistiken</strong> erhoben werden (siehe unten), ohne Personenbezug.</p>
+Einwilligung – <strong>pseudonyme Nutzungsstatistiken</strong> erhoben werden (siehe unten), ohne Personenbezug.</p>
 
 <h2>Verantwortlicher</h2>
 <p>Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) und anderer nationaler Datenschutzgesetze ist:<br>
@@ -71,6 +71,7 @@ GitHub ist unter dem <strong>EU-U.S. Data Privacy Framework</strong> zertifizier
 Standardvertragsklauseln bereit. Details:
 <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub-Datenschutzerklärung</a>.
 Die App selbst erhebt keine solchen Server-Logfiles.</p>
+<p>Die Website nutzt ausschließlich technisch notwendigen lokalen Speicher (Schlüssel „pf_lang“) zum Merken der gewählten Sprache; es werden keine Cookies zu Tracking- oder Marketingzwecken gesetzt (§ 25 Abs. 2 Nr. 2 TDDDG).</p>
 
 <h2>Welche Daten verarbeitet werden</h2>
 <ul>
@@ -78,7 +79,7 @@ Die App selbst erhebt keine solchen Server-Logfiles.</p>
   <li><strong>Optionale Körperdaten</strong> (Gewicht, Alter, Geschlecht) – nur zur Schätzung des Kalorienverbrauchs. Du gibst sie selbst ein oder sie werden mit deiner Erlaubnis aus Apple Health gelesen. Sie bleiben lokal.</li>
   <li><strong>Kamerazugriff</strong> – wird ausschließlich in Echtzeit auf dem Gerät zur Erkennung der Liegestütz-Bewegung verwendet. Es werden <strong>keine Bilder oder Videos aufgenommen, gespeichert oder übertragen.</strong></li>
   <li><strong>Lokale Mitteilungen</strong> – nur Erinnerungen auf deinem Gerät.</li>
-  <li><strong>Nutzungsstatistik</strong> – anonyme Ereignisse (welche Funktionen genutzt werden), siehe Abschnitt unten.</li>
+  <li><strong>Nutzungsstatistik</strong> – pseudonyme Ereignisse (welche Funktionen genutzt werden), siehe Abschnitt unten.</li>
 </ul>
 
 <h2>Apple Health (HealthKit)</h2>
@@ -91,23 +92,24 @@ Die App selbst erhebt keine solchen Server-Logfiles.</p>
 nicht für Werbung verwendet und nicht an Dritte weitergegeben oder verkauft.</strong> Du kannst die
 Health-Berechtigungen jederzeit in der iOS-Einstellungen-App entziehen.</p>
 <p>PushForm verarbeitet diese Daten ausschließlich lokal und übermittelt sie nicht an eigene Server.</p>
+<p>In Apple Health geschriebene Daten unterliegen der Verwaltung durch Apple Health und können – je nach deinen iOS-Einstellungen – über Apples Health-/iCloud-Infrastruktur synchronisiert werden; es gelten Apples Datenschutzbestimmungen.</p>
 <p>Gesundheitsdaten sind <strong>besondere Kategorien personenbezogener Daten (Art. 9 DSGVO)</strong>. Ihre
-Verarbeitung erfolgt nur auf deine <strong>ausdrückliche Einwilligung</strong> (über die iOS-Health-Berechtigung)
+Verarbeitung erfolgt nur auf deine <strong>ausdrückliche Einwilligung</strong> (Art. 9 Abs. 2 lit. a DSGVO i. V. m. Art. 6 Abs. 1 lit. a DSGVO), erteilt über die iOS-Health-Berechtigung,
 und ausschließlich lokal auf deinem Gerät.</p>
 
-<h2>Anonyme Nutzungsstatistik</h2>
+<h2>Nutzungsstatistik</h2>
 <p>Zur Verbesserung der App erfassen wir, <strong>welche Funktionen wie oft genutzt werden</strong> (z. B.
-„Training gespeichert", „Bericht geöffnet"). Diese Ereignisse sind <strong>anonym</strong>: Sie enthalten keinen
+„Training gespeichert", „Bericht geöffnet"). Diese Ereignisse enthalten keinen
 Namen, keine E-Mail, keine Trainings- oder Gesundheitsdaten und keine Werbe-ID (IDFA). Als Kennung dient eine
-zufällig erzeugte ID auf deinem Gerät; es findet <strong>kein app-übergreifendes Tracking</strong> statt.
+zufällig erzeugte, gerätegebundene ID (pseudonym); es findet <strong>kein app-übergreifendes Tracking</strong> statt.
 Die Verarbeitung erfolgt über <strong>TelemetryDeck</strong> (TelemetryDeck GmbH, Deutschland), einen
 datenschutzfreundlichen Analyse-Dienst. Die Statistik ist <strong>standardmäßig deaktiviert</strong> und nur mit
-deiner Einwilligung aktiv; du kannst sie jederzeit in den App-Einstellungen unter „Anonyme Nutzungsstatistik"
+deiner Einwilligung aktiv; du kannst sie jederzeit in den App-Einstellungen unter „Nutzungsstatistik"
 ein- oder ausschalten.</p>
 <p>Mit TelemetryDeck besteht ein Vertrag zur Auftragsverarbeitung gemäß Art. 28 DSGVO.</p>
 
 <h2>Weitergabe an Dritte</h2>
-<p>Außer den oben genannten anonymen Nutzungsstatistiken (TelemetryDeck) werden keine Daten an Dritte
+<p>Außer den oben genannten pseudonymen Nutzungsstatistiken (TelemetryDeck) werden keine Daten an Dritte
 übertragen. Deine Trainings-, Körper- und Health-Daten bleiben lokal bzw. in Apple Health.</p>
 <p>Es werden <strong>keine Daten zum Training von Künstlicher Intelligenz (KI) oder Machine-Learning-Modellen
 an Dritte weitergegeben oder verkauft.</strong></p>
@@ -118,17 +120,18 @@ persönliches <strong>iCloud-Konto</strong> zwischen deinen Geräten synchronisi
 deiner iCloud bei <strong>Apple</strong> gespeichert und unterliegen Apples Datenschutzbestimmungen; wir selbst
 haben darauf keinen Zugriff. Die Synchronisation erfolgt ausschließlich, wenn du sie aktivierst (Einwilligung,
 Art. 6 Abs. 1 lit. a DSGVO), und kann in den App-Einstellungen jederzeit wieder deaktiviert werden.</p>
+<p>Da Apple ein US-Anbieter ist, kann dabei eine Übermittlung in die USA erfolgen; Apple ist unter dem <strong>EU-U.S. Data Privacy Framework</strong> zertifiziert und stellt EU-Standardvertragsklauseln bereit.</p>
 
 <h2>Rechtsgrundlage der Verarbeitung</h2>
 <p>Soweit überhaupt personenbezogene Daten verarbeitet werden: Die Nutzung von Apple Health und Kamera erfolgt
 auf Grundlage deiner <strong>Einwilligung</strong> (Art. 6 Abs. 1 lit. a DSGVO), die du jederzeit widerrufen
-kannst. Die anonyme Nutzungsstatistik erfolgt ausschließlich mit deiner <strong>Einwilligung</strong>
-(Art. 6 Abs. 1 lit. a DSGVO i. V. m. § 25 TDDG) und ist standardmäßig deaktiviert. Die Verarbeitung findet
-<strong>innerhalb der EU</strong> statt; eine Übermittlung in Drittländer erfolgt insoweit nicht (zum Hosting der Website siehe oben).</p>
+kannst. Die pseudonyme Nutzungsstatistik erfolgt ausschließlich mit deiner <strong>Einwilligung</strong>
+(Art. 6 Abs. 1 lit. a DSGVO i. V. m. § 25 TDDDG, vormals § 25 TTDSG) und ist standardmäßig deaktiviert. Die Verarbeitung findet
+<strong>innerhalb der EU</strong> statt; eine Übermittlung in Drittländer erfolgt insoweit nicht (zum Hosting der Website und zur iCloud-Synchronisation siehe oben).</p>
 
 <h2>Speicherdauer</h2>
 <p>Trainings-, Körper- und Health-Daten bleiben auf deinem Gerät, bis du sie löschst oder die App entfernst.
-Anonyme Nutzungsstatistiken werden aggregiert und nur so lange wie für die Auswertung erforderlich aufbewahrt.</p>
+Nutzungsstatistiken werden aggregiert und nur so lange wie für die Auswertung erforderlich aufbewahrt.</p>
 
 <h2>Deine Rechte</h2>
 <p>Du hast – soweit anwendbar – das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung,
@@ -137,7 +140,7 @@ jederzeit zu widerrufen. Da die App keine personenbezogenen Daten auf Servern sp
 Rechte direkt in der App ausüben (Daten exportieren/löschen, Health-Zugriff in den iOS-Einstellungen entziehen).
 Bei Fragen erreichst du uns unter <a href="mailto:pushform@icloud.com">pushform@icloud.com</a>. Du hast zudem das
 Recht, dich bei einer Datenschutz-Aufsichtsbehörde zu beschweren, insbesondere beim <strong>Bayerischen Landesamt
-für Datenschutzaufsicht (BayLDA)</strong>.</p>
+für Datenschutzaufsicht (BayLDA)</strong>, Promenade 18, 91522 Ansbach (<a href="https://www.lda.bayern.de">lda.bayern.de</a>). Eine automatisierte Entscheidungsfindung einschließlich Profiling (Art. 22 DSGVO) findet nicht statt.</p>
 
 <h2>Daten exportieren und löschen</h2>
 <ul>
@@ -162,7 +165,7 @@ für Datenschutzaufsicht (BayLDA)</strong>.</p>
 
 <p>PushForm is an app for counting and tracking push-ups. We care about your privacy:
 <strong>your workout, body and camera data stay exclusively on your device.</strong> There is no user account
-and no ads. To improve the app we may collect <strong>anonymous usage statistics</strong> — only with your
+and no ads. To improve the app we may collect <strong>pseudonymous usage statistics</strong> — only with your
 consent (see below), with no personal reference.</p>
 
 <h2>Controller</h2>
@@ -184,6 +187,7 @@ US provider, a transfer to the USA may occur; GitHub is certified under the <str
 Framework</strong> and additionally provides Standard Contractual Clauses. Details:
 <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub Privacy Statement</a>.
 The app itself collects no such server log files.</p>
+<p>The website uses only technically necessary local storage (key “pf_lang”) to remember your chosen language; no cookies are set for tracking or marketing (§ 25(2) no. 2 TDDDG).</p>
 
 <h2>Data the app processes</h2>
 <ul>
@@ -191,7 +195,7 @@ The app itself collects no such server log files.</p>
   <li><strong>Optional body data</strong> (weight, age, sex) – used only to estimate calories. You enter it yourself, or it is read from Apple Health with your permission. It stays local.</li>
   <li><strong>Camera access</strong> – used only in real time on-device to detect the push-up movement. <strong>No images or video are recorded, stored, or transmitted.</strong></li>
   <li><strong>Local notifications</strong> – reminders on your device only.</li>
-  <li><strong>Usage statistics</strong> – anonymous events (which features are used), see the section below.</li>
+  <li><strong>Usage statistics</strong> – pseudonymous events (which features are used), see the section below.</li>
 </ul>
 
 <h2>Apple Health (HealthKit)</h2>
@@ -204,21 +208,22 @@ The app itself collects no such server log files.</p>
 advertising and is not shared with or sold to third parties.</strong> You can revoke Health permissions at any
 time in the iOS Settings app.</p>
 <p>PushForm processes this data exclusively on your device and does not transmit it to any servers of ours.</p>
+<p>Data written to Apple Health is managed by Apple Health and may – depending on your iOS settings – be synchronised via Apple's Health/iCloud infrastructure; Apple's privacy policy applies.</p>
 <p>Health data are <strong>special categories of personal data (Art. 9 GDPR)</strong>. They are processed only
-with your <strong>explicit consent</strong> (via the iOS Health permission) and exclusively on your device.</p>
+with your <strong>explicit consent</strong> (Art. 9(2)(a) GDPR in conjunction with Art. 6(1)(a) GDPR), given via the iOS Health permission, and exclusively on your device.</p>
 
-<h2>Anonymous usage statistics</h2>
+<h2>Usage statistics</h2>
 <p>To improve the app we record <strong>which features are used and how often</strong> (e.g. “workout saved”,
-“report opened”). These events are <strong>anonymous</strong>: they contain no name, no email, no workout or
-health data, and no advertising identifier (IDFA). The identifier is a randomly generated ID on your device;
+“report opened”). These events contain no name, no email, no workout or
+health data, and no advertising identifier (IDFA). The identifier is a randomly generated, device-bound ID (pseudonymous);
 there is <strong>no cross-app tracking</strong>. Processing is done via <strong>TelemetryDeck</strong>
 (TelemetryDeck GmbH, Germany), a privacy-friendly analytics service. Statistics are <strong>off by default</strong>
 and only active with your consent; you can switch them on or off at any time in the app settings under
-“Anonymous usage statistics”.</p>
+“Usage statistics”.</p>
 <p>A data processing agreement pursuant to Art. 28 GDPR is in place with TelemetryDeck.</p>
 
 <h2>Sharing with third parties</h2>
-<p>Apart from the anonymous usage statistics mentioned above (TelemetryDeck), no data is transmitted to any
+<p>Apart from the pseudonymous usage statistics mentioned above (TelemetryDeck), no data is transmitted to any
 third party. Your workout, body and health data stay local or in Apple Health.</p>
 <p><strong>No data is shared with or sold to third parties for training artificial intelligence (AI) or
 machine learning models.</strong></p>
@@ -228,15 +233,16 @@ machine learning models.</strong></p>
 devices via your personal <strong>iCloud account</strong>. The data is stored in your iCloud at <strong>Apple</strong>
 and is subject to Apple's privacy policy; we ourselves have no access to it. Sync only takes place if you enable
 it (consent, Art. 6(1)(a) GDPR) and can be turned off again at any time in the app settings.</p>
+<p>As Apple is a US provider, a transfer to the USA may occur; Apple is certified under the <strong>EU-U.S. Data Privacy Framework</strong> and provides EU Standard Contractual Clauses.</p>
 
 <h2>Legal basis</h2>
 <p>Where personal data is processed at all: use of Apple Health and the camera is based on your <strong>consent</strong>
-(Art. 6(1)(a) GDPR), which you can withdraw at any time. Anonymous usage statistics are based on our
-<strong>consent</strong> only (Art. 6(1)(a) GDPR / §25 TDDG) and are off by default.
-Processing of the app data takes place <strong>within the EU</strong>; no transfer to third countries occurs in this respect (for website hosting, see above).</p>
+(Art. 6(1)(a) GDPR), which you can withdraw at any time. Usage statistics are based on your
+<strong>consent</strong> only (Art. 6(1)(a) GDPR / §25 TDDDG) and are off by default.
+Processing of the app data takes place <strong>within the EU</strong>; no transfer to third countries occurs in this respect (for website hosting and iCloud sync, see above).</p>
 
 <h2>Data retention</h2>
-<p>Workout, body and health data stay on your device until you delete them or remove the app. Anonymous usage
+<p>Workout, body and health data stay on your device until you delete them or remove the app. Usage
 statistics are aggregated and kept only as long as needed for analysis.</p>
 
 <h2>Your rights</h2>
@@ -245,7 +251,7 @@ portability and the <strong>right to object</strong>, as well as the right to wi
 app stores no personal data on servers, you can exercise most rights directly in the app (export/delete data,
 revoke Health access in iOS Settings). Questions: <a href="mailto:pushform@icloud.com">pushform@icloud.com</a>.
 You also have the right to lodge a complaint with a data protection supervisory authority, in particular the
-<strong>Bavarian State Office for Data Protection Supervision (BayLDA)</strong>.</p>
+<strong>Bavarian State Office for Data Protection Supervision (BayLDA)</strong>, Promenade 18, 91522 Ansbach (<a href="https://www.lda.bayern.de">lda.bayern.de</a>). There is no automated decision-making, including profiling (Art. 22 GDPR).</p>
 
 <h2>Exporting and deleting data</h2>
 <ul>
