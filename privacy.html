@@ -33,11 +33,11 @@
 <header class="site">
   <a class="brand" href="index.html"><img src="icon.png" alt="PushForm"> PushForm</a>
   <nav>
-    <a href="index.html">Start</a>
-    <a href="privacy.html" class="active">Datenschutz</a>
-    <a href="terms.html">Nutzungsbedingungen</a>
-    <a href="support.html">Support</a>
-    <a href="impressum.html">Impressum</a>
+    <a href="index.html" data-en="Home">Start</a>
+    <a href="privacy.html" data-en="Privacy" class="active">Datenschutz</a>
+    <a href="terms.html" data-en="Terms">Nutzungsbedingungen</a>
+    <a href="support.html" data-en="Support">Support</a>
+    <a href="impressum.html" data-en="Imprint">Impressum</a>
     <span class="langsw" role="group" aria-label="Sprache / Language"><button type="button" data-lang="de">DE</button><button type="button" data-lang="en">EN</button></span>
   </nav>
 </header>
@@ -111,6 +111,13 @@ ein- oder ausschalten.</p>
 übertragen. Deine Trainings-, Körper- und Health-Daten bleiben lokal bzw. in Apple Health.</p>
 <p>Es werden <strong>keine Daten zum Training von Künstlicher Intelligenz (KI) oder Machine-Learning-Modellen
 an Dritte weitergegeben oder verkauft.</strong></p>
+
+<h2>iCloud-Synchronisation (optional)</h2>
+<p>Wenn du iCloud-Sync aktivierst, werden deine Trainingsdaten (Anzahl, Datum, Ziele, Trainingsplan) über dein
+persönliches <strong>iCloud-Konto</strong> zwischen deinen Geräten synchronisiert. Die Daten werden dabei in
+deiner iCloud bei <strong>Apple</strong> gespeichert und unterliegen Apples Datenschutzbestimmungen; wir selbst
+haben darauf keinen Zugriff. Die Synchronisation erfolgt ausschließlich, wenn du sie aktivierst (Einwilligung,
+Art. 6 Abs. 1 lit. a DSGVO), und kann in den App-Einstellungen jederzeit wieder deaktiviert werden.</p>
 
 <h2>Rechtsgrundlage der Verarbeitung</h2>
 <p>Soweit überhaupt personenbezogene Daten verarbeitet werden: Die Nutzung von Apple Health und Kamera erfolgt
@@ -215,6 +222,12 @@ third party. Your workout, body and health data stay local or in Apple Health.</
 <p><strong>No data is shared with or sold to third parties for training artificial intelligence (AI) or
 machine learning models.</strong></p>
 
+<h2>iCloud sync (optional)</h2>
+<p>If you enable iCloud sync, your workout data (counts, dates, goals, training plan) is synchronised across your
+devices via your personal <strong>iCloud account</strong>. The data is stored in your iCloud at <strong>Apple</strong>
+and is subject to Apple's privacy policy; we ourselves have no access to it. Sync only takes place if you enable
+it (consent, Art. 6(1)(a) GDPR) and can be turned off again at any time in the app settings.</p>
+
 <h2>Legal basis</h2>
 <p>Where personal data is processed at all: use of Apple Health and the camera is based on your <strong>consent</strong>
 (Art. 6(1)(a) GDPR), which you can withdraw at any time. Anonymous usage statistics are based on our
@@ -250,23 +263,31 @@ to lodge a complaint with a data protection supervisory authority.</p>
 
 <script>
 (function(){
-  var en=document.getElementById('en'); if(!en) return;
-  var start=en.previousElementSibling; while(start&&start.tagName!=='HR'){start=start.previousElementSibling;} if(!start)start=en;
-  var deN=[],enN=[],inEn=false;
-  Array.prototype.forEach.call(document.body.children,function(el){
-    if(el.classList.contains('site')||el.tagName==='SCRIPT')return;
-    if(el===start)inEn=true;
-    (inEn?enN:deN).push(el);
-  });
+  var en=document.getElementById('en');
+  var deN=[],enN=[];
+  if(en){
+    var start=en.previousElementSibling; while(start&&start.tagName!=='HR'){start=start.previousElementSibling;} if(!start)start=en;
+    var inEn=false;
+    Array.prototype.forEach.call(document.body.children,function(el){
+      if(el.classList.contains('site')||el.tagName==='SCRIPT')return;
+      if(el===start)inEn=true;
+      (inEn?enN:deN).push(el);
+    });
+  }
+  var nodes=document.querySelectorAll('[data-en]');
+  var deTxt=[]; nodes.forEach(function(n){deTxt.push(n.innerHTML);});
   var btns=document.querySelectorAll('.langsw button');
   function apply(l){
     deN.forEach(function(e){e.style.display=l==='de'?'':'none';});
     enN.forEach(function(e){e.style.display=l==='en'?'':'none';});
+    nodes.forEach(function(n,i){n.innerHTML=l==='en'?n.getAttribute('data-en'):deTxt[i];});
     document.documentElement.lang=l;
     try{localStorage.setItem('pf_lang',l);}catch(e){}
     btns.forEach(function(b){b.classList.toggle('on',b.getAttribute('data-lang')===l);});
   }
-  var init;try{init=localStorage.getItem('pf_lang');}catch(e){}
+  var q=(location.search.match(/[?&]lang=(de|en)/i)||[])[1];
+  var init=q?q.toLowerCase():null;
+  if(!init){try{init=localStorage.getItem('pf_lang');}catch(e){}}
   if(!init)init=(navigator.language||'en').toLowerCase().indexOf('de')===0?'de':'en';
   btns.forEach(function(b){b.addEventListener('click',function(){apply(b.getAttribute('data-lang'));});});
   apply(init);

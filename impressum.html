@@ -31,11 +31,11 @@
 <header class="site">
   <a class="brand" href="index.html"><img src="icon.png" alt="PushForm"> PushForm</a>
   <nav>
-    <a href="index.html">Start</a>
-    <a href="privacy.html">Datenschutz</a>
-    <a href="terms.html">Nutzungsbedingungen</a>
-    <a href="support.html">Support</a>
-    <a href="impressum.html" class="active">Impressum</a>
+    <a href="index.html" data-en="Home">Start</a>
+    <a href="privacy.html" data-en="Privacy">Datenschutz</a>
+    <a href="terms.html" data-en="Terms">Nutzungsbedingungen</a>
+    <a href="support.html" data-en="Support">Support</a>
+    <a href="impressum.html" data-en="Imprint" class="active">Impressum</a>
     <span class="langsw" role="group" aria-label="Sprache / Language"><button type="button" data-lang="de">DE</button><button type="button" data-lang="en">EN</button></span>
   </nav>
 </header>
@@ -74,23 +74,31 @@ Germany
 
 <script>
 (function(){
-  var en=document.getElementById('en'); if(!en) return;
-  var start=en.previousElementSibling; while(start&&start.tagName!=='HR'){start=start.previousElementSibling;} if(!start)start=en;
-  var deN=[],enN=[],inEn=false;
-  Array.prototype.forEach.call(document.body.children,function(el){
-    if(el.classList.contains('site')||el.tagName==='SCRIPT')return;
-    if(el===start)inEn=true;
-    (inEn?enN:deN).push(el);
-  });
+  var en=document.getElementById('en');
+  var deN=[],enN=[];
+  if(en){
+    var start=en.previousElementSibling; while(start&&start.tagName!=='HR'){start=start.previousElementSibling;} if(!start)start=en;
+    var inEn=false;
+    Array.prototype.forEach.call(document.body.children,function(el){
+      if(el.classList.contains('site')||el.tagName==='SCRIPT')return;
+      if(el===start)inEn=true;
+      (inEn?enN:deN).push(el);
+    });
+  }
+  var nodes=document.querySelectorAll('[data-en]');
+  var deTxt=[]; nodes.forEach(function(n){deTxt.push(n.innerHTML);});
   var btns=document.querySelectorAll('.langsw button');
   function apply(l){
     deN.forEach(function(e){e.style.display=l==='de'?'':'none';});
     enN.forEach(function(e){e.style.display=l==='en'?'':'none';});
+    nodes.forEach(function(n,i){n.innerHTML=l==='en'?n.getAttribute('data-en'):deTxt[i];});
     document.documentElement.lang=l;
     try{localStorage.setItem('pf_lang',l);}catch(e){}
     btns.forEach(function(b){b.classList.toggle('on',b.getAttribute('data-lang')===l);});
   }
-  var init;try{init=localStorage.getItem('pf_lang');}catch(e){}
+  var q=(location.search.match(/[?&]lang=(de|en)/i)||[])[1];
+  var init=q?q.toLowerCase():null;
+  if(!init){try{init=localStorage.getItem('pf_lang');}catch(e){}}
   if(!init)init=(navigator.language||'en').toLowerCase().indexOf('de')===0?'de':'en';
   btns.forEach(function(b){b.addEventListener('click',function(){apply(b.getAttribute('data-lang'));});});
   apply(init);
