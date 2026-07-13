@@ -19,7 +19,12 @@
           color: #fff; text-align: center; padding: 24px 20px 46px;
           box-shadow: 0 8px 26px rgba(251, 85, 2, .22); }
   .hero-inner { max-width: 760px; margin: 0 auto; }
-  .hero nav { display: flex; justify-content: center; align-items: center; gap: 8px 18px; flex-wrap: wrap; margin-bottom: 30px; }
+  /* Schlanke Top-Leiste wie auf den Unterseiten: Marke links, Navigation rechts */
+  .topbar { display: flex; align-items: center; gap: 12px; margin-bottom: 34px; }
+  .topbar .brand { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1.05rem;
+                   color: #fff; text-decoration: none; white-space: nowrap; }
+  .topbar .brand img { width: 30px; height: 30px; border-radius: 22%; box-shadow: none; }
+  .hero nav { display: flex; align-items: center; gap: 8px 18px; flex-wrap: wrap; margin-left: auto; }
   .hero nav a { color: #fff; text-decoration: none; font-weight: 600; font-size: .95rem; opacity: .92; }
   .hero nav a.active { text-decoration: underline; text-underline-offset: 4px; opacity: 1; }
   .hero img { width: 104px; height: 104px; border-radius: 24%; box-shadow: 0 8px 22px rgba(0,0,0,.22); }
@@ -67,12 +72,14 @@
 <body>
   <header class="hero">
     <div class="hero-inner">
-      <button class="nav-toggle" type="button" aria-label="Menü / Menu" aria-expanded="false">☰</button>
-      <nav>
-        <a href="support.html" data-en="Support">Support</a>
-
-        <span class="langsw" role="group" aria-label="Sprache / Language"><button type="button" data-lang="de">DE</button><button type="button" data-lang="en">EN</button></span>
-      </nav>
+      <div class="topbar">
+        <a class="brand" href="index.html"><img src="icon.png" alt="PushForm"> PushForm</a>
+        <button class="nav-toggle" type="button" aria-label="Menü / Menu" aria-expanded="false">☰</button>
+        <nav>
+          <a href="support.html" data-en="Support">Support</a>
+          <span class="langsw" role="group" aria-label="Sprache / Language"><button type="button" data-lang="de">DE</button><button type="button" data-lang="en">EN</button></span>
+        </nav>
+      </div>
       <img src="icon.png" alt="PushForm App-Icon">
       <h1>PushForm</h1>
       <p class="tag" data-en="Count and track your push-ups.">Zähle und verfolge deine Liegestützen.</p>
