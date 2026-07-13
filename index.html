@@ -28,7 +28,9 @@
   /* Offizielles App-Store-Badge: Grafik unverändert, nur Platzierung.
      margin 20px > geforderter Freiraum (1/4 der Badge-Höhe = 13px bei 52px). */
   .store-badge { display: inline-block; margin-top: 20px; line-height: 0; }
-  .store-badge img { display: block; height: 52px; width: auto; }
+  /* .hero img (App-Icon-Regel) vererbt border-radius/Schatten – fürs Badge neutralisieren,
+     sonst werden die Seiten des offiziellen Badges rund geclippt. */
+  .store-badge img { display: block; height: 52px; width: auto; border-radius: 0; box-shadow: none; }
 
   .langsw { display: inline-flex; align-items: center; gap: 4px; }
   .langsw button { font: inherit; font-size: .82rem; background: transparent; border: 1px solid currentColor;
