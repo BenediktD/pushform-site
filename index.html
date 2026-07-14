@@ -23,7 +23,9 @@
   .topbar { display: flex; align-items: center; gap: 12px; margin-bottom: 34px; }
   .topbar .brand { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1.05rem;
                    color: #fff; text-decoration: none; white-space: nowrap; }
-  .topbar .brand img { width: 30px; height: 30px; border-radius: 22%; box-shadow: none; }
+  /* Dezentes weißes Glyph statt buntem App-Icon (transparentes PNG -> per Filter weiß). */
+  .topbar .brand img { width: 26px; height: 26px; border-radius: 0; box-shadow: none;
+                       filter: brightness(0) invert(1); opacity: .9; }
   .hero nav { display: flex; align-items: center; gap: 8px 18px; flex-wrap: wrap; margin-left: auto; }
   .hero nav a { color: #fff; text-decoration: none; font-weight: 600; font-size: .95rem; opacity: .92; }
   .hero nav a.active { text-decoration: underline; text-underline-offset: 4px; opacity: 1; }
@@ -73,7 +75,7 @@
   <header class="hero">
     <div class="hero-inner">
       <div class="topbar">
-        <a class="brand" href="index.html"><img src="icon.png" alt="PushForm"> PushForm</a>
+        <a class="brand" href="index.html"><img src="figure.png" alt="PushForm"> PushForm</a>
         <button class="nav-toggle" type="button" aria-label="Menü / Menu" aria-expanded="false">☰</button>
         <nav>
           <a href="support.html" data-en="Support">Support</a>
