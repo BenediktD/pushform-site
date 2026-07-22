@@ -62,7 +62,7 @@
 
 
 <h1>Datenschutzerklärung – PushForm</h1>
-<p class="meta">Stand: 23. Juni 2026</p>
+<p class="meta">Stand: 22. Juli 2026</p>
 
 <p>PushForm ist eine App zum Zählen und Verfolgen von Liegestützen. Datenschutz ist uns wichtig:
 <strong>Deine Körper- und Kameradaten bleiben ausschließlich lokal auf deinem Gerät; deine Trainingsdaten bleiben lokal und werden nur zusätzlich in deiner iCloud gesichert, wenn du die optionale iCloud-Synchronisation aktivierst.</strong>
@@ -119,10 +119,14 @@ und ausschließlich lokal auf deinem Gerät.</p>
 <p>Zur Verbesserung der App erfassen wir, <strong>welche Funktionen wie oft genutzt werden</strong> (z. B.
 „Training gespeichert", „Bericht geöffnet"). Diese Ereignisse enthalten keinen
 Namen, keine E-Mail, keine Trainings- oder Gesundheitsdaten und keine Werbe-ID (IDFA). Als Kennung dient eine
-zufällig erzeugte, gerätegebundene ID (pseudonym); es findet <strong>kein app-übergreifendes Tracking</strong> statt.
+zufällig erzeugte, gerätegebundene ID, die vor der Übertragung als <strong>gesalzener Hashwert</strong> (SHA-256)
+gebildet wird und daher nicht auf dich zurückführbar ist; es findet <strong>kein app-übergreifendes Tracking</strong> statt.
 Die Verarbeitung erfolgt über <strong>TelemetryDeck</strong> (TelemetryDeck GmbH, Deutschland), einen
 datenschutzfreundlichen Analyse-Dienst. Die Statistik ist <strong>standardmäßig aktiv</strong>; du kannst sie jederzeit
 in den App-Einstellungen unter „Nutzungsstatistik“ <strong>abschalten</strong>.</p>
+<p>Zusätzlich übermittelt die App <strong>technische Angaben zum Gerät</strong>: Modellbezeichnung, iOS-Version,
+App-Version sowie Sprach- und Regionseinstellung. Diese Angaben lassen keinen Rückschluss auf deine Person zu; sie
+dienen dazu, Fehler einzugrenzen und die App für die tatsächlich genutzten Geräte zu optimieren.</p>
 <p>Mit TelemetryDeck besteht ein Vertrag zur Auftragsverarbeitung gemäß Art. 28 DSGVO.</p>
 
 <h2>Weitergabe an Dritte</h2>
@@ -178,7 +182,7 @@ für Datenschutzaufsicht (BayLDA)</strong>, Promenade 18, 91522 Ansbach (<a href
 <hr>
 
 <h1 id="en">Privacy Policy – PushForm</h1>
-<p class="meta">Last updated: June 23, 2026</p>
+<p class="meta">Last updated: July 22, 2026</p>
 
 <p>PushForm is an app for counting and tracking push-ups. We care about your privacy:
 <strong>your body and camera data stay exclusively on your device; your workout data stays local and is only additionally backed up to your iCloud if you enable the optional iCloud sync.</strong> There is no user account
@@ -232,10 +236,14 @@ with your <strong>explicit consent</strong> (Art. 9(2)(a) GDPR in conjunction wi
 <h2>Usage statistics</h2>
 <p>To improve the app we record <strong>which features are used and how often</strong> (e.g. “workout saved”,
 “report opened”). These events contain no name, no email, no workout or
-health data, and no advertising identifier (IDFA). The identifier is a randomly generated, device-bound ID (pseudonymous);
+health data, and no advertising identifier (IDFA). The identifier is a randomly generated, device-bound ID that is turned into a
+<strong>salted hash</strong> (SHA-256) before transmission and therefore cannot be traced back to you;
 there is <strong>no cross-app tracking</strong>. Processing is done via <strong>TelemetryDeck</strong>
 (TelemetryDeck GmbH, Germany), a privacy-friendly analytics service. Statistics are <strong>on by default</strong>;
 you can <strong>switch them off</strong> at any time in the app settings under “Usage statistics”.</p>
+<p>In addition, the app transmits <strong>technical details about your device</strong>: model name, iOS version,
+app version, and language/region setting. This information cannot be linked to you personally; it helps us narrow
+down errors and optimise the app for the devices actually in use.</p>
 <p>A data processing agreement pursuant to Art. 28 GDPR is in place with TelemetryDeck.</p>
 
 <h2>Sharing with third parties</h2>
