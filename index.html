@@ -6,8 +6,10 @@
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="apple-touch-icon" href="icon.png">
-<meta name="robots" content="noindex, nofollow, noarchive">
-<title>PushForm – Liegestützen zählen & verfolgen</title>
+<title>PushForm – Liegestütze zählen & verfolgen</title>
+<meta name="description" content="PushForm zählt deine Liegestütze per Kamera – auf dem Gerät. Trainingsplan, Streaks, Jahresziel und Wochen-Challenge. Kein Konto, keine Werbung. Für iPhone ab iOS 17.">
+<meta property="og:title" content="PushForm – Liegestütze zählen & verfolgen">
+<meta property="og:description" content="PushForm counts your push-ups with the camera – on-device. Training plan, streaks, yearly goal and a weekly challenge. No account, no ads. For iPhone with iOS 17 or later.">
 <style>
   :root { --brand1: #FB5502; --brand2: #FBC91C; color-scheme: light dark; }
   * { box-sizing: border-box; }
@@ -38,6 +40,7 @@
   /* .hero img (App-Icon-Regel) vererbt border-radius/Schatten – fürs Badge neutralisieren,
      sonst werden die Seiten des offiziellen Badges rund geclippt. */
   .store-badge img { display: block; height: 52px; width: auto; border-radius: 0; box-shadow: none; }
+  .hero .req { font-size: .9rem; margin: 10px 0 0; opacity: .9; }
 
   .langsw { display: inline-flex; align-items: center; gap: 4px; }
   .langsw button { font: inherit; font-size: .82rem; background: transparent; border: 1px solid currentColor;
@@ -84,10 +87,11 @@
       </div>
       <img src="icon.png" alt="PushForm App-Icon">
       <h1>PushForm</h1>
-      <p class="tag" data-en="Count and track your push-ups.">Zähle und verfolge deine Liegestützen.</p>
+      <p class="tag" data-en="Count and track your push-ups.">Zähle und verfolge deine Liegestütze.</p>
       <!-- Offizielles Apple-Badge (unverändert, Mindesthöhe 40px, Freiraum ≥ 1/4 Badge-Höhe;
            siehe developer.apple.com/app-store/marketing/guidelines) -->
       <a class="store-badge" href="https://apps.apple.com/app/pushform-push-up-tracker/id6785243655" data-en='<img src="app-store-badge-en.svg" alt="Download on the App Store" height="52">'><img src="app-store-badge-de.svg" alt="Laden im App Store" height="52"></a>
+      <p class="req" data-en="For iPhone, iOS 17 or later · free">Für iPhone ab iOS 17 · kostenlos</p>
     </div>
   </header>
 
@@ -96,7 +100,7 @@
       <div class="card">
         <div class="ico">📷</div>
         <h3 data-en="Auto-counting">Automatisch zählen</h3>
-        <p data-en="The camera detects your push-ups in real time — fully on-device, nothing recorded.">Die Kamera erkennt deine Liegestützen in Echtzeit – komplett auf dem Gerät, ohne Aufnahmen.</p>
+        <p data-en="The camera detects your push-ups in real time — fully on-device, nothing recorded.">Die Kamera erkennt deine Liegestütze in Echtzeit – komplett auf dem Gerät, ohne Aufnahmen.</p>
       </div>
       <div class="card">
         <div class="ico">📈</div>
@@ -106,12 +110,12 @@
       <div class="card">
         <div class="ico">🔥</div>
         <h3 data-en="Streaks and stats">Streaks & Statistiken</h3>
-        <p data-en="Daily goals, streaks and weekly/monthly reports keep you going.">Tagesziele, Serien und Wochen- bzw. Monatsberichte halten dich am Ball.</p>
+        <p data-en="A yearly goal with a daily target, streaks with freezes and a streak calendar. Plus weekly and monthly reports – and every January your Year in Review.">Jahresziel mit Tagesziel, Streaks mit Freezes und Streak-Kalender. Dazu Wochen- und Monatsberichte – und im Januar dein Jahresrückblick.</p>
       </div>
       <div class="card">
         <div class="ico">🏆</div>
-        <h3 data-en="Duel your best">Duell gegen Bestleistung</h3>
-        <p data-en="Compete against your own record and beat it.">Tritt gegen deinen eigenen Rekord an und übertriff dich selbst.</p>
+        <h3 data-en="Weekly challenge">Wochen-Challenge</h3>
+        <p data-en="Join a weekly leaderboard with six leagues if you like – under a nickname. Only camera-counted reps score.">Tritt freiwillig in einer wöchentlichen Rangliste mit sechs Ligen an – unter einem Fantasienamen. Gewertet wird nur, was die Kamera zählt.</p>
       </div>
       <div class="card">
         <div class="ico">❤️</div>
@@ -121,7 +125,12 @@
       <div class="card">
         <div class="ico">🔒</div>
         <h3 data-en="Private">Privat</h3>
-        <p data-en="Camera images and body data never leave your device. Your workouts are backed up to your own iCloud – you can turn that off.">Kamerabilder und Körperdaten verlassen nie dein Gerät. Deine Trainings sicherst du in deiner eigenen iCloud – abschaltbar.</p>
+        <p data-en="Camera images and body data never leave your device. Your workouts are backed up to your own iCloud – you can turn that off anytime. No account, no ads.">Kamerabilder und Körperdaten verlassen nie dein Gerät. Deine Trainings werden in deiner eigenen iCloud gesichert – jederzeit abschaltbar. Kein Konto, keine Werbung.</p>
+      </div>
+      <div class="card">
+        <div class="ico">📱</div>
+        <h3 data-en="Widgets">Widgets</h3>
+        <p data-en="Your progress on the Home and Lock Screen – and from iOS 18 a start button in Control Center.">Dein Fortschritt auf Home- und Sperrbildschirm – ab iOS 18 auch als Startknopf im Kontrollzentrum.</p>
       </div>
     </section>
 
