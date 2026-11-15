@@ -158,6 +158,17 @@
   .card h3 { margin: 12px 0 6px; font-size: 1.06rem; }
   .card p { margin: 0; color: #8e8e93; font-size: .95rem; }
 
+  /* Vier App-Bilder: am Rechner nebeneinander, am Handy seitlich wischbar. */
+  .shots { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 14px; margin: 26px 0 0; }
+  .shots figure { margin: 0; scroll-snap-align: center; }
+  .shots img { display: block; width: 100%; height: auto; border-radius: 22px;
+               border: 1px solid rgba(128,128,128,.28); background: #000; }
+  .shots figcaption { text-align: center; font-size: .85rem; color: #8e8e93; margin-top: 8px; }
+  @media (max-width: 600px) {
+    .shots { grid-auto-columns: 58%; overflow-x: auto; scroll-snap-type: x mandatory;
+             margin: 24px -20px 0; padding: 0 20px 8px; -webkit-overflow-scrolling: touch; }
+  }
+
   .intro { margin: 30px 0 0; }
   .intro h2, .faq h2 { font-size: 1.35rem; letter-spacing: -.01em; margin: 0 0 8px; }
   .intro p { margin: 0; color: #6e6e73; }
@@ -220,6 +231,13 @@
     <section class="intro">
       <h2 data-en="Count push-ups with your iPhone camera">Liegestütze zählen mit der iPhone-Kamera</h2>
       <p data-en="PushForm is a free iPhone app that counts your push-ups automatically. Put your iPhone in front of you, the camera detects every rep and the app counts along live. On top you get a training plan, daily and yearly goals, streaks and a weekly challenge with others – <strong>no account, no ads</strong>.">PushForm ist eine kostenlose iPhone-App, die deine Liegestütze automatisch zählt. Du stellst das iPhone vor dich hin, die Kamera erkennt jede Wiederholung, und die App zählt live mit. Dazu bekommst du einen Trainingsplan, Tages- und Jahresziele, Streaks und eine wöchentliche Challenge mit anderen – <strong>ohne Konto und ohne Werbung</strong>.</p>
+    </section>
+
+    <section class="shots" aria-label="Screenshots">
+      <figure data-en='<img src="media/screens/en/1-kamera.jpg" alt="PushForm counting push-ups live with the camera" width="660" height="1434" loading="lazy"><figcaption>Counting</figcaption>'><img src="media/screens/de/1-kamera.jpg" alt="PushForm zählt Liegestütze live mit der Kamera" width="660" height="1434" loading="lazy"><figcaption>Zählen</figcaption></figure>
+      <figure data-en='<img src="media/screens/en/2-trainingsplan.jpg" alt="Training plan in PushForm with sessions and rest days" width="660" height="1434" loading="lazy"><figcaption>Training plan</figcaption>'><img src="media/screens/de/2-trainingsplan.jpg" alt="Trainingsplan in PushForm mit Sessions und Ruhetagen" width="660" height="1434" loading="lazy"><figcaption>Trainingsplan</figcaption></figure>
+      <figure data-en='<img src="media/screens/en/3-challenge.jpg" alt="Weekly challenge leaderboard in PushForm" width="660" height="1434" loading="lazy"><figcaption>Weekly challenge</figcaption>'><img src="media/screens/de/3-challenge.jpg" alt="Rangliste der Wochen-Challenge in PushForm" width="660" height="1434" loading="lazy"><figcaption>Wochen-Challenge</figcaption></figure>
+      <figure data-en='<img src="media/screens/en/4-statistik.jpg" alt="Statistics in PushForm with monthly chart and records" width="660" height="1434" loading="lazy"><figcaption>Statistics</figcaption>'><img src="media/screens/de/4-statistik.jpg" alt="Statistik in PushForm mit Monatsverlauf und Rekorden" width="660" height="1434" loading="lazy"><figcaption>Statistik</figcaption></figure>
     </section>
 
     <section class="features">
