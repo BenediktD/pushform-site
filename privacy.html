@@ -62,10 +62,11 @@
 
 
 <h1>Datenschutzerklärung – PushForm</h1>
-<p class="meta">Stand: 22. Juli 2026</p>
+<!-- OFFEN: Datum beim Veröffentlichen mit dem Release von 2.0 auf den Tag der Veröffentlichung setzen (DE und EN). -->
+<p class="meta">Stand: 15. November 2026</p>
 
 <p>PushForm ist eine App zum Zählen und Verfolgen von Liegestützen. Datenschutz ist uns wichtig:
-<strong>Deine Körper- und Kameradaten bleiben ausschließlich lokal auf deinem Gerät; deine Trainingsdaten bleiben lokal und werden nur zusätzlich in deiner iCloud gesichert, wenn du die optionale iCloud-Synchronisation aktivierst.</strong>
+<strong>Deine Körper- und Kameradaten bleiben ausschließlich auf deinem Gerät. Deine Trainingsdaten liegen auf deinem Gerät und werden zusätzlich in deiner eigenen iCloud gesichert, solange die iCloud-Synchronisation eingeschaltet ist. Nimmst du an der Wochen-Challenge teil, wird deine Wochenzahl unter einem erfundenen Namen für andere Teilnehmende sichtbar.</strong>
 Es gibt kein Benutzerkonto und keine Werbung. Zur Verbesserung der App werden <strong>pseudonyme Nutzungsstatistiken</strong>
 erhoben (siehe unten), ohne Personenbezug – du kannst sie jederzeit in den App-Einstellungen abschalten.</p>
 
@@ -91,25 +92,29 @@ Standardvertragsklauseln bereit. Details:
 Die App selbst erhebt keine solchen Server-Logfiles.</p>
 <p>Die Website nutzt ausschließlich technisch notwendigen lokalen Speicher (Schlüssel „pf_lang“) zum Merken der gewählten Sprache; es werden keine Cookies zu Tracking- oder Marketingzwecken gesetzt (§ 25 Abs. 2 Nr. 2 TDDDG).</p>
 
+
 <h2>Welche Daten verarbeitet werden</h2>
 <ul>
-  <li><strong>Trainingsdaten</strong> (Anzahl Liegestützen, Datum, Dauer, Ziele, Trainingsplan) – werden lokal auf deinem Gerät gespeichert.</li>
-  <li><strong>Optionale Körperdaten</strong> (Gewicht, Alter, Geschlecht) – nur zur Schätzung des Kalorienverbrauchs. Du gibst sie selbst ein oder sie werden mit deiner Erlaubnis aus Apple Health gelesen. Sie bleiben lokal.</li>
+  <li><strong>Trainingsdaten</strong> (Anzahl Liegestütze, Datum, Dauer, Ziele, Trainingsplan, Streak-Angaben) – werden lokal auf deinem Gerät gespeichert und, solange die iCloud-Synchronisation eingeschaltet ist, zusätzlich in deiner iCloud gesichert (siehe unten).</li>
+  <li><strong>Optionale Körperdaten</strong> (Gewicht, Alter, Geschlecht) – du gibst sie selbst ein oder sie werden mit deiner Erlaubnis aus Apple Health gelesen. Sie bleiben lokal. Das Körpergewicht dient zur Schätzung der aktiven Energie; Alter und Geschlecht fließen in die aktuelle Berechnung nicht mehr ein.
+  <!-- OFFEN: Die App liest Alter und Geschlecht weiterhin aus Apple Health (HealthKitManager.swift, readTypes und fetchBodyData) und zeigt sie in den Einstellungen, nutzt sie aber seit der Umstellung auf kcal je Wiederholung für nichts mehr. Datensparsamkeit (Art. 5 Abs. 1 lit. c, Art. 9 DSGVO): Lesen streichen oder einen Zweck nennen – Entscheidung des Entwicklers, danach diesen Satz anpassen. --></li>
   <li><strong>Kamerazugriff</strong> – wird ausschließlich in Echtzeit auf dem Gerät zur Erkennung der Liegestütz-Bewegung verwendet. Es werden <strong>keine Bilder oder Videos aufgenommen, gespeichert oder übertragen.</strong></li>
   <li><strong>Lokale Mitteilungen</strong> – nur Erinnerungen auf deinem Gerät.</li>
-  <li><strong>Nutzungsstatistik</strong> – pseudonyme Ereignisse (welche Funktionen genutzt werden), siehe Abschnitt unten.</li>
+  <li><strong>Wochen-Challenge (nur bei Teilnahme)</strong> – eine pseudonyme Kennung, ein aus einer festen Wortliste gewürfelter Name, eine Farbe, Liga und Stufe sowie die Zahl deiner von der Kamera gezählten Liegestütze je Tag der Woche, siehe Abschnitt unten.</li>
+  <li><strong>Nutzungsstatistik</strong> – pseudonyme Ereignisse (welche Funktionen genutzt werden) mit einfachen Zahlen wie den Wiederholungen je Training, siehe Abschnitt unten.</li>
 </ul>
 
 <h2>Apple Health (HealthKit)</h2>
 <p>Wenn du es erlaubst, kann PushForm:</p>
 <ul>
-  <li>Körperdaten (Gewicht, Alter, Geschlecht) aus Apple Health <strong>lesen</strong>, um den Kalorienverbrauch zu berechnen,</li>
-  <li>deine Trainings als Workout und die verbrauchte aktive Energie nach Apple Health <strong>schreiben</strong>.</li>
+  <li>Körperdaten (Gewicht, Alter, Geschlecht) aus Apple Health <strong>lesen</strong>; das Gewicht dient zur Schätzung der aktiven Energie,</li>
+  <li>die von PushForm gespeicherten Trainings und Energie-Einträge in Apple Health <strong>lesen</strong>, damit dir beim Löschen eines Trainings angeboten werden kann, auch den Health-Eintrag zu entfernen,</li>
+  <li>deine Trainings als Workout und die aktive Energie nach Apple Health <strong>schreiben</strong>. Die aktive Energie wird aus der Zahl der Wiederholungen geschätzt (0,77 kcal je Liegestütz, angepasst an dein Körpergewicht); einen Ruheenergieverbrauch schreibt PushForm nicht.</li>
 </ul>
 <p>Diese Daten verbleiben in deinem Apple Health bzw. auf deinem Gerät. <strong>Daten aus HealthKit werden
 nicht für Werbung verwendet und nicht an Dritte weitergegeben oder verkauft.</strong> Du kannst die
 Health-Berechtigungen jederzeit in der iOS-Einstellungen-App entziehen.</p>
-<p>PushForm verarbeitet diese Daten ausschließlich lokal und übermittelt sie nicht an eigene Server.</p>
+<p>PushForm verarbeitet Daten aus Apple Health ausschließlich lokal und übermittelt sie nicht an eigene Server; sie gehen weder in die Nutzungsstatistik noch in die iCloud-Synchronisation oder die Wochen-Challenge.</p>
 <p>In Apple Health geschriebene Daten unterliegen der Verwaltung durch Apple Health und können – je nach deinen iOS-Einstellungen – über Apples Health-/iCloud-Infrastruktur synchronisiert werden; es gelten Apples Datenschutzbestimmungen.</p>
 <p>Gesundheitsdaten sind <strong>besondere Kategorien personenbezogener Daten (Art. 9 DSGVO)</strong>. Ihre
 Verarbeitung erfolgt nur auf deine <strong>ausdrückliche Einwilligung</strong> (Art. 9 Abs. 2 lit. a DSGVO i. V. m. Art. 6 Abs. 1 lit. a DSGVO), erteilt über die iOS-Health-Berechtigung,
@@ -117,57 +122,101 @@ und ausschließlich lokal auf deinem Gerät.</p>
 
 <h2>Nutzungsstatistik</h2>
 <p>Zur Verbesserung der App erfassen wir, <strong>welche Funktionen wie oft genutzt werden</strong> (z. B.
-„Training gespeichert", „Bericht geöffnet"). Diese Ereignisse enthalten keinen
-Namen, keine E-Mail, keine Trainings- oder Gesundheitsdaten und keine Werbe-ID (IDFA). Als Kennung dient eine
+„Training gespeichert", „Bericht geöffnet"), und einfache Zahlen dazu: die <strong>Zahl der Wiederholungen je Training</strong>,
+die Ergebnisse von Tests im Trainingsplan und der Wochen-Challenge (Wiederholungen), die Länge deiner Streak
+sowie den Stand einzelner Einstellungen (z. B. ob die iCloud-Synchronisation eingeschaltet ist, ob du an der
+Challenge teilnimmst und ob Apple Health verbunden ist – nur als Status, ohne Werte aus Apple Health). Jedes
+Ereignis trägt das Datum (Tag), an dem es entstanden ist. Diese Ereignisse enthalten keinen
+Namen, keine E-Mail, weder deinen Fantasienamen noch deine Kennung aus der Challenge, keine Körperdaten, keine Daten aus Apple Health und keine Werbe-ID (IDFA). Als Kennung dient eine
 zufällig erzeugte, gerätegebundene ID, die vor der Übertragung als <strong>gesalzener Hashwert</strong> (SHA-256)
 gebildet wird und daher nicht auf dich zurückführbar ist; es findet <strong>kein app-übergreifendes Tracking</strong> statt.
 Die Verarbeitung erfolgt über <strong>TelemetryDeck</strong> (TelemetryDeck GmbH, Deutschland), einen
-datenschutzfreundlichen Analyse-Dienst. Die Statistik ist <strong>standardmäßig aktiv</strong>; du kannst sie jederzeit
+datenschutzfreundlichen Analyse-Dienst. Die Statistik ist <strong>standardmäßig aktiv</strong>, auch schon beim ersten Start der App; du kannst sie jederzeit
 in den App-Einstellungen unter „Nutzungsstatistik“ <strong>abschalten</strong>.</p>
 <p>Zusätzlich übermittelt die App <strong>technische Angaben zum Gerät</strong>: Modellbezeichnung, iOS-Version,
-App-Version sowie Sprach- und Regionseinstellung. Diese Angaben lassen keinen Rückschluss auf deine Person zu; sie
+App-Version, Sprach- und Regionseinstellung, Zeitzone, Bildschirmgröße und Darstellung (hell/dunkel). Diese Angaben lassen keinen Rückschluss auf deine Person zu; sie
 dienen dazu, Fehler einzugrenzen und die App für die tatsächlich genutzten Geräte zu optimieren.</p>
 <p>Mit TelemetryDeck besteht ein Vertrag zur Auftragsverarbeitung gemäß Art. 28 DSGVO.</p>
 
 <h2>Weitergabe an Dritte</h2>
-<p>Außer den oben genannten pseudonymen Nutzungsstatistiken (TelemetryDeck) werden keine Daten an Dritte
-übertragen. Deine Trainings-, Körper- und Health-Daten bleiben lokal bzw. in Apple Health.</p>
+<p>Außer den oben genannten pseudonymen Nutzungsstatistiken (TelemetryDeck) und – nur bei Teilnahme – den Angaben
+der Wochen-Challenge (Apple, CloudKit; lesbar für die anderen Teilnehmenden) werden keine Daten an Dritte
+übertragen. Deine Körper- und Health-Daten bleiben lokal bzw. in Apple Health; deine Trainingsdaten liegen bei
+eingeschalteter Synchronisation zusätzlich in deinem eigenen iCloud-Konto (siehe unten).</p>
 <p>Es werden <strong>keine Daten zum Training von Künstlicher Intelligenz (KI) oder Machine-Learning-Modellen
 an Dritte weitergegeben oder verkauft.</strong></p>
 
-<h2>iCloud-Synchronisation (optional)</h2>
-<p>Wenn du iCloud-Sync aktivierst, werden deine Trainingsdaten (Anzahl, Datum, Ziele, Trainingsplan) über dein
-persönliches <strong>iCloud-Konto</strong> zwischen deinen Geräten synchronisiert. Die Daten werden dabei in
-deiner iCloud bei <strong>Apple</strong> gespeichert und unterliegen Apples Datenschutzbestimmungen; wir selbst
-haben darauf keinen Zugriff. Die Synchronisation erfolgt ausschließlich, wenn du sie aktivierst (Einwilligung,
-Art. 6 Abs. 1 lit. a DSGVO), und kann in den App-Einstellungen jederzeit wieder deaktiviert werden.</p>
+<h2>iCloud-Synchronisation</h2>
+<p>Ist die iCloud-Synchronisation eingeschaltet, werden deine Trainings (Anzahl, Zeitpunkt, Dauer), Ziele, dein
+Trainingsplan, deine Streak-Angaben und die Rückblicke der Wochen-Challenge in deinem persönlichen
+<strong>iCloud-Konto</strong> gespeichert und zwischen deinen Geräten abgeglichen. Die Daten liegen bei
+<strong>Apple</strong> in deinem Konto und unterliegen Apples Datenschutzbestimmungen; wir haben darauf keinen Zugriff.
+Der Zweck ist, dass deine Trainings erhalten bleiben, wenn du die App löschst oder das Gerät wechselst.
+Bei einer neuen Installation ist die Synchronisation eingeschaltet; du kannst sie beim Einrichten und jederzeit
+in den Einstellungen ausschalten. Hattest du sie vor Version 2.0 ausgeschaltet, fragt dich die App einmal, ob du
+sie einschalten möchtest. In den Einstellungen siehst du auch, wann zuletzt gesichert wurde.</p>
+<!-- OFFEN (Entscheidung 1 aus DATENSCHUTZ_2_0.md): Rechtsgrundlage der voreingestellten Synchronisation. Der Text ist für den empfohlenen Weg geschrieben (keine Einwilligung mehr, weil der Schalter voreingestellt an ist). Ob "Erfüllung des Nutzungsvertrags" (Art. 6 Abs. 1 lit. b DSGVO) oder "berechtigtes Interesse" (Art. 6 Abs. 1 lit. f DSGVO) gilt, ist nicht entschieden und hier bewusst nicht eingesetzt. Bei lit. f gehört ein Hinweis auf das Widerspruchsrecht (Art. 21) dazu. Alternative: Schalter im Onboarding auf "aus" und bei der Einwilligung bleiben – dann diesen Absatz zurückbauen. -->
 <p>Da Apple ein US-Anbieter ist, kann dabei eine Übermittlung in die USA erfolgen; Apple ist unter dem <strong>EU-U.S. Data Privacy Framework</strong> zertifiziert und stellt EU-Standardvertragsklauseln bereit.</p>
+
+<h2>Wochen-Challenge</h2>
+<p>Die Teilnahme an der Wochen-Challenge ist freiwillig und beginnt erst, wenn du im Challenges-Reiter beitrittst.
+Dafür brauchst du ein iCloud-Konto; der Schalter der iCloud-Synchronisation spielt dafür keine Rolle. Gespeichert
+werden in einer Datenbank bei <strong>Apple</strong> (CloudKit), die alle Teilnehmenden über die App lesen können
+und die wir als Entwickler über Apples CloudKit-Verwaltung einsehen können:</p>
+<ul>
+  <li>eine Kennung, die aus deiner CloudKit-Nutzerkennung errechnet wird – einer Kennung, die Apple je App vergibt und die keinen Rückschluss auf deinen Namen, deine Apple-ID oder deine E-Mail-Adresse erlaubt. Sie ist je iCloud-Konto fest und bleibt gleich, wenn du die Challenge verlässt und später wieder beitrittst;</li>
+  <li>ein Name aus einer festen Wortliste, eine Farbe, deine Liga und Stufe sowie deine Gruppe;</li>
+  <li>die Zahl deiner von der Kamera gezählten Liegestütze je Wochentag.</li>
+</ul>
+<p>Andere Teilnehmende sehen in der App deinen erfundenen Namen, deine Liga und wie viele Liegestütze du an den
+Tagen der Woche gemacht hast – keinen Ort und keine weiteren Daten. Rechtsgrundlage ist deine Einwilligung durch
+den Beitritt (Art. 6 Abs. 1 lit. a DSGVO); du kannst sie jederzeit widerrufen, indem du die Challenge im
+Challenges-Reiter verlässt. Da Apple ein US-Anbieter ist, kann dabei eine Übermittlung in die USA erfolgen; Apple
+ist unter dem <strong>EU-U.S. Data Privacy Framework</strong> zertifiziert und stellt EU-Standardvertragsklauseln bereit.</p>
+<p><strong>Wie lange die Angaben gespeichert bleiben:</strong> Die App löscht deine eigenen Wochenstände, sobald
+sie älter als zwölf Wochen sind. Dieses Aufräumen läuft in der App auf deinem Gerät – also nur, solange du die App
+nutzt und an der Challenge teilnimmst. Verlässt du die Challenge, werden dein Profil und deine älteren
+Wochenstände gelöscht; die Wochenstände der laufenden und der vorangegangenen Woche bleiben unter deinem
+erfundenen Namen in der Rangliste dieser beiden Wochen stehen, damit sich das Ergebnis für die anderen nicht
+nachträglich ändert. Diese beiden Wochenstände löscht die App danach nicht mehr von selbst. Löschst du die App,
+ohne die Challenge vorher zu verlassen, bleiben dein Profil und deine Wochenstände der letzten zwölf Wochen
+bestehen. Möchtest du, dass solche verbliebenen Angaben gelöscht werden, schreib uns an
+<a href="mailto:pushform@icloud.com">pushform@icloud.com</a>.</p>
+<!-- OFFEN: (1) Für die nach dem Verlassen bzw. nach dem Löschen der App verbleibenden Datensätze gibt es heute keine Frist – sie bleiben unbegrenzt, bis jemand sie löscht. Rechtlich prüfen, ob das ohne feste Speicherdauer haltbar ist (Art. 5 Abs. 1 lit. e, Art. 13 Abs. 2 lit. a DSGVO), oder technisch nachbessern (z. B. Aufräumen durch den Entwickler). (2) Der Satz "schreib uns" ist eine Zusage: Sie setzt voraus, dass du Datensätze in der Produktionsdatenbank im CloudKit-Dashboard löschen und einer Anfrage zuordnen kannst (der Nutzer kennt nur seinen Fantasienamen). Vor dem Veröffentlichen bestätigen oder streichen. -->
 
 <h2>Rechtsgrundlage der Verarbeitung</h2>
 <p>Soweit überhaupt personenbezogene Daten verarbeitet werden: Die Nutzung von Apple Health und Kamera erfolgt
 auf Grundlage deiner <strong>Einwilligung</strong> (Art. 6 Abs. 1 lit. a DSGVO), die du jederzeit widerrufen
-kannst. Die pseudonyme Nutzungsstatistik erfolgt auf Grundlage unseres <strong>berechtigten Interesses</strong> an der Verbesserung der App (Art. 6 Abs. 1 lit. f DSGVO); sie ist standardmäßig aktiv und jederzeit in den App-Einstellungen abschaltbar (Widerspruch nach Art. 21 DSGVO). Die Verarbeitung findet
-<strong>innerhalb der EU</strong> statt; eine Übermittlung in Drittländer erfolgt insoweit nicht (zum Hosting der Website und zur iCloud-Synchronisation siehe oben).</p>
+kannst; das gilt auch für die Teilnahme an der Wochen-Challenge. Die pseudonyme Nutzungsstatistik erfolgt auf Grundlage unseres <strong>berechtigten Interesses</strong> an der Verbesserung der App (Art. 6 Abs. 1 lit. f DSGVO); sie ist standardmäßig aktiv und jederzeit in den App-Einstellungen abschaltbar (Widerspruch nach Art. 21 DSGVO).
+<!-- OFFEN: Rechtsgrundlage der iCloud-Synchronisation hier ergänzen, sobald Entscheidung 1 gefallen ist (siehe Abschnitt iCloud-Synchronisation). -->
+Die Verarbeitung findet
+<strong>innerhalb der EU</strong> statt; eine Übermittlung in Drittländer erfolgt insoweit nicht (zum Hosting der Website, zur iCloud-Synchronisation und zur Wochen-Challenge siehe oben).</p>
 
 <h2>Speicherdauer</h2>
 <p>Trainings-, Körper- und Health-Daten bleiben auf deinem Gerät, bis du sie löschst oder die App entfernst.
+In deiner iCloud gesicherte Daten bleiben dort, bis du sie über „Aus iCloud löschen“ entfernst (siehe unten).
+Für die Angaben der Wochen-Challenge siehe den Abschnitt „Wochen-Challenge“.
 Nutzungsstatistiken werden aggregiert und nur so lange wie für die Auswertung erforderlich aufbewahrt.</p>
 
 <h2>Deine Rechte</h2>
 <p>Du hast – soweit anwendbar – das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung,
 Datenübertragbarkeit und das <strong>Widerspruchsrecht</strong> sowie das Recht, eine erteilte Einwilligung
-jederzeit zu widerrufen. Da die App keine personenbezogenen Daten auf Servern speichert, kannst du die meisten
-Rechte direkt in der App ausüben (Daten exportieren/löschen, Health-Zugriff in den iOS-Einstellungen entziehen).
+jederzeit zu widerrufen. Deine Trainingsdaten liegen auf deinem Gerät und in deinem eigenen iCloud-Konto; Daten,
+die wir selbst einsehen können, beschränken sich auf die pseudonymen Nutzungsstatistiken und – bei Teilnahme – die
+Angaben der Wochen-Challenge. Die meisten Rechte kannst du deshalb direkt in der App ausüben (Trainings löschen,
+iCloud-Daten löschen, die Challenge verlassen, Health-Zugriff in den iOS-Einstellungen entziehen).
 Bei Fragen erreichst du uns unter <a href="mailto:pushform@icloud.com">pushform@icloud.com</a>. Du hast zudem das
 Recht, dich bei einer Datenschutz-Aufsichtsbehörde zu beschweren, insbesondere beim <strong>Bayerischen Landesamt
 für Datenschutzaufsicht (BayLDA)</strong>, Promenade 18, 91522 Ansbach (<a href="https://www.lda.bayern.de">lda.bayern.de</a>). Eine automatisierte Entscheidungsfindung einschließlich Profiling (Art. 22 DSGVO) findet nicht statt.</p>
 
 <h2>Daten exportieren und löschen</h2>
 <ul>
+  <!-- OFFEN (Entscheidung 2 aus DATENSCHUTZ_2_0.md): Den CSV-Export gibt es in der App 2.0 nicht mehr (exportCSV() ist nirgends erreichbar). Der folgende Punkt gilt nur, wenn die Zeile "Trainings exportieren" zurückkommt (Empfehlung der Notizen wegen Datenübertragbarkeit). Sonst diesen Punkt streichen. -->
   <li>Du kannst deine Trainingshistorie jederzeit selbst als CSV-Datei exportieren und teilen. Der Export erfolgt ausschließlich auf deinem Gerät.</li>
   <li>Einzelne Trainings kannst du in den Statistiken löschen; dabei kannst du wählen, ob auch der zugehörige Apple-Health-Eintrag entfernt wird.</li>
   <li>Um alle Daten zu entfernen, lösche die App – damit werden sämtliche lokal gespeicherten Daten gelöscht. In Apple Health geschriebene Einträge bleiben dort erhalten und können in der Health-App entfernt werden.</li>
-  <li>Wenn du die <strong>iCloud-Synchronisation</strong> genutzt hast: Das Löschen der App entfernt die in iCloud gespeicherten Daten nicht automatisch. Du löschst sie in den App-Einstellungen über „iCloud-Synchronisation" → „Aus iCloud löschen".</li>
+  <li>Wenn die <strong>iCloud-Synchronisation</strong> eingeschaltet war: Das Löschen der App entfernt die in iCloud gespeicherten Daten nicht. Du löschst sie in den App-Einstellungen, indem du „iCloud-Synchronisation“ ausschaltest und „Aus iCloud löschen“ wählst. Ist die Synchronisation auf einem weiteren Gerät noch eingeschaltet, lädt dieses seine Daten wieder hoch – schalte sie dort ebenfalls aus.</li>
+  <li>Die <strong>Wochen-Challenge</strong> verlässt du im Challenges-Reiter über dein Profil. Das Löschen der App beendet die Teilnahme nicht und entfernt deine Challenge-Angaben nicht (siehe „Wochen-Challenge“).</li>
 </ul>
 
 <h2>Kinder</h2>
@@ -182,10 +231,10 @@ für Datenschutzaufsicht (BayLDA)</strong>, Promenade 18, 91522 Ansbach (<a href
 <hr>
 
 <h1 id="en">Privacy Policy – PushForm</h1>
-<p class="meta">Last updated: July 22, 2026</p>
+<p class="meta">Last updated: November 15, 2026</p>
 
 <p>PushForm is an app for counting and tracking push-ups. We care about your privacy:
-<strong>your body and camera data stay exclusively on your device; your workout data stays local and is only additionally backed up to your iCloud if you enable the optional iCloud sync.</strong> There is no user account
+<strong>your body and camera data stay exclusively on your device. Your workout data is stored on your device and additionally backed up to your own iCloud while iCloud Sync is on. If you take part in the weekly challenge, your weekly count becomes visible to other participants under a made-up name.</strong> There is no user account
 and no ads. To improve the app we collect <strong>pseudonymous usage statistics</strong> (see below), with no
 personal reference — you can switch them off at any time in the app settings.</p>
 
@@ -210,78 +259,122 @@ Framework</strong> and additionally provides Standard Contractual Clauses. Detai
 The app itself collects no such server log files.</p>
 <p>The website uses only technically necessary local storage (key “pf_lang”) to remember your chosen language; no cookies are set for tracking or marketing (§ 25(2) no. 2 TDDDG).</p>
 
+
 <h2>Data the app processes</h2>
 <ul>
-  <li><strong>Workout data</strong> (push-up counts, dates, durations, goals, training plan) – stored locally on your device.</li>
-  <li><strong>Optional body data</strong> (weight, age, sex) – used only to estimate calories. You enter it yourself, or it is read from Apple Health with your permission. It stays local.</li>
+  <li><strong>Workout data</strong> (push-up counts, dates, durations, goals, training plan, streak details) – stored locally on your device and, while iCloud Sync is on, additionally backed up to your iCloud (see below).</li>
+  <li><strong>Optional body data</strong> (weight, age, sex) – you enter it yourself, or it is read from Apple Health with your permission. It stays local. Body weight is used to estimate active energy; age and sex are no longer used in the current calculation.</li>
   <li><strong>Camera access</strong> – used only in real time on-device to detect the push-up movement. <strong>No images or video are recorded, stored, or transmitted.</strong></li>
   <li><strong>Local notifications</strong> – reminders on your device only.</li>
-  <li><strong>Usage statistics</strong> – pseudonymous events (which features are used), see the section below.</li>
+  <li><strong>Weekly challenge (only if you take part)</strong> – a pseudonymous identifier, a name drawn from a fixed word list, a color, league and tier, and the number of camera-counted push-ups per day of the week; see the section below.</li>
+  <li><strong>Usage statistics</strong> – pseudonymous events (which features are used) with simple numbers such as reps per workout; see the section below.</li>
 </ul>
 
 <h2>Apple Health (HealthKit)</h2>
 <p>If you allow it, PushForm can:</p>
 <ul>
-  <li><strong>read</strong> body data (weight, age, sex) from Apple Health to estimate calories,</li>
-  <li><strong>write</strong> your workouts and active energy burned to Apple Health.</li>
+  <li><strong>read</strong> body data (weight, age, sex) from Apple Health; weight is used to estimate active energy,</li>
+  <li><strong>read</strong> the workouts and energy entries PushForm saved to Apple Health, so that when you delete a workout you can choose to remove the Health entry as well,</li>
+  <li><strong>write</strong> your workouts and active energy to Apple Health. Active energy is estimated from the number of reps (0.77 kcal per push-up, adjusted to your body weight); PushForm does not write resting energy.</li>
 </ul>
 <p>This data stays in your Apple Health / on your device. <strong>Data obtained from HealthKit is not used for
 advertising and is not shared with or sold to third parties.</strong> You can revoke Health permissions at any
 time in the iOS Settings app.</p>
-<p>PushForm processes this data exclusively on your device and does not transmit it to any servers of ours.</p>
-<p>Data written to Apple Health is managed by Apple Health and may – depending on your iOS settings – be synchronised via Apple's Health/iCloud infrastructure; Apple's privacy policy applies.</p>
+<p>PushForm processes data from Apple Health exclusively on your device and does not transmit it to any servers of ours; it is not part of the usage statistics, iCloud Sync or the weekly challenge.</p>
+<p>Data written to Apple Health is managed by Apple Health and may – depending on your iOS settings – be synchronized via Apple's Health/iCloud infrastructure; Apple's privacy policy applies.</p>
 <p>Health data are <strong>special categories of personal data (Art. 9 GDPR)</strong>. They are processed only
 with your <strong>explicit consent</strong> (Art. 9(2)(a) GDPR in conjunction with Art. 6(1)(a) GDPR), given via the iOS Health permission, and exclusively on your device.</p>
 
 <h2>Usage statistics</h2>
 <p>To improve the app we record <strong>which features are used and how often</strong> (e.g. “workout saved”,
-“report opened”). These events contain no name, no email, no workout or
-health data, and no advertising identifier (IDFA). The identifier is a randomly generated, device-bound ID that is turned into a
+“report opened”), together with simple numbers: the <strong>number of reps per workout</strong>, the results of
+tests in the training plan and of the weekly challenge (reps), the length of your streak, and the state of some
+settings (e.g. whether iCloud Sync is on, whether you take part in the challenge and whether Apple Health is
+connected – as a status only, without any values from Apple Health). Each event carries the date (day) on which it
+occurred. These events contain no name, no email, neither your challenge nickname nor your challenge identifier,
+no body data, no data from Apple Health, and no advertising identifier (IDFA). The identifier is a randomly generated, device-bound ID that is turned into a
 <strong>salted hash</strong> (SHA-256) before transmission and therefore cannot be traced back to you;
 there is <strong>no cross-app tracking</strong>. Processing is done via <strong>TelemetryDeck</strong>
-(TelemetryDeck GmbH, Germany), a privacy-friendly analytics service. Statistics are <strong>on by default</strong>;
+(TelemetryDeck GmbH, Germany), a privacy-friendly analytics service. Statistics are <strong>on by default</strong>, starting with the first launch of the app;
 you can <strong>switch them off</strong> at any time in the app settings under “Usage statistics”.</p>
 <p>In addition, the app transmits <strong>technical details about your device</strong>: model name, iOS version,
-app version, and language/region setting. This information cannot be linked to you personally; it helps us narrow
-down errors and optimise the app for the devices actually in use.</p>
+app version, language/region setting, time zone, screen size and appearance (light/dark). This information cannot be linked to you personally; it helps us narrow
+down errors and optimize the app for the devices actually in use.</p>
 <p>A data processing agreement pursuant to Art. 28 GDPR is in place with TelemetryDeck.</p>
 
 <h2>Sharing with third parties</h2>
-<p>Apart from the pseudonymous usage statistics mentioned above (TelemetryDeck), no data is transmitted to any
-third party. Your workout, body and health data stay local or in Apple Health.</p>
+<p>Apart from the pseudonymous usage statistics mentioned above (TelemetryDeck) and – only if you take part – the
+weekly-challenge data (Apple, CloudKit; readable by the other participants), no data is transmitted to any third
+party. Your body and health data stay local or in Apple Health; while sync is on, your workout data is also stored in
+your own iCloud account (see below).</p>
 <p><strong>No data is shared with or sold to third parties for training artificial intelligence (AI) or
 machine learning models.</strong></p>
 
-<h2>iCloud sync (optional)</h2>
-<p>If you enable iCloud sync, your workout data (counts, dates, goals, training plan) is synchronised across your
-devices via your personal <strong>iCloud account</strong>. The data is stored in your iCloud at <strong>Apple</strong>
-and is subject to Apple's privacy policy; we ourselves have no access to it. Sync only takes place if you enable
-it (consent, Art. 6(1)(a) GDPR) and can be turned off again at any time in the app settings.</p>
-<p>As Apple is a US provider, a transfer to the USA may occur; Apple is certified under the <strong>EU-U.S. Data Privacy Framework</strong> and provides EU Standard Contractual Clauses.</p>
+<h2>iCloud Sync</h2>
+<p>While iCloud Sync is on, your workouts (count, time, duration), goals, training plan, streak details and your
+weekly-challenge recaps are stored in your personal <strong>iCloud account</strong> and synchronized across your
+devices. The data is kept by <strong>Apple</strong> in your account and is subject to Apple's privacy policy; we
+cannot access it. The purpose is that your workouts survive deleting the app or switching devices. On a new
+installation sync is on; you can turn it off during setup and at any time in Settings. If you had turned it off
+before version 2.0, the app asks you once whether you want to turn it on. Settings also show when the last backup
+took place.</p>
+<!-- OFFEN (Entscheidung 1): Rechtsgrundlage der Synchronisation – siehe deutschen Teil. -->
+<p>As Apple is a US provider, data may be transferred to the USA; Apple is certified under the <strong>EU-U.S. Data Privacy Framework</strong> and provides EU Standard Contractual Clauses.</p>
+
+<h2>Weekly challenge</h2>
+<p>Taking part in the weekly challenge is voluntary and only starts when you join on the Challenges tab. It requires
+an iCloud account; the iCloud Sync switch does not matter for it. The following is stored in a database at
+<strong>Apple</strong> (CloudKit) that all participants can read through the app and that we as the developer can
+view through Apple's CloudKit management tools:</p>
+<ul>
+  <li>an identifier computed from your CloudKit user identifier – an identifier Apple assigns per app that does not reveal your name, Apple ID or email address. It is fixed per iCloud account and stays the same if you leave the challenge and join again later;</li>
+  <li>a name from a fixed word list, a color, your league and tier, and your group;</li>
+  <li>the number of camera-counted push-ups per weekday.</li>
+</ul>
+<p>In the app, other participants see your made-up name, your league and how many push-ups you did on each day of
+the week – no location and no other data. The legal basis is your consent given by joining (Art. 6(1)(a) GDPR); you
+can withdraw it at any time by leaving the challenge on the Challenges tab. As Apple is a US provider, data may be
+transferred to the USA; Apple is certified under the <strong>EU-U.S. Data Privacy Framework</strong> and provides EU
+Standard Contractual Clauses.</p>
+<p><strong>How long the data is kept:</strong> The app deletes your own weekly scores once they are older than
+twelve weeks. This cleanup runs in the app on your device – that is, only while you use the app and take part in
+the challenge. If you leave the challenge, your profile and your older weekly scores are deleted; the scores of the
+current and the previous week remain in the ranking of these two weeks under your made-up name so that the result
+does not change for the others afterwards. The app does not delete these two scores on its own later. If you delete
+the app without leaving the challenge first, your profile and your weekly scores of the last twelve weeks remain. If
+you would like such remaining data to be deleted, write to us at
+<a href="mailto:pushform@icloud.com">pushform@icloud.com</a>.</p>
+<!-- OFFEN: siehe deutschen Teil (keine feste Frist für verbleibende Datensätze; Zusage "write to us" bestätigen). -->
 
 <h2>Legal basis</h2>
 <p>Where personal data is processed at all: use of Apple Health and the camera is based on your <strong>consent</strong>
-(Art. 6(1)(a) GDPR), which you can withdraw at any time. Usage statistics are based on our <strong>legitimate interest</strong> in improving the app (Art. 6(1)(f) GDPR); they are on by default and can be switched off at any time in the app settings (right to object, Art. 21 GDPR).
-Processing of the app data takes place <strong>within the EU</strong>; no transfer to third countries occurs in this respect (for website hosting and iCloud sync, see above).</p>
+(Art. 6(1)(a) GDPR), which you can withdraw at any time; the same applies to taking part in the weekly challenge. Usage statistics are based on our <strong>legitimate interest</strong> in improving the app (Art. 6(1)(f) GDPR); they are on by default and can be switched off at any time in the app settings (right to object, Art. 21 GDPR).
+<!-- OFFEN: legal basis of iCloud Sync, once decision 1 is made. -->
+Processing of the app data takes place <strong>within the EU</strong>; no transfer to third countries occurs in this respect (for website hosting, iCloud Sync and the weekly challenge, see above).</p>
 
 <h2>Data retention</h2>
-<p>Workout, body and health data stay on your device until you delete them or remove the app. Usage
-statistics are aggregated and kept only as long as needed for analysis.</p>
+<p>Workout, body and health data stay on your device until you delete them or remove the app. Data backed up to
+your iCloud stays there until you remove it via “Delete from iCloud” (see below). For the weekly-challenge data, see
+the section “Weekly challenge”. Usage statistics are aggregated and kept only as long as needed for analysis.</p>
 
 <h2>Your rights</h2>
 <p>Where applicable, you have the right to access, rectification, erasure, restriction of processing, data
-portability and the <strong>right to object</strong>, as well as the right to withdraw consent at any time. As the
-app stores no personal data on servers, you can exercise most rights directly in the app (export/delete data,
-revoke Health access in iOS Settings). Questions: <a href="mailto:pushform@icloud.com">pushform@icloud.com</a>.
+portability and the <strong>right to object</strong>, as well as the right to withdraw consent at any time. Your
+workout data is stored on your device and in your own iCloud account; the only data we can view ourselves are the
+pseudonymous usage statistics and – if you take part – the weekly-challenge data. You can therefore exercise most
+rights directly in the app (delete workouts, delete iCloud data, leave the challenge, revoke Health access in iOS
+Settings). Questions: <a href="mailto:pushform@icloud.com">pushform@icloud.com</a>.
 You also have the right to lodge a complaint with a data protection supervisory authority, in particular the
 <strong>Bavarian State Office for Data Protection Supervision (BayLDA)</strong>, Promenade 18, 91522 Ansbach (<a href="https://www.lda.bayern.de">lda.bayern.de</a>). There is no automated decision-making, including profiling (Art. 22 GDPR).</p>
 
 <h2>Exporting and deleting data</h2>
 <ul>
+  <!-- OFFEN (Entscheidung 2): nur behalten, wenn der CSV-Export in die App zurückkommt; sonst streichen. -->
   <li>You can export and share your workout history as a CSV file at any time. The export happens entirely on your device.</li>
   <li>You can delete individual workouts in Statistics; you can choose whether the corresponding Apple Health entry is removed as well.</li>
   <li>To remove all data, delete the app – this erases all locally stored data. Entries written to Apple Health remain there and can be removed in the Health app.</li>
-  <li>If you used <strong>iCloud sync</strong>: deleting the app does not automatically remove the data stored in iCloud. Remove it in the app settings via „iCloud Sync“ → „Delete from iCloud“.</li>
+  <li>If <strong>iCloud Sync</strong> was on: deleting the app does not remove the data stored in iCloud. Remove it in the app settings by turning off “iCloud Sync” and choosing “Delete from iCloud”. If sync is still turned on for another device, that device uploads its data again – turn it off there as well.</li>
+  <li>You leave the <strong>weekly challenge</strong> on the Challenges tab via your profile. Deleting the app does not end your participation and does not remove your challenge data (see “Weekly challenge”).</li>
 </ul>
 
 <h2>Children</h2>
