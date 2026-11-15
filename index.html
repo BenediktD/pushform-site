@@ -162,8 +162,16 @@
   .intro h2, .faq h2 { font-size: 1.35rem; letter-spacing: -.01em; margin: 0 0 8px; }
   .intro p { margin: 0; color: #6e6e73; }
   .faq { margin: 34px 0 30px; }
-  .faq h3 { font-size: 1.02rem; margin: 18px 0 4px; }
-  .faq p { margin: 0; color: #6e6e73; font-size: .97rem; }
+  .faq details { border-bottom: 1px solid rgba(128,128,128,.25); }
+  .faq details:first-of-type { border-top: 1px solid rgba(128,128,128,.25); }
+  .faq summary { list-style: none; cursor: pointer; font-weight: 600; font-size: 1.02rem; padding: 14px 30px 14px 0;
+                 position: relative; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; position: absolute; right: 4px; top: 50%; transform: translateY(-50%);
+                        font-size: 1.4rem; font-weight: 400; color: #FB5502; line-height: 1; }
+  .faq details[open] summary::after { content: "–"; }
+  .faq summary:focus-visible { outline: 2px solid #FB5502; outline-offset: 2px; border-radius: 6px; }
+  .faq p { margin: 0 0 16px; color: #6e6e73; font-size: .97rem; }
   .faq a { color: #FB5502; }
   @media (prefers-color-scheme: dark) { .intro p, .faq p { color: #a1a1a6; } }
 
@@ -247,18 +255,30 @@
 
     <section class="faq">
       <h2 data-en="Frequently asked questions">Häufige Fragen</h2>
-      <h3 data-en="How does PushForm count push-ups?">Wie zählt PushForm Liegestütze?</h3>
-      <p data-en="With your iPhone’s camera. The app detects your body position and counts every rep live. Everything is analysed on the device; no image or video is stored or transmitted.">Über die Kamera deines iPhones. Die App erkennt deine Körperhaltung und zählt jede Wiederholung live mit. Die Auswertung läuft komplett auf dem Gerät; es wird kein Bild und kein Video gespeichert oder übertragen.</p>
-      <h3 data-en="What does PushForm cost?">Was kostet PushForm?</h3>
-      <p data-en="Nothing. PushForm is free and shows no ads.">Nichts. PushForm ist kostenlos und zeigt keine Werbung.</p>
-      <h3 data-en="Do I need an account?">Brauche ich ein Konto?</h3>
-      <p data-en="No. You start without signing up. For backing up your workouts and for the weekly challenge the app uses your existing iCloud account.">Nein. Du startest ohne Registrierung. Für die Sicherung deiner Trainings und für die Wochen-Challenge nutzt die App dein vorhandenes iCloud-Konto.</p>
-      <h3 data-en="What is the weekly challenge?">Was ist die Wochen-Challenge?</h3>
-      <p data-en="An optional leaderboard that starts afresh every week. You compete under a nickname in one of six leagues and can move up or down. Only push-ups counted by the camera score.">Eine freiwillige Rangliste, die jede Woche neu startet. Du trittst unter einem Fantasienamen in einer von sechs Ligen an und kannst auf- oder absteigen. Gewertet werden nur Liegestütze, die die Kamera gezählt hat.</p>
-      <h3 data-en="Which devices does PushForm run on?">Auf welchen Geräten läuft PushForm?</h3>
-      <p data-en="On iPhone with iOS 17 or later. The app is available in German and English.">Auf dem iPhone ab iOS 17. Die App gibt es auf Deutsch und Englisch.</p>
-      <h3 data-en="What happens to my data?">Was passiert mit meinen Daten?</h3>
-      <p data-en="Camera images and body data stay on your iPhone. Your workouts are backed up to your own iCloud; you can turn that off at any time. See the <a href=&quot;privacy.html&quot;>Privacy Policy</a> for details.">Kamerabilder und Körperdaten bleiben auf deinem iPhone. Deine Trainings werden in deiner eigenen iCloud gesichert; das kannst du jederzeit abschalten. Mehr dazu steht in der <a href="privacy.html">Datenschutzerklärung</a>.</p>
+      <details>
+        <summary data-en="How does PushForm count push-ups?">Wie zählt PushForm Liegestütze?</summary>
+        <p data-en="With your iPhone’s camera. The app detects your body position and counts every rep live. Everything is analysed on the device; no image or video is stored or transmitted.">Über die Kamera deines iPhones. Die App erkennt deine Körperhaltung und zählt jede Wiederholung live mit. Die Auswertung läuft komplett auf dem Gerät; es wird kein Bild und kein Video gespeichert oder übertragen.</p>
+      </details>
+      <details>
+        <summary data-en="What does PushForm cost?">Was kostet PushForm?</summary>
+        <p data-en="Nothing. PushForm is free and shows no ads.">Nichts. PushForm ist kostenlos und zeigt keine Werbung.</p>
+      </details>
+      <details>
+        <summary data-en="Do I need an account?">Brauche ich ein Konto?</summary>
+        <p data-en="No. You start without signing up. For backing up your workouts and for the weekly challenge the app uses your existing iCloud account.">Nein. Du startest ohne Registrierung. Für die Sicherung deiner Trainings und für die Wochen-Challenge nutzt die App dein vorhandenes iCloud-Konto.</p>
+      </details>
+      <details>
+        <summary data-en="What is the weekly challenge?">Was ist die Wochen-Challenge?</summary>
+        <p data-en="An optional leaderboard that starts afresh every week. You compete under a nickname in one of six leagues and can move up or down. Only push-ups counted by the camera score.">Eine freiwillige Rangliste, die jede Woche neu startet. Du trittst unter einem Fantasienamen in einer von sechs Ligen an und kannst auf- oder absteigen. Gewertet werden nur Liegestütze, die die Kamera gezählt hat.</p>
+      </details>
+      <details>
+        <summary data-en="Which devices does PushForm run on?">Auf welchen Geräten läuft PushForm?</summary>
+        <p data-en="On iPhone with iOS 17 or later. The app is available in German and English.">Auf dem iPhone ab iOS 17. Die App gibt es auf Deutsch und Englisch.</p>
+      </details>
+      <details>
+        <summary data-en="What happens to my data?">Was passiert mit meinen Daten?</summary>
+        <p data-en="Camera images and body data stay on your iPhone. Your workouts are backed up to your own iCloud; you can turn that off at any time. See the <a href=&quot;privacy.html&quot;>Privacy Policy</a> for details.">Kamerabilder und Körperdaten bleiben auf deinem iPhone. Deine Trainings werden in deiner eigenen iCloud gesichert; das kannst du jederzeit abschalten. Mehr dazu steht in der <a href="privacy.html">Datenschutzerklärung</a>.</p>
+      </details>
     </section>
 
     <footer>
