@@ -33,7 +33,7 @@
   "description": "PushForm zählt deine Liegestütze automatisch per iPhone-Kamera – direkt auf dem Gerät. Mit Trainingsplan, Streaks und Wochen-Challenge. Kostenlos, ohne Konto.",
   "url": "https://benediktd.github.io/pushform-site/",
   "image": "https://benediktd.github.io/pushform-site/icon.png",
-  "operatingSystem": "iOS 17 oder neuer",
+  "operatingSystem": "iOS 17 oder neuer (iPhone, auch iPhone Duo)",
   "applicationCategory": "HealthApplication",
   "inLanguage": [
    "de",
@@ -99,7 +99,7 @@
     "name": "Auf welchen Geräten läuft PushForm?",
     "acceptedAnswer": {
      "@type": "Answer",
-     "text": "Auf dem iPhone ab iOS 17. Die App gibt es auf Deutsch und Englisch."
+     "text": "Auf dem iPhone ab iOS 17 – auch auf dem iPhone Duo, zugeklappt wie aufgeklappt. Die App gibt es auf Deutsch und Englisch."
     }
    },
    {
@@ -158,16 +158,27 @@
   .card h3 { margin: 12px 0 6px; font-size: 1.06rem; }
   .card p { margin: 0; color: #8e8e93; font-size: .95rem; }
 
-  /* Vier App-Bilder: am Rechner nebeneinander, am Handy seitlich wischbar. */
-  .shots { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 14px; margin: 26px 0 0; }
+  /* App-Bilder: am Rechner nebeneinander, am Handy seitlich wischbar; ein Klick vergroessert. */
+  .shots { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 12px; margin: 26px 0 0; }
   .shots figure { margin: 0; scroll-snap-align: center; }
-  .shots img { display: block; width: 100%; height: auto; border-radius: 22px;
+  .shots .zoom { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: 18px; }
+  .shots .zoom:focus-visible { outline: 3px solid #FB5502; outline-offset: 3px; }
+  .shots img { display: block; width: 100%; height: auto; border-radius: 18px;
                border: 1px solid rgba(128,128,128,.28); background: #000; }
-  .shots figcaption { text-align: center; font-size: .85rem; color: #8e8e93; margin-top: 8px; }
+  .shots figcaption { text-align: center; font-size: .82rem; color: #8e8e93; margin-top: 8px; }
   @media (max-width: 600px) {
-    .shots { grid-auto-columns: 58%; overflow-x: auto; scroll-snap-type: x mandatory;
+    .shots { grid-auto-columns: 58%; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory;
              margin: 24px -20px 0; padding: 0 20px 8px; -webkit-overflow-scrolling: touch; }
+    .shots img, .shots .zoom { border-radius: 22px; }
   }
+  /* Vergroesserung */
+  dialog.lightbox { border: 0; padding: 0; background: transparent; max-width: 100vw; max-height: 100vh; overflow: visible; }
+  dialog.lightbox::backdrop { background: rgba(0,0,0,.82); }
+  dialog.lightbox img { display: block; max-height: 90vh; max-width: 92vw; width: auto; height: auto;
+                        border-radius: 26px; box-shadow: 0 20px 60px rgba(0,0,0,.5); cursor: zoom-out; }
+  dialog.lightbox .close { position: fixed; top: 14px; right: 14px; width: 44px; height: 44px; border-radius: 50%;
+                           border: 0; background: rgba(255,255,255,.18); color: #fff; font-size: 1.5rem; line-height: 1; cursor: pointer; }
+  dialog.lightbox .close:focus-visible { outline: 3px solid #fff; }
 
   .intro { margin: 30px 0 0; }
   .intro h2, .faq h2 { font-size: 1.35rem; letter-spacing: -.01em; margin: 0 0 8px; }
@@ -234,10 +245,11 @@
     </section>
 
     <section class="shots" aria-label="Screenshots">
-      <figure data-en='<img src="media/screens/en/1-kamera.jpg" alt="PushForm counting push-ups live with the camera" width="660" height="1434" loading="lazy"><figcaption>Counting</figcaption>'><img src="media/screens/de/1-kamera.jpg" alt="PushForm zählt Liegestütze live mit der Kamera" width="660" height="1434" loading="lazy"><figcaption>Zählen</figcaption></figure>
-      <figure data-en='<img src="media/screens/en/2-trainingsplan.jpg" alt="Training plan in PushForm with sessions and rest days" width="660" height="1434" loading="lazy"><figcaption>Training plan</figcaption>'><img src="media/screens/de/2-trainingsplan.jpg" alt="Trainingsplan in PushForm mit Sessions und Ruhetagen" width="660" height="1434" loading="lazy"><figcaption>Trainingsplan</figcaption></figure>
-      <figure data-en='<img src="media/screens/en/3-challenge.jpg" alt="Weekly challenge leaderboard in PushForm" width="660" height="1434" loading="lazy"><figcaption>Weekly challenge</figcaption>'><img src="media/screens/de/3-challenge.jpg" alt="Rangliste der Wochen-Challenge in PushForm" width="660" height="1434" loading="lazy"><figcaption>Wochen-Challenge</figcaption></figure>
-      <figure data-en='<img src="media/screens/en/4-statistik.jpg" alt="Statistics in PushForm with monthly chart and records" width="660" height="1434" loading="lazy"><figcaption>Statistics</figcaption>'><img src="media/screens/de/4-statistik.jpg" alt="Statistik in PushForm mit Monatsverlauf und Rekorden" width="660" height="1434" loading="lazy"><figcaption>Statistik</figcaption></figure>
+      <figure data-en='<button type="button" class="zoom" aria-label="Counting – enlarge"><img src="media/screens/en/1-kamera.jpg" alt="PushForm counting push-ups live with the camera" width="660" height="1434" loading="lazy"></button><figcaption>Counting</figcaption>'><button type="button" class="zoom" aria-label="Zählen – vergrößern"><img src="media/screens/de/1-kamera.jpg" alt="PushForm zählt Liegestütze live mit der Kamera" width="660" height="1434" loading="lazy"></button><figcaption>Zählen</figcaption></figure>
+      <figure data-en='<button type="button" class="zoom" aria-label="Yearly goal – enlarge"><img src="media/screens/en/2-jahresziel.jpg" alt="PushForm overview with daily target, yearly goal and streak" width="660" height="1434" loading="lazy"></button><figcaption>Yearly goal</figcaption>'><button type="button" class="zoom" aria-label="Jahresziel – vergrößern"><img src="media/screens/de/2-jahresziel.jpg" alt="Übersicht in PushForm mit Tagesziel, Jahresziel und Streak" width="660" height="1434" loading="lazy"></button><figcaption>Jahresziel</figcaption></figure>
+      <figure data-en='<button type="button" class="zoom" aria-label="Training plan – enlarge"><img src="media/screens/en/3-trainingsplan.jpg" alt="Training plan in PushForm with sessions and rest days" width="660" height="1434" loading="lazy"></button><figcaption>Training plan</figcaption>'><button type="button" class="zoom" aria-label="Trainingsplan – vergrößern"><img src="media/screens/de/3-trainingsplan.jpg" alt="Trainingsplan in PushForm mit Sessions und Ruhetagen" width="660" height="1434" loading="lazy"></button><figcaption>Trainingsplan</figcaption></figure>
+      <figure data-en='<button type="button" class="zoom" aria-label="Weekly challenge – enlarge"><img src="media/screens/en/4-challenge.jpg" alt="Weekly challenge leaderboard in PushForm" width="660" height="1434" loading="lazy"></button><figcaption>Weekly challenge</figcaption>'><button type="button" class="zoom" aria-label="Wochen-Challenge – vergrößern"><img src="media/screens/de/4-challenge.jpg" alt="Rangliste der Wochen-Challenge in PushForm" width="660" height="1434" loading="lazy"></button><figcaption>Wochen-Challenge</figcaption></figure>
+      <figure data-en='<button type="button" class="zoom" aria-label="Statistics – enlarge"><img src="media/screens/en/5-statistik.jpg" alt="Statistics in PushForm with monthly chart and records" width="660" height="1434" loading="lazy"></button><figcaption>Statistics</figcaption>'><button type="button" class="zoom" aria-label="Statistik – vergrößern"><img src="media/screens/de/5-statistik.jpg" alt="Statistik in PushForm mit Monatsverlauf und Rekorden" width="660" height="1434" loading="lazy"></button><figcaption>Statistik</figcaption></figure>
     </section>
 
     <section class="features">
@@ -293,7 +305,7 @@
       </details>
       <details>
         <summary data-en="Which devices does PushForm run on?">Auf welchen Geräten läuft PushForm?</summary>
-        <p data-en="On iPhone with iOS 17 or later. The app is available in German and English.">Auf dem iPhone ab iOS 17. Die App gibt es auf Deutsch und Englisch.</p>
+        <p data-en="On iPhone with iOS 17 or later – including iPhone Duo, folded or unfolded. The app is available in German and English.">Auf dem iPhone ab iOS 17 – auch auf dem iPhone Duo, zugeklappt wie aufgeklappt. Die App gibt es auf Deutsch und Englisch.</p>
       </details>
       <details>
         <summary data-en="What happens to my data?">Was passiert mit meinen Daten?</summary>
@@ -313,6 +325,24 @@
     </footer>
   </div>
 
+<dialog class="lightbox" aria-label="Vergrößertes Bild / Enlarged image">
+  <button type="button" class="close" aria-label="Schließen / Close">×</button>
+  <img alt="">
+</dialog>
+<script>
+(function(){
+  var d=document.querySelector('dialog.lightbox'), box=document.querySelector('.shots');
+  if(!d||!box||!d.showModal)return;
+  var big=d.querySelector('img');
+  // Delegiert, weil der Sprachschalter den Inhalt der Bilder austauscht.
+  box.addEventListener('click',function(e){
+    var b=e.target.closest('.zoom'); if(!b)return;
+    var i=b.querySelector('img'); big.src=i.getAttribute('src'); big.alt=i.alt; d.showModal();
+  });
+  // Jeder Klick schliesst: aufs Bild, daneben oder auf das Kreuz. Esc macht der Dialog selbst.
+  d.addEventListener('click',function(){ d.close(); });
+})();
+</script>
 <script>
 (function(){
   var en=document.getElementById('en');
