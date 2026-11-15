@@ -96,8 +96,7 @@ Die App selbst erhebt keine solchen Server-Logfiles.</p>
 <h2>Welche Daten verarbeitet werden</h2>
 <ul>
   <li><strong>Trainingsdaten</strong> (Anzahl Liegestütze, Datum, Dauer, Ziele, Trainingsplan, Streak-Angaben) – werden lokal auf deinem Gerät gespeichert und, solange die iCloud-Synchronisation eingeschaltet ist, zusätzlich in deiner iCloud gesichert (siehe unten).</li>
-  <li><strong>Optionale Körperdaten</strong> (Gewicht, Alter, Geschlecht) – du gibst sie selbst ein oder sie werden mit deiner Erlaubnis aus Apple Health gelesen. Sie bleiben lokal. Das Körpergewicht dient zur Schätzung der aktiven Energie; Alter und Geschlecht fließen in die aktuelle Berechnung nicht mehr ein.
-  <!-- OFFEN: Die App liest Alter und Geschlecht weiterhin aus Apple Health (HealthKitManager.swift, readTypes und fetchBodyData) und zeigt sie in den Einstellungen, nutzt sie aber seit der Umstellung auf kcal je Wiederholung für nichts mehr. Datensparsamkeit (Art. 5 Abs. 1 lit. c, Art. 9 DSGVO): Lesen streichen oder einen Zweck nennen – Entscheidung des Entwicklers, danach diesen Satz anpassen. --></li>
+  <li><strong>Optionales Körpergewicht</strong> – du gibst es selbst ein oder es wird mit deiner Erlaubnis aus Apple Health gelesen. Es bleibt lokal und dient nur zur Schätzung der aktiven Energie. Alter und Geschlecht fragt die App weder ab noch liest sie sie aus Apple Health.</li>
   <li><strong>Kamerazugriff</strong> – wird ausschließlich in Echtzeit auf dem Gerät zur Erkennung der Liegestütz-Bewegung verwendet. Es werden <strong>keine Bilder oder Videos aufgenommen, gespeichert oder übertragen.</strong></li>
   <li><strong>Lokale Mitteilungen</strong> – nur Erinnerungen auf deinem Gerät.</li>
   <li><strong>Wochen-Challenge (nur bei Teilnahme)</strong> – eine pseudonyme Kennung, ein aus einer festen Wortliste gewürfelter Name, eine Farbe, Liga und Stufe sowie die Zahl deiner von der Kamera gezählten Liegestütze je Tag der Woche, siehe Abschnitt unten.</li>
@@ -107,7 +106,7 @@ Die App selbst erhebt keine solchen Server-Logfiles.</p>
 <h2>Apple Health (HealthKit)</h2>
 <p>Wenn du es erlaubst, kann PushForm:</p>
 <ul>
-  <li>Körperdaten (Gewicht, Alter, Geschlecht) aus Apple Health <strong>lesen</strong>; das Gewicht dient zur Schätzung der aktiven Energie,</li>
+  <li>dein Körpergewicht aus Apple Health <strong>lesen</strong>, um die aktive Energie zu schätzen,</li>
   <li>die von PushForm gespeicherten Trainings und Energie-Einträge in Apple Health <strong>lesen</strong>, damit dir beim Löschen eines Trainings angeboten werden kann, auch den Health-Eintrag zu entfernen,</li>
   <li>deine Trainings als Workout und die aktive Energie nach Apple Health <strong>schreiben</strong>. Die aktive Energie wird aus der Zahl der Wiederholungen geschätzt (0,77 kcal je Liegestütz, angepasst an dein Körpergewicht); einen Ruheenergieverbrauch schreibt PushForm nicht.</li>
 </ul>
@@ -173,16 +172,19 @@ Tagen der Woche gemacht hast – keinen Ort und keine weiteren Daten. Rechtsgrun
 den Beitritt (Art. 6 Abs. 1 lit. a DSGVO); du kannst sie jederzeit widerrufen, indem du die Challenge im
 Challenges-Reiter verlässt. Da Apple ein US-Anbieter ist, kann dabei eine Übermittlung in die USA erfolgen; Apple
 ist unter dem <strong>EU-U.S. Data Privacy Framework</strong> zertifiziert und stellt EU-Standardvertragsklauseln bereit.</p>
-<p><strong>Wie lange die Angaben gespeichert bleiben:</strong> Die App löscht deine eigenen Wochenstände, sobald
-sie älter als zwölf Wochen sind. Dieses Aufräumen läuft in der App auf deinem Gerät – also nur, solange du die App
-nutzt und an der Challenge teilnimmst. Verlässt du die Challenge, werden dein Profil und deine älteren
-Wochenstände gelöscht; die Wochenstände der laufenden und der vorangegangenen Woche bleiben unter deinem
-erfundenen Namen in der Rangliste dieser beiden Wochen stehen, damit sich das Ergebnis für die anderen nicht
-nachträglich ändert. Diese beiden Wochenstände löscht die App danach nicht mehr von selbst. Löschst du die App,
-ohne die Challenge vorher zu verlassen, bleiben dein Profil und deine Wochenstände der letzten zwölf Wochen
-bestehen. Möchtest du, dass solche verbliebenen Angaben gelöscht werden, schreib uns an
-<a href="mailto:pushform@icloud.com">pushform@icloud.com</a>.</p>
-<!-- OFFEN: (1) Für die nach dem Verlassen bzw. nach dem Löschen der App verbleibenden Datensätze gibt es heute keine Frist – sie bleiben unbegrenzt, bis jemand sie löscht. Rechtlich prüfen, ob das ohne feste Speicherdauer haltbar ist (Art. 5 Abs. 1 lit. e, Art. 13 Abs. 2 lit. a DSGVO), oder technisch nachbessern (z. B. Aufräumen durch den Entwickler). (2) Der Satz "schreib uns" ist eine Zusage: Sie setzt voraus, dass du Datensätze in der Produktionsdatenbank im CloudKit-Dashboard löschen und einer Anfrage zuordnen kannst (der Nutzer kennt nur seinen Fantasienamen). Vor dem Veröffentlichen bestätigen oder streichen. -->
+<p><strong>Wie lange die Angaben gespeichert bleiben:</strong> Solange du an der Challenge teilnimmst und die App
+benutzt, löscht die App deine eigenen Wochenstände automatisch, sobald sie älter als zwölf Wochen sind. Dieses
+Aufräumen läuft nur in der App auf deinem Gerät – benutzt du die App nicht, wird auch nichts aufgeräumt.
+Verlässt du die Challenge in der App, wird dein Profil sofort gelöscht, ebenso deine Wochenstände der Wochen vor
+der vorangegangenen Woche. Stehen bleiben die Wochenstände der laufenden und der vorangegangenen Woche: unter
+deinem erfundenen Namen in der Rangliste dieser beiden Wochen, damit sich das Ergebnis für die anderen nicht
+nachträglich ändert. Diese beiden Wochenstände löscht die App danach nicht mehr von selbst; eine Frist, nach der
+sie entfernt werden, gibt es nicht. Löschst du die App, ohne die Challenge vorher zu verlassen, bleiben dein Profil
+und deine Wochenstände bestehen, denn ohne die App wird nichts mehr gelöscht.
+<strong>Wenn deine Challenge-Angaben entfernt werden sollen, verlasse die Challenge in der App, bevor du die App
+löschst.</strong> Wir können die Einträge in der Datenbank keiner Person sicher zuordnen; der Ausstieg in der App
+ist deshalb der verlässliche Weg.</p>
+<!-- OFFEN: Für die nach dem Verlassen bzw. nach dem Löschen der App verbleibenden Datensätze gibt es heute keine Frist – sie bleiben unbegrenzt, bis jemand sie löscht. Rechtlich prüfen, ob das ohne feste Speicherdauer haltbar ist (Art. 5 Abs. 1 lit. e, Art. 13 Abs. 2 lit. a DSGVO), oder technisch nachbessern (z. B. Aufräumen durch den Entwickler). -->
 
 <h2>Rechtsgrundlage der Verarbeitung</h2>
 <p>Soweit überhaupt personenbezogene Daten verarbeitet werden: Die Nutzung von Apple Health und Kamera erfolgt
@@ -216,7 +218,7 @@ für Datenschutzaufsicht (BayLDA)</strong>, Promenade 18, 91522 Ansbach (<a href
   <li>Einzelne Trainings kannst du in den Statistiken löschen; dabei kannst du wählen, ob auch der zugehörige Apple-Health-Eintrag entfernt wird.</li>
   <li>Um alle Daten zu entfernen, lösche die App – damit werden sämtliche lokal gespeicherten Daten gelöscht. In Apple Health geschriebene Einträge bleiben dort erhalten und können in der Health-App entfernt werden.</li>
   <li>Wenn die <strong>iCloud-Synchronisation</strong> eingeschaltet war: Das Löschen der App entfernt die in iCloud gespeicherten Daten nicht. Du löschst sie in den App-Einstellungen, indem du „iCloud-Synchronisation“ ausschaltest und „Aus iCloud löschen“ wählst. Ist die Synchronisation auf einem weiteren Gerät noch eingeschaltet, lädt dieses seine Daten wieder hoch – schalte sie dort ebenfalls aus.</li>
-  <li>Die <strong>Wochen-Challenge</strong> verlässt du im Challenges-Reiter über dein Profil. Das Löschen der App beendet die Teilnahme nicht und entfernt deine Challenge-Angaben nicht (siehe „Wochen-Challenge“).</li>
+  <li>Die <strong>Wochen-Challenge</strong> verlässt du im Challenges-Reiter über dein Profil – tu das, bevor du die App löschst. Das Löschen der App beendet die Teilnahme nicht und entfernt deine Challenge-Angaben nicht (siehe „Wochen-Challenge“).</li>
 </ul>
 
 <h2>Kinder</h2>
@@ -263,7 +265,7 @@ The app itself collects no such server log files.</p>
 <h2>Data the app processes</h2>
 <ul>
   <li><strong>Workout data</strong> (push-up counts, dates, durations, goals, training plan, streak details) – stored locally on your device and, while iCloud Sync is on, additionally backed up to your iCloud (see below).</li>
-  <li><strong>Optional body data</strong> (weight, age, sex) – you enter it yourself, or it is read from Apple Health with your permission. It stays local. Body weight is used to estimate active energy; age and sex are no longer used in the current calculation.</li>
+  <li><strong>Optional body weight</strong> – you enter it yourself, or it is read from Apple Health with your permission. It stays local and is used only to estimate active energy. The app neither asks for your age or sex nor reads them from Apple Health.</li>
   <li><strong>Camera access</strong> – used only in real time on-device to detect the push-up movement. <strong>No images or video are recorded, stored, or transmitted.</strong></li>
   <li><strong>Local notifications</strong> – reminders on your device only.</li>
   <li><strong>Weekly challenge (only if you take part)</strong> – a pseudonymous identifier, a name drawn from a fixed word list, a color, league and tier, and the number of camera-counted push-ups per day of the week; see the section below.</li>
@@ -273,7 +275,7 @@ The app itself collects no such server log files.</p>
 <h2>Apple Health (HealthKit)</h2>
 <p>If you allow it, PushForm can:</p>
 <ul>
-  <li><strong>read</strong> body data (weight, age, sex) from Apple Health; weight is used to estimate active energy,</li>
+  <li><strong>read</strong> your body weight from Apple Health to estimate active energy,</li>
   <li><strong>read</strong> the workouts and energy entries PushForm saved to Apple Health, so that when you delete a workout you can choose to remove the Health entry as well,</li>
   <li><strong>write</strong> your workouts and active energy to Apple Health. Active energy is estimated from the number of reps (0.77 kcal per push-up, adjusted to your body weight); PushForm does not write resting energy.</li>
 </ul>
@@ -336,15 +338,18 @@ the week – no location and no other data. The legal basis is your consent give
 can withdraw it at any time by leaving the challenge on the Challenges tab. As Apple is a US provider, data may be
 transferred to the USA; Apple is certified under the <strong>EU-U.S. Data Privacy Framework</strong> and provides EU
 Standard Contractual Clauses.</p>
-<p><strong>How long the data is kept:</strong> The app deletes your own weekly scores once they are older than
-twelve weeks. This cleanup runs in the app on your device – that is, only while you use the app and take part in
-the challenge. If you leave the challenge, your profile and your older weekly scores are deleted; the scores of the
-current and the previous week remain in the ranking of these two weeks under your made-up name so that the result
-does not change for the others afterwards. The app does not delete these two scores on its own later. If you delete
-the app without leaving the challenge first, your profile and your weekly scores of the last twelve weeks remain. If
-you would like such remaining data to be deleted, write to us at
-<a href="mailto:pushform@icloud.com">pushform@icloud.com</a>.</p>
-<!-- OFFEN: siehe deutschen Teil (keine feste Frist für verbleibende Datensätze; Zusage "write to us" bestätigen). -->
+<p><strong>How long the data is kept:</strong> While you take part in the challenge and use the app, the app
+automatically deletes your own weekly scores once they are older than twelve weeks. This cleanup runs only in the
+app on your device – if you don't use the app, nothing is cleaned up. If you leave the challenge in the app, your
+profile is deleted at once, and so are your scores from the weeks before the previous week. The scores of the
+current and the previous week remain: under your made-up name in the ranking of these two weeks, so that the result
+does not change for the others afterwards. The app does not delete these two scores on its own later; there is no
+period after which they are removed. If you delete the app without leaving the challenge first, your profile and
+your weekly scores remain, because without the app nothing is deleted any more.
+<strong>If you want your challenge data removed, leave the challenge in the app before you delete the
+app.</strong> We cannot reliably match entries in the database to a person, so leaving in the app is the reliable
+way.</p>
+<!-- OFFEN: siehe deutschen Teil (keine feste Frist für verbleibende Datensätze). -->
 
 <h2>Legal basis</h2>
 <p>Where personal data is processed at all: use of Apple Health and the camera is based on your <strong>consent</strong>
@@ -374,7 +379,7 @@ You also have the right to lodge a complaint with a data protection supervisory 
   <li>You can delete individual workouts in Statistics; you can choose whether the corresponding Apple Health entry is removed as well.</li>
   <li>To remove all data, delete the app – this erases all locally stored data. Entries written to Apple Health remain there and can be removed in the Health app.</li>
   <li>If <strong>iCloud Sync</strong> was on: deleting the app does not remove the data stored in iCloud. Remove it in the app settings by turning off “iCloud Sync” and choosing “Delete from iCloud”. If sync is still turned on for another device, that device uploads its data again – turn it off there as well.</li>
-  <li>You leave the <strong>weekly challenge</strong> on the Challenges tab via your profile. Deleting the app does not end your participation and does not remove your challenge data (see “Weekly challenge”).</li>
+  <li>You leave the <strong>weekly challenge</strong> on the Challenges tab via your profile – do this before you delete the app. Deleting the app does not end your participation and does not remove your challenge data (see “Weekly challenge”).</li>
 </ul>
 
 <h2>Children</h2>
