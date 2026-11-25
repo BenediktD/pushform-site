@@ -168,25 +168,39 @@
   .langsw button.on { opacity: 1; font-weight: 700; }
 
   .wrap { max-width: 760px; margin: 0 auto; padding: 20px; }
-  .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin: 30px 0; }
   .card { background: #f5f5f7; border-radius: 18px; padding: 20px; }
   @media (prefers-color-scheme: dark) { .card { background: #1c1c1e; } }
-  .card .ico { font-size: 1.9rem; line-height: 1; }
-  .card h3 { margin: 12px 0 6px; font-size: 1.06rem; }
   .card p { margin: 0; color: #8e8e93; font-size: .95rem; }
 
-  /* App-Bilder: am Rechner nebeneinander, am Handy seitlich wischbar; ein Klick vergroessert. */
-  .shots { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 12px; margin: 26px 0 0; }
-  .shots figure { margin: 0; scroll-snap-align: center; }
-  .shots .zoom { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: 18px; }
-  .shots .zoom:focus-visible { outline: 3px solid #FB5502; outline-offset: 3px; }
-  .shots img { display: block; width: 100%; height: auto; border-radius: 18px;
-               border: 1px solid rgba(128,128,128,.28); background: #000; }
-  .shots figcaption { text-align: center; font-size: .82rem; color: #8e8e93; margin-top: 8px; }
+  /* Funktionen: je Zeile ein App-Bild mit der passenden Funktion, abwechselnd links/rechts.
+     Am Handy Bild oben, Text darunter. Ein Klick aufs Bild vergroessert (Lightbox). */
+  .showcase { display: grid; gap: 64px; margin: 44px 0 0; }
+  .showcase .row { display: grid; grid-template-columns: 230px 1fr; gap: 48px; align-items: center; }
+  .showcase .row:nth-of-type(even) { grid-template-columns: 1fr 230px; }
+  .showcase .row:nth-of-type(even) .shot { order: 2; }
+  .showcase .zoom { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: 30px; }
+  .showcase .zoom:focus-visible { outline: 3px solid #FB5502; outline-offset: 4px; }
+  .showcase .shot img { display: block; width: 100%; height: auto; border-radius: 30px; background: #000;
+                        border: 1px solid rgba(128,128,128,.28);
+                        box-shadow: 0 24px 50px -18px rgba(251,85,2,.45), 0 8px 24px rgba(0,0,0,.18);
+                        transition: transform .25s ease; }
+  .showcase .zoom:hover img { transform: translateY(-4px); }
+  @media (prefers-reduced-motion: reduce) { .showcase .shot img { transition: none; } .showcase .zoom:hover img { transform: none; } }
+  /* Kontrast: #C2410C auf Weiss ca. 5:1, #FF8A4C auf Schwarz ca. 8:1 (Markenorange waere auf Weiss nur ~3:1). */
+  .kicker { margin: 0; font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #C2410C; }
+  @media (prefers-color-scheme: dark) { .kicker { color: #FF8A4C; } }
+  .showcase h3 { font-size: 1.65rem; line-height: 1.2; letter-spacing: -.02em; margin: 8px 0 10px; }
+  .showcase .copy p:not(.kicker) { margin: 0; color: #6e6e73; font-size: 1.05rem; }
+  .showcase .extras { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: -16px; }
+  .showcase .extras p:not(.kicker) { margin: 8px 0 0; color: #6e6e73; font-size: .97rem; }
+  @media (prefers-color-scheme: dark) { .showcase .copy p:not(.kicker), .showcase .extras p:not(.kicker) { color: #a1a1a6; } }
   @media (max-width: 600px) {
-    .shots { grid-auto-columns: 58%; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory;
-             margin: 24px -20px 0; padding: 0 20px 8px; -webkit-overflow-scrolling: touch; }
-    .shots img, .shots .zoom { border-radius: 22px; }
+    .showcase { gap: 48px; margin-top: 34px; }
+    .showcase .row, .showcase .row:nth-of-type(even) { grid-template-columns: 1fr; gap: 22px; }
+    .showcase .row:nth-of-type(even) .shot { order: 0; }
+    .showcase .shot { width: 54%; margin: 0 auto; }
+    .showcase h3 { font-size: 1.4rem; }
+    .showcase .extras { grid-template-columns: 1fr; margin-top: -8px; }
   }
   /* Vergroesserung */
   dialog.lightbox { border: 0; padding: 0; background: transparent; max-width: 100vw; max-height: 100vh; overflow: visible; }
@@ -283,44 +297,56 @@
       <p data-en="PushForm is a free iPhone app that counts your push-ups automatically. Put your iPhone in front of you, the camera detects every rep and the app counts along live. On top you get a training plan, daily and yearly goals, streaks and a weekly challenge with others – <strong>no account, no ads</strong>.">PushForm ist eine kostenlose iPhone-App, die deine Liegestütze automatisch zählt. Du stellst das iPhone vor dich hin, die Kamera erkennt jede Wiederholung, und die App zählt live mit. Dazu bekommst du einen Trainingsplan, Tages- und Jahresziele, Streaks und eine wöchentliche Challenge mit anderen – <strong>ohne Konto und ohne Werbung</strong>.</p>
     </section>
 
-    <section class="shots" aria-label="Screenshots">
-      <figure data-en='<button type="button" class="zoom" aria-label="Counting – enlarge"><img src="media/screens/en/1-kamera.jpg" alt="PushForm counting push-ups live with the camera" width="660" height="1434" loading="lazy"></button><figcaption>Counting</figcaption>'><button type="button" class="zoom" aria-label="Zählen – vergrößern"><img src="media/screens/de/1-kamera.jpg" alt="PushForm zählt Liegestütze live mit der Kamera" width="660" height="1434" loading="lazy"></button><figcaption>Zählen</figcaption></figure>
-      <figure data-en='<button type="button" class="zoom" aria-label="Yearly goal – enlarge"><img src="media/screens/en/2-jahresziel.jpg" alt="PushForm overview with daily target, yearly goal and streak" width="660" height="1434" loading="lazy"></button><figcaption>Yearly goal</figcaption>'><button type="button" class="zoom" aria-label="Jahresziel – vergrößern"><img src="media/screens/de/2-jahresziel.jpg" alt="Übersicht in PushForm mit Tagesziel, Jahresziel und Streak" width="660" height="1434" loading="lazy"></button><figcaption>Jahresziel</figcaption></figure>
-      <figure data-en='<button type="button" class="zoom" aria-label="Training plan – enlarge"><img src="media/screens/en/3-trainingsplan.jpg" alt="Training plan in PushForm with sessions and rest days" width="660" height="1434" loading="lazy"></button><figcaption>Training plan</figcaption>'><button type="button" class="zoom" aria-label="Trainingsplan – vergrößern"><img src="media/screens/de/3-trainingsplan.jpg" alt="Trainingsplan in PushForm mit Sessions und Ruhetagen" width="660" height="1434" loading="lazy"></button><figcaption>Trainingsplan</figcaption></figure>
-      <figure data-en='<button type="button" class="zoom" aria-label="Weekly challenge – enlarge"><img src="media/screens/en/4-challenge.jpg" alt="Weekly challenge leaderboard in PushForm" width="660" height="1434" loading="lazy"></button><figcaption>Weekly challenge</figcaption>'><button type="button" class="zoom" aria-label="Wochen-Challenge – vergrößern"><img src="media/screens/de/4-challenge.jpg" alt="Rangliste der Wochen-Challenge in PushForm" width="660" height="1434" loading="lazy"></button><figcaption>Wochen-Challenge</figcaption></figure>
-      <figure data-en='<button type="button" class="zoom" aria-label="Statistics – enlarge"><img src="media/screens/en/5-statistik.jpg" alt="Statistics in PushForm with monthly chart and records" width="660" height="1434" loading="lazy"></button><figcaption>Statistics</figcaption>'><button type="button" class="zoom" aria-label="Statistik – vergrößern"><img src="media/screens/de/5-statistik.jpg" alt="Statistik in PushForm mit Monatsverlauf und Rekorden" width="660" height="1434" loading="lazy"></button><figcaption>Statistik</figcaption></figure>
-    </section>
-
-    <section class="features">
-      <div class="card">
-        <div class="ico">📷</div>
-        <h3 data-en="Auto-counting">Automatisch zählen</h3>
-        <p data-en="Set your iPhone down and start: the camera counts every push-up live – right on the device, nothing is recorded.">Stell dein iPhone hin und leg los: Die Kamera zählt jeden Liegestütz live mit – direkt auf dem Gerät, ohne Aufnahme.</p>
-      </div>
-      <div class="card">
-        <div class="ico">📈</div>
-        <h3 data-en="Training plan">Trainingsplan</h3>
-        <p data-en="From your first test to your goal: the plan adapts to your performance and tells you what comes next.">Vom ersten Test bis zu deinem Ziel: Der Plan passt sich deiner Leistung an und sagt dir, was als Nächstes dran ist.</p>
-      </div>
-      <div class="card">
-        <div class="ico">🔥</div>
-        <h3 data-en="Streaks and stats">Streaks & Statistiken</h3>
-        <p data-en="Yearly goal, daily target and streak keep you going – freezes save a missed day. Plus reports, records and your Year in Review every January.">Jahresziel, Tagesziel und Streak halten dich dran – Freezes retten einen verpassten Tag. Dazu Berichte, Rekorde und im Januar dein Jahresrückblick.</p>
-      </div>
-      <div class="card">
-        <div class="ico">🏆</div>
-        <h3 data-en="Weekly challenge">Wochen-Challenge</h3>
-        <p data-en="A fresh start every week: compete with others across six leagues – under a nickname. Only what the camera counted scores.">Jede Woche ein neuer Start: Miss dich in sechs Ligen mit anderen – unter einem Fantasienamen. Es zählt nur, was die Kamera gezählt hat.</p>
-      </div>
-      <div class="card">
-        <div class="ico">❤️</div>
-        <h3 data-en="Apple Health">Apple Health</h3>
-        <p data-en="If you like, your workouts and active energy go straight to Apple Health.">Auf Wunsch landen deine Trainings samt aktiver Energie direkt in Apple Health.</p>
-      </div>
-      <div class="card">
-        <div class="ico">🔒</div>
-        <h3 data-en="Private">Privat</h3>
-        <p data-en="No account, no ads. Camera images and body data stay on your iPhone. Your workouts are backed up to your own iCloud – you can turn that off at any time.">Kein Konto, keine Werbung. Kamerabilder und Körperdaten bleiben auf deinem iPhone. Deine Trainings werden in deiner eigenen iCloud gesichert – das kannst du jederzeit abschalten.</p>
+    <section class="showcase" aria-label="Funktionen / Features">
+      <article class="row">
+        <div class="shot" data-en='<button type="button" class="zoom" aria-label="Counting – enlarge"><img src="media/screens/en/1-kamera.jpg" alt="PushForm counting push-ups live with the camera" width="660" height="1434" loading="lazy"></button>'><button type="button" class="zoom" aria-label="Zählen – vergrößern"><img src="media/screens/de/1-kamera.jpg" alt="PushForm zählt Liegestütze live mit der Kamera" width="660" height="1434" loading="lazy"></button></div>
+        <div class="copy">
+          <p class="kicker" data-en="Counting">Zählen</p>
+          <h3 data-en="Auto-counting">Automatisch zählen</h3>
+          <p data-en="Set your iPhone down and start: the camera counts every push-up live – right on the device, nothing is recorded.">Stell dein iPhone hin und leg los: Die Kamera zählt jeden Liegestütz live mit – direkt auf dem Gerät, ohne Aufnahme.</p>
+        </div>
+      </article>
+      <article class="row">
+        <div class="shot" data-en='<button type="button" class="zoom" aria-label="Training plan – enlarge"><img src="media/screens/en/3-trainingsplan.jpg" alt="Training plan in PushForm with sessions and rest days" width="660" height="1434" loading="lazy"></button>'><button type="button" class="zoom" aria-label="Trainingsplan – vergrößern"><img src="media/screens/de/3-trainingsplan.jpg" alt="Trainingsplan in PushForm mit Sessions und Ruhetagen" width="660" height="1434" loading="lazy"></button></div>
+        <div class="copy">
+          <p class="kicker" data-en="Training plan">Trainingsplan</p>
+          <h3 data-en="A plan that grows with you">Ein Plan, der mitwächst</h3>
+          <p data-en="From your first test to your goal: the plan adapts to your performance and tells you what comes next.">Vom ersten Test bis zu deinem Ziel: Der Plan passt sich deiner Leistung an und sagt dir, was als Nächstes dran ist.</p>
+        </div>
+      </article>
+      <article class="row">
+        <div class="shot" data-en='<button type="button" class="zoom" aria-label="Yearly goal – enlarge"><img src="media/screens/en/2-jahresziel.jpg" alt="PushForm overview with daily target, yearly goal and streak" width="660" height="1434" loading="lazy"></button>'><button type="button" class="zoom" aria-label="Jahresziel – vergrößern"><img src="media/screens/de/2-jahresziel.jpg" alt="Übersicht in PushForm mit Tagesziel, Jahresziel und Streak" width="660" height="1434" loading="lazy"></button></div>
+        <div class="copy">
+          <p class="kicker" data-en="Yearly goal & streaks">Jahresziel & Streaks</p>
+          <h3 data-en="Keep going, day by day">Dranbleiben, Tag für Tag</h3>
+          <p data-en="Yearly goal, daily target and streak keep you going – freezes save a missed day.">Jahresziel, Tagesziel und Streak halten dich dran – Freezes retten einen verpassten Tag.</p>
+        </div>
+      </article>
+      <article class="row">
+        <div class="shot" data-en='<button type="button" class="zoom" aria-label="Weekly challenge – enlarge"><img src="media/screens/en/4-challenge.jpg" alt="Weekly challenge leaderboard in PushForm" width="660" height="1434" loading="lazy"></button>'><button type="button" class="zoom" aria-label="Wochen-Challenge – vergrößern"><img src="media/screens/de/4-challenge.jpg" alt="Rangliste der Wochen-Challenge in PushForm" width="660" height="1434" loading="lazy"></button></div>
+        <div class="copy">
+          <p class="kicker" data-en="Weekly challenge">Wochen-Challenge</p>
+          <h3 data-en="A fresh start every week">Jede Woche ein neuer Start</h3>
+          <p data-en="Compete with others across six leagues – under a nickname. Only what the camera counted scores.">Miss dich in sechs Ligen mit anderen – unter einem Fantasienamen. Es zählt nur, was die Kamera gezählt hat.</p>
+        </div>
+      </article>
+      <article class="row">
+        <div class="shot" data-en='<button type="button" class="zoom" aria-label="Statistics – enlarge"><img src="media/screens/en/5-statistik.jpg" alt="Statistics in PushForm with monthly chart and records" width="660" height="1434" loading="lazy"></button>'><button type="button" class="zoom" aria-label="Statistik – vergrößern"><img src="media/screens/de/5-statistik.jpg" alt="Statistik in PushForm mit Monatsverlauf und Rekorden" width="660" height="1434" loading="lazy"></button></div>
+        <div class="copy">
+          <p class="kicker" data-en="Statistics">Statistiken</p>
+          <h3 data-en="See how far you have come">Sieh, wie weit du gekommen bist</h3>
+          <p data-en="Reports, records and your Year in Review every January.">Berichte, Rekorde und im Januar dein Jahresrückblick.</p>
+        </div>
+      </article>
+      <div class="extras">
+        <div class="card">
+          <p class="kicker">Apple Health</p>
+          <p data-en="If you like, your workouts and active energy go straight to Apple Health.">Auf Wunsch landen deine Trainings samt aktiver Energie direkt in Apple Health.</p>
+        </div>
+        <div class="card">
+          <p class="kicker" data-en="Private">Privat</p>
+          <p data-en="No account, no ads. Camera images and body data stay on your iPhone. Your workouts are backed up to your own iCloud – you can turn that off at any time.">Kein Konto, keine Werbung. Kamerabilder und Körperdaten bleiben auf deinem iPhone. Deine Trainings werden in deiner eigenen iCloud gesichert – das kannst du jederzeit abschalten.</p>
+        </div>
       </div>
     </section>
 
@@ -394,7 +420,7 @@
 </dialog>
 <script>
 (function(){
-  var d=document.querySelector('dialog.lightbox'), box=document.querySelector('.shots');
+  var d=document.querySelector('dialog.lightbox'), box=document.querySelector('.showcase');
   if(!d||!box||!d.showModal)return;
   var big=d.querySelector('img');
   // Delegiert, weil der Sprachschalter den Inhalt der Bilder austauscht.
