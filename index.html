@@ -142,11 +142,21 @@
      margin 20px > geforderter Freiraum (1/4 der Badge-Höhe = 13px bei 52px). */
   /* Durchschnitt aus dem App Store im Kopf; Stand und Echtheits-Hinweis stehen im Block #reviews-h,
      auf den die Zeile verlinkt. Weiss statt Orange: Orange Sterne verschwinden im Verlauf. */
-  /* Bewertung als ruhige Bestaetigung UNTER dem Badge: kein Link, keine Schaltflaeche –
-     auf der Startseite gibt es genau eine Handlungsaufforderung (das Badge). Stand und
-     Echtheits-Hinweis stehen im Block "Was Nutzer sagen" weiter unten. */
-  .hero .rating { margin: 12px 0 0; font-size: .92rem; font-weight: 500; opacity: .92; }
-  .hero .rating .stars { letter-spacing: 1px; margin-right: 4px; }
+  /* Badge + Bewertung als Einheit: links das Badge (einzige Handlungsaufforderung), rechts die
+     Bewertung als ruhiger Text, kein Link. Am Handy steht die Bewertung zentriert darunter.
+     Bewusst ohne Anzahl der Bewertungen (noch wenige). Sterne exakt gefuellt: --fill = Schnitt/5.
+     Stand und Echtheits-Hinweis stehen im Block "Was Nutzer sagen". */
+  .hero .cta { display: flex; justify-content: center; align-items: center; gap: 16px; margin-top: 20px; flex-wrap: wrap; }
+  .hero .cta .store-badge { margin-top: 0; }
+  .hero .score { text-align: left; line-height: 1.25; padding-left: 16px; border-left: 1px solid rgba(255,255,255,.45); }
+  .hero .score strong { font-size: 1.35rem; margin-right: 4px; }
+  .hero .score .sub { font-size: .85rem; opacity: .88; }
+  .hero .sf { position: relative; display: inline-block; color: rgba(255,255,255,.38); letter-spacing: 1px; }
+  .hero .sf::before { content: "★★★★★"; position: absolute; left: 0; top: 0; width: var(--fill); overflow: hidden;
+                      color: #fff; white-space: nowrap; letter-spacing: 1px; }
+  .hero .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  @media (max-width: 600px) { .hero .cta { gap: 12px; } .hero .score { padding-left: 12px; } }
+  @media (max-width: 360px) { .hero .score { border-left: 0; padding-left: 0; text-align: center; } }
   .store-badge { display: inline-block; margin-top: 20px; line-height: 0; }
   /* .hero img (App-Icon-Regel) vererbt border-radius/Schatten – fürs Badge neutralisieren,
      sonst werden die Seiten des offiziellen Badges rund geclippt. */
@@ -260,8 +270,10 @@
       <p class="tag" data-en="The push-up counter for iPhone: the camera counts, you train.">Der Liegestütz-Zähler fürs iPhone: Die Kamera zählt, du trainierst.</p>
       <!-- Offizielles Apple-Badge (unverändert, Mindesthöhe 40px, Freiraum ≥ 1/4 Badge-Höhe;
            siehe developer.apple.com/app-store/marketing/guidelines) -->
-      <a class="store-badge" href="https://apps.apple.com/app/pushform-push-up-tracker/id6785243655" data-en='<img src="app-store-badge-en.svg" alt="Download on the App Store" height="52">'><img src="app-store-badge-de.svg" alt="Laden im App Store" height="52"></a>
-      <p class="rating" data-en='<span class="stars" aria-hidden="true">★★★★★</span>4.9 out of 5 on the App Store'><span class="stars" aria-hidden="true">★★★★★</span>4,9 von 5 im App Store</p>
+      <div class="cta">
+        <a class="store-badge" href="https://apps.apple.com/app/pushform-push-up-tracker/id6785243655" data-en='<img src="app-store-badge-en.svg" alt="Download on the App Store" height="52">'><img src="app-store-badge-de.svg" alt="Laden im App Store" height="52"></a>
+        <div class="score" data-en='<div><strong>4.9</strong><span class="vh"> out of 5 stars</span> <span class="sf" style="--fill:98%" aria-hidden="true">★★★★★</span></div><div class="sub">on the App Store</div>'><div><strong>4,9</strong><span class="vh"> von 5 Sternen</span> <span class="sf" style="--fill:98%" aria-hidden="true">★★★★★</span></div><div class="sub">im App Store</div></div>
+      </div>
     </div>
   </header>
 
@@ -317,7 +329,7 @@
       <p class="score">
         <span class="stars" aria-hidden="true">★★★★★</span>
         <strong data-en="4.9 out of 5 stars">4,9 von 5 Sternen</strong>
-        <span data-en="15 ratings on the App Store in Germany · as of 25 Nov 2026">15 Bewertungen im App Store in Deutschland · Stand 25.11.2026</span>
+        <span data-en="on the App Store in Germany · as of 25 Nov 2026">im App Store in Deutschland · Stand 25.11.2026</span>
       </p>
       <div class="quotes">
         <blockquote class="card">
