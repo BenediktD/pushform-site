@@ -109,6 +109,38 @@
      "@type": "Answer",
      "text": "Privacy Policy.\">Kamerabilder und Körperdaten bleiben auf deinem iPhone. Deine Trainings werden in deiner eigenen iCloud gesichert. Das kannst du jederzeit abschalten. Mehr dazu steht in der Datenschutzerklärung."
     }
+   },
+   {
+    "@type": "Question",
+    "name": "Wie lösche ich meine Daten?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Unter Statistiken → Alle Trainings löschst du einzelne Trainings oder über „Bearbeiten“ → „Alle löschen“ alle auf einmal – auf Wunsch inkl. der Apple-Health-Einträge. Ist die iCloud-Synchronisation an, wird das Löschen auch in deiner iCloud übernommen. Löschst du nur die App, bleiben deine iCloud-Daten und – falls du teilnimmst – deine Challenge-Angaben erhalten; siehe die beiden Fragen unten."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Was passiert mit den iCloud-Daten?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Ist die iCloud-Synchronisation eingeschaltet, liegen deine Trainingsdaten auch in deiner iCloud. Das Löschen der App entfernt diese nicht automatisch – du löschst sie in den Einstellungen, indem du „iCloud-Synchronisation“ ausschaltest und „Aus iCloud löschen“ wählst. Ist die Synchronisation auf einem weiteren Gerät noch an, schalte sie dort ebenfalls aus, sonst lädt es die Daten wieder hoch."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Wie verlasse ich die Wochen-Challenge und lösche meine Challenge-Daten?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Im Challenges-Reiter über dein Profil. Dabei wird dein Profil sofort gelöscht, ebenso deine älteren Wochenstände; die Wochenstände der laufenden und der letzten Woche bleiben unter deinem Fantasienamen in der Rangliste dieser beiden Wochen stehen, bis wir sie beim regelmäßigen Aufräumen löschen: Wochenstände nach 13 Wochen, Profile nach sechs Monaten ohne Nutzung (das Aufräumen läuft einmal im Monat). Das gilt auch, wenn du die App löschst, ohne die Challenge zu verlassen. Wenn deine Challenge-Daten sofort entfernt werden sollen, verlasse die Challenge in der App, bevor du die App löschst – wir können die Einträge keiner Person sicher zuordnen."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Wie erreiche ich euch?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Schreib einfach an pushform@icloud.com. Ob Frage, Feedback oder ein Problem mit der App – wir helfen gern weiter."
+    }
    }
   ]
  }
@@ -199,11 +231,6 @@
   .faq details[open] summary::after { content: "–"; content: "–" / ""; }
   .faq summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
   .faq p { margin: 0 0 18px; color: var(--muted); font-size: .95rem; }
-
-  /* ---------- Weitere Fragen -> Support ---------- */
-  .more { text-align: center; max-width: 680px; margin: 48px auto 0; padding: 36px 28px; display: flex; flex-direction: column; align-items: center; }
-  .more h3 { margin: 14px 0 8px; font-size: 1.35rem; letter-spacing: -.02em; color: var(--text); }
-  .more p { margin: 0 0 22px; color: var(--muted); max-width: 42ch; }
 
   /* ---------- Einblenden beim Scrollen ---------- */
   html.js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.1,1); }
@@ -345,7 +372,7 @@
   </section>
 
   <section class="s s3">
-    <section class="faq">
+    <section class="faq" id="fragen">
       <div class="h2wrap"><svg class="hic" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FB5502"/><stop offset="1" stop-color="#FBC91C"/></linearGradient></defs><path fill="url(#g2)" d="M4 3h16a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-7l-5 4v-4H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path fill="#fff" d="M11.1 13.2v-.4c0-1 .4-1.5 1.2-2.1.6-.4.9-.7.9-1.2 0-.6-.5-1-1.2-1-.8 0-1.3.5-1.3 1.2H9c0-1.7 1.2-2.8 3-2.8 1.8 0 3 1 3 2.5 0 1-.5 1.6-1.4 2.2-.6.4-.8.7-.8 1.2v.4h-1.7zm.9 3a1.1 1.1 0 1 1 0-2.2 1.1 1.1 0 0 1 0 2.2z"/></svg><h2 data-en="Frequently asked questions">Häufige Fragen</h2></div>
       <details>
         <summary data-en="How does PushForm count push-ups?">Wie zählt PushForm Liegestütze?</summary>
@@ -371,13 +398,23 @@
         <summary data-en="What happens to my data?">Was passiert mit meinen Daten?</summary>
         <p data-en="Camera images and body data stay on your iPhone. Your workouts are backed up to your own iCloud. You can turn that off at any time. You’ll find the details in the <a href=&quot;privacy.html&quot;>Privacy Policy</a>.">Kamerabilder und Körperdaten bleiben auf deinem iPhone. Deine Trainings werden in deiner eigenen iCloud gesichert. Das kannst du jederzeit abschalten. Mehr dazu steht in der <a href="privacy.html">Datenschutzerklärung</a>.</p>
       </details>
+      <details>
+        <summary data-en="How do I delete my data?">Wie lösche ich meine Daten?</summary>
+        <p data-en="Under Statistics → All workouts you delete individual workouts, or all of them at once via “Edit” → “Delete all” – optionally including the Apple Health entries. While iCloud Sync is on, deletions are applied to your iCloud as well. If you only delete the app, your iCloud data and – if you take part – your challenge data remain; see the two questions below.">Unter Statistiken → Alle Trainings löschst du einzelne Trainings oder über „Bearbeiten“ → „Alle löschen“ alle auf einmal – auf Wunsch inkl. der Apple-Health-Einträge. Ist die iCloud-Synchronisation an, wird das Löschen auch in deiner iCloud übernommen. Löschst du nur die App, bleiben deine iCloud-Daten und – falls du teilnimmst – deine Challenge-Angaben erhalten; siehe die beiden Fragen unten.</p>
+      </details>
+      <details>
+        <summary data-en="What about my iCloud data?">Was passiert mit den iCloud-Daten?</summary>
+        <p data-en="While iCloud Sync is on, your workout data is also stored in your iCloud. Deleting the app does not remove it automatically – delete it in Settings by turning off “iCloud Sync” and choosing “Delete from iCloud”. If sync is still on for another device, turn it off there as well, otherwise that device uploads the data again.">Ist die iCloud-Synchronisation eingeschaltet, liegen deine Trainingsdaten auch in deiner iCloud. Das Löschen der App entfernt diese nicht automatisch – du löschst sie in den Einstellungen, indem du „iCloud-Synchronisation“ ausschaltest und „Aus iCloud löschen“ wählst. Ist die Synchronisation auf einem weiteren Gerät noch an, schalte sie dort ebenfalls aus, sonst lädt es die Daten wieder hoch.</p>
+      </details>
+      <details>
+        <summary data-en="How do I leave the weekly challenge and delete my challenge data?">Wie verlasse ich die Wochen-Challenge und lösche meine Challenge-Daten?</summary>
+        <p data-en="On the Challenges tab via your profile. This deletes your profile at once, along with your older weekly scores; the scores of the current and the previous week remain in the ranking of those two weeks under your nickname, until we delete them in our regular cleanup: weekly scores after 13 weeks, profiles after six months without use (the cleanup runs once a month). This also applies if you delete the app without leaving the challenge. If you want your challenge data removed right away, leave the challenge in the app before you delete the app – we cannot reliably match entries to a person.">Im Challenges-Reiter über dein Profil. Dabei wird dein Profil sofort gelöscht, ebenso deine älteren Wochenstände; die Wochenstände der laufenden und der letzten Woche bleiben unter deinem Fantasienamen in der Rangliste dieser beiden Wochen stehen, bis wir sie beim regelmäßigen Aufräumen löschen: Wochenstände nach 13 Wochen, Profile nach sechs Monaten ohne Nutzung (das Aufräumen läuft einmal im Monat). Das gilt auch, wenn du die App löschst, ohne die Challenge zu verlassen. Wenn deine Challenge-Daten sofort entfernt werden sollen, verlasse die Challenge in der App, bevor du die App löschst – wir können die Einträge keiner Person sicher zuordnen.</p>
+      </details>
+      <details>
+        <summary data-en="How can I reach you?">Wie erreiche ich euch?</summary>
+        <p data-en="Just write to &lt;a href=&quot;mailto:pushform@icloud.com&quot;&gt;pushform@icloud.com&lt;/a&gt;. Questions, feedback or a problem with the app – we’re happy to help.">Schreib einfach an <a href="mailto:pushform@icloud.com">pushform@icloud.com</a>. Ob Frage, Feedback oder ein Problem mit der App – wir helfen gern weiter.</p>
+      </details>
     </section>
-    <div class="more card reveal">
-      <svg class="hic" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="g3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF9500"/><stop offset="1" stop-color="#FFCC00"/></linearGradient></defs><path fill="url(#g3)" d="M3 5.5A2.5 2.5 0 0 1 5.5 3h13A2.5 2.5 0 0 1 21 5.5v9a2.5 2.5 0 0 1-2.5 2.5H13l-4.5 4v-4h-3A2.5 2.5 0 0 1 3 14.5z"/><path fill="#fff" d="M7 8.2h10v1.6H7zm0 3.2h7v1.6H7z"/></svg>
-      <h3 data-en="Still have questions?">Noch Fragen?</h3>
-      <p data-en="The support page has more answers and our email address. We’re happy to help.">Auf der Support-Seite findest du weitere Antworten und unsere E-Mail-Adresse. Wir helfen gern weiter.</p>
-      <a class="btn" href="support.html" data-en="Go to support">Zum Support</a>
-    </div>
   </section>
 </main>
 <footer class="site site-foot">
@@ -386,7 +423,6 @@
         <a href="index.html" data-en="Home">Start</a> ·
         <a href="privacy.html" data-en="Privacy">Datenschutz</a> ·
         <a href="terms.html" data-en="Terms">Nutzungsbedingungen</a> ·
-        <a href="support.html" data-en="Support">Support</a> ·
         <a href="impressum.html" data-en="Imprint">Impressum</a>
       </div>
     </footer>
