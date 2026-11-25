@@ -10,7 +10,7 @@
   --text: #1C1C1E; --body: #3A3A3C; --muted: #6E6E73; --line: rgba(60,60,67,.18);
   --accent: #C93400;         /* systemOrange mit erhoehtem Kontrast, fuer Text (5,2:1 auf Weiss) */
   --brand1: #FF9500; --brand2: #FFCC00; --star: #FF9F0A;
-  --btn-bg: #C93400; --btn-fg: #FFFFFF;
+  --btn-bg: #FF9500; --btn-fg: #FFFFFF;   /* wie Color.brandKey (systemOrange) in der App */
   --seg-track: rgba(118,118,128,.12); --seg-on: #FFFFFF;
   --r-device: 14% / 6.45%;
   --edge: 0 0 0 1px rgba(60,60,67,.12);
@@ -18,7 +18,7 @@
 @media (prefers-color-scheme: dark) { :root {
   --bg1: #000000; --bg3: #1C1C1E; --card: #1C1C1E; --card-alt: #2C2C2E;
   --text: #FFFFFF; --body: #E5E5EA; --muted: #98989F; --line: rgba(84,84,88,.65);
-  --accent: #FFB340; --btn-bg: #FF9F0A; --btn-fg: #000000;
+  --accent: #FFB340; --brand1: #FF9F0A; --btn-bg: #FF9F0A; --btn-fg: #FFFFFF;
   --seg-track: rgba(118,118,128,.24); --seg-on: #636366;
   --edge: 0 0 0 1px rgba(255,255,255,.16);
   --shadow: 0 30px 60px -24px rgba(0,0,0,.85), 0 10px 24px -12px rgba(0,0,0,.6); } }
@@ -55,8 +55,8 @@ header.site { position: sticky; top: 0; z-index: 40; background: var(--bg1);
 @media (max-width: 48em) { .langsw button { min-height: 44px; } }
 
 /* ---------- Knopf ---------- */
-.btn { display: inline-block; background: var(--btn-bg); color: var(--btn-fg); padding: 12px 22px; border-radius: 999px;
-       text-decoration: none; font-weight: 600; }
+.btn { display: inline-block; background: var(--btn-bg); color: var(--btn-fg); padding: 13px 26px; border-radius: 999px;
+       text-decoration: none; font-weight: 700; font-size: 1rem; }
 .btn:hover { filter: brightness(1.06); }
 .btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 
