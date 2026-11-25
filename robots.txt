@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://benediktd.github.io/pushform-site/sitemap.xml
+Sitemap: https://pushform.de/sitemap.xml
