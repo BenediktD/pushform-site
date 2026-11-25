@@ -1,0 +1,83 @@
+/* Gemeinsame Gestaltung aller Seiten (Startseite, Support, Datenschutz, Nutzungsbedingungen,
+   Impressum). Farben wie in der App: iOS-Systemgrau (systemGroupedBackground) mit weissen bzw.
+   dunkelgrauen Karten, Akzent Apple-System-Orange. Seitenspezifisches steht in der jeweiligen Seite. */
+
+/* ---------- Farbtoken (hell / dunkel) ---------- */
+:root { color-scheme: light dark;
+  --bg1: #F2F2F7;            /* systemGroupedBackground */
+  --bg3: #FFFFFF;            /* secondarySystemGroupedBackground */
+  --card: #FFFFFF; --card-alt: #F2F2F7;
+  --text: #1C1C1E; --body: #3A3A3C; --muted: #6E6E73; --line: rgba(60,60,67,.18);
+  --accent: #C93400;         /* systemOrange mit erhoehtem Kontrast, fuer Text (5,2:1 auf Weiss) */
+  --brand1: #FF9500; --brand2: #FFCC00; --star: #FF9F0A;
+  --btn-bg: #C93400; --btn-fg: #FFFFFF;
+  --seg-track: rgba(118,118,128,.12); --seg-on: #FFFFFF;
+  --r-device: 14% / 6.45%;
+  --edge: 0 0 0 1px rgba(60,60,67,.12);
+  --shadow: 0 30px 60px -24px rgba(0,0,0,.30), 0 10px 24px -12px rgba(0,0,0,.14); }
+@media (prefers-color-scheme: dark) { :root {
+  --bg1: #000000; --bg3: #1C1C1E; --card: #1C1C1E; --card-alt: #2C2C2E;
+  --text: #FFFFFF; --body: #E5E5EA; --muted: #98989F; --line: rgba(84,84,88,.65);
+  --accent: #FFB340; --btn-bg: #FF9F0A; --btn-fg: #000000;
+  --seg-track: rgba(118,118,128,.24); --seg-on: #636366;
+  --edge: 0 0 0 1px rgba(255,255,255,.16);
+  --shadow: 0 30px 60px -24px rgba(0,0,0,.85), 0 10px 24px -12px rgba(0,0,0,.6); } }
+
+* { box-sizing: border-box; }
+/* 112,5 % = 18 px als Grundgroesse, folgt aber der Schrifteinstellung des Browsers */
+html { font-size: 112.5%; scroll-behavior: smooth; scroll-padding-top: 5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--bg1); color: var(--body); line-height: 1.55; font-size: 1rem;
+       font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+       -webkit-font-smoothing: antialiased; }
+a { color: var(--accent); }
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- Kopfleiste: Marke links, Sprach-Umschalter rechts ---------- */
+header.site { position: sticky; top: 0; z-index: 40; background: var(--bg1);
+              background: color-mix(in srgb, var(--bg1) 92%, transparent);
+              -webkit-backdrop-filter: saturate(180%) blur(16px); backdrop-filter: saturate(180%) blur(16px);
+              border-bottom: 1px solid var(--line); }
+.topbar { max-width: 980px; margin: 0 auto; padding: 10px 20px; display: flex; align-items: center; gap: 12px; }
+.brand { display: flex; align-items: center; gap: 8px; font-weight: 700; color: var(--text); text-decoration: none; }
+.brand .fig { width: 22px; height: 22px; background: var(--text);
+              -webkit-mask: url(figure.png) center/contain no-repeat; mask: url(figure.png) center/contain no-repeat; }
+.brand:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 8px; }
+
+/* Sprach-Umschalter im Stil eines iOS-Segmentschalters */
+.langsw { margin-left: auto; display: inline-flex; padding: 2px; gap: 2px; border-radius: 10px; background: var(--seg-track); }
+.langsw button { font: inherit; font-size: .8rem; font-weight: 600; min-width: 48px; min-height: 36px; padding: 4px 12px;
+                 border: 0; border-radius: 8px; background: transparent; color: var(--body); cursor: pointer;
+                 transition: background-color .2s ease, box-shadow .2s ease; }
+.langsw button.on { background: var(--seg-on); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 1px rgba(0,0,0,.06); }
+.langsw button:focus-visible { outline: 3px solid var(--accent); outline-offset: 1px; }
+@media (prefers-reduced-motion: reduce) { .langsw button { transition: none; } }
+@media (max-width: 48em) { .langsw button { min-height: 44px; } }
+
+/* ---------- Knopf ---------- */
+.btn { display: inline-block; background: var(--btn-bg); color: var(--btn-fg); padding: 12px 22px; border-radius: 999px;
+       text-decoration: none; font-weight: 600; }
+.btn:hover { filter: brightness(1.06); }
+.btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+/* ---------- Fuss ---------- */
+footer.site-foot { text-align: center; color: var(--muted); font-size: .88rem; padding: 40px 20px 48px; border-top: 1px solid var(--line); }
+footer.site-foot a { color: var(--muted); text-decoration: none; white-space: nowrap; }
+footer.site-foot a:hover, footer.site-foot a:focus-visible { color: var(--text); text-decoration: underline; }
+footer.site-foot .row { margin-top: 8px; }
+
+/* ---------- Textseiten (Support, Datenschutz, Nutzungsbedingungen, Impressum) ----------
+   Der Inhalt steht direkt im body (das Sprachskript teilt DE/EN an den body-Kindern),
+   deshalb wird jedes Kind auf die Lesebreite begrenzt. */
+body.doc > :not(header):not(footer):not(script):not(dialog) { max-width: 760px; margin-left: auto; margin-right: auto; padding-left: 20px; padding-right: 20px; }
+body.doc > ul, body.doc > ol { padding-left: calc(20px + 1.4em); }
+body.doc > h1:first-of-type, body.doc > h1#en { margin-top: 56px; }
+body.doc h1 { font-size: clamp(1.7rem, 3.6vw, 2.2rem); line-height: 1.15; letter-spacing: -.025em; color: var(--text); font-weight: 750; margin-bottom: 8px; }
+body.doc h2 { font-size: 1.2rem; line-height: 1.25; letter-spacing: -.01em; color: var(--text); margin-top: 2.2rem; }
+body.doc h3 { font-size: 1.02rem; color: var(--text); margin-top: 1.6rem; }
+body.doc p, body.doc li { color: var(--body); }
+body.doc .meta { color: var(--muted); font-size: .88rem; }
+body.doc hr { border: 0; border-top: 1px solid var(--line); margin: 4rem auto; }
+body.doc table { border-collapse: collapse; width: 100%; }
+body.doc th, body.doc td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+body.doc footer.site-foot { margin-top: 64px; }

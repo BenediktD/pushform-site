@@ -67,7 +67,7 @@
     "name": "Wie zählt PushForm Liegestütze?",
     "acceptedAnswer": {
      "@type": "Answer",
-     "text": "Über die Kamera deines iPhones. Die App erkennt deine Körperhaltung und zählt jede Wiederholung live mit. Die Auswertung läuft komplett auf dem Gerät; es wird kein Bild und kein Video gespeichert oder übertragen."
+     "text": "Mit der Kamera deines iPhones. Die App erkennt deine Körperhaltung und zählt jede Wiederholung live mit. Ausgewertet wird alles auf dem Gerät. Bilder oder Videos werden weder gespeichert noch übertragen."
     }
    },
    {
@@ -83,7 +83,7 @@
     "name": "Brauche ich ein Konto?",
     "acceptedAnswer": {
      "@type": "Answer",
-     "text": "Nein. Du startest ohne Registrierung. Für die Sicherung deiner Trainings und für die Wochen-Challenge nutzt die App dein vorhandenes iCloud-Konto."
+     "text": "Nein, du kannst ohne Registrierung loslegen. Für die Sicherung deiner Trainings und für die Wochen-Challenge nutzt die App das iCloud-Konto, mit dem du auf deinem iPhone angemeldet bist."
     }
    },
    {
@@ -99,7 +99,7 @@
     "name": "Auf welchen Geräten läuft PushForm?",
     "acceptedAnswer": {
      "@type": "Answer",
-     "text": "Auf dem iPhone ab iOS 17 – auch auf dem iPhone Duo, zugeklappt wie aufgeklappt. Die App gibt es auf Deutsch und Englisch."
+     "text": "Auf dem iPhone mit iOS 17 oder neuer. Das gilt auch für das iPhone Duo, zugeklappt und aufgeklappt. Die App gibt es auf Deutsch und Englisch."
     }
    },
    {
@@ -107,302 +107,277 @@
     "name": "Was passiert mit meinen Daten?",
     "acceptedAnswer": {
      "@type": "Answer",
-     "text": "Kamerabilder und Körperdaten bleiben auf deinem iPhone. Deine Trainings werden in deiner eigenen iCloud gesichert; das kannst du jederzeit abschalten. Mehr dazu steht in der Datenschutzerklärung."
+     "text": "Privacy Policy.\">Kamerabilder und Körperdaten bleiben auf deinem iPhone. Deine Trainings werden in deiner eigenen iCloud gesichert. Das kannst du jederzeit abschalten. Mehr dazu steht in der Datenschutzerklärung."
     }
    }
   ]
  }
 ]
 </script>
+<link rel="stylesheet" href="site.css">
+<script>document.documentElement.classList.add('js');</script>
 <style>
-  :root { --brand1: #FB5502; --brand2: #FBC91C; color-scheme: light dark; }
-  * { box-sizing: border-box; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-         margin: 0; color: #1c1c1e; background: #fff; line-height: 1.6; }
-  @media (prefers-color-scheme: dark) { body { color: #e5e5ea; background: #000; } }
+  .s { padding: 88px 20px; }
+  .s1 { background: var(--bg1); } .s3 { background: var(--bg3); }
+  .narrow { max-width: 600px; margin: 0 auto; text-align: center; }
 
-  .hero { width: 100%; background: linear-gradient(135deg, var(--brand1), var(--brand2));
-          color: #fff; text-align: center; padding: 24px 20px 46px;
-          box-shadow: 0 8px 26px rgba(251, 85, 2, .22); }
-  .hero-inner { max-width: 760px; margin: 0 auto; }
-  /* Schlanke Top-Leiste wie auf den Unterseiten: Marke links, Navigation rechts */
-  .topbar { display: flex; align-items: center; gap: 12px; margin-bottom: 34px; }
-  .topbar .brand { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1.05rem;
-                   color: #fff; text-decoration: none; white-space: nowrap; }
-  /* Dezentes weißes Glyph statt buntem App-Icon (transparentes PNG -> per Filter weiß). */
-  .topbar .brand img { width: 26px; height: 26px; border-radius: 0; box-shadow: none;
-                       filter: brightness(0) invert(1); opacity: .9; }
-  .hero nav { display: flex; align-items: center; gap: 8px 18px; flex-wrap: wrap; margin-left: auto; }
-  .hero nav a { color: #fff; text-decoration: none; font-weight: 600; font-size: .95rem; opacity: .92; }
-  .hero nav a.active { text-decoration: underline; text-underline-offset: 4px; opacity: 1; }
-  .hero img { width: 104px; height: 104px; border-radius: 24%; box-shadow: 0 8px 22px rgba(0,0,0,.22); }
-  .hero h1 { font-size: 2.4rem; margin: 18px 0 6px; letter-spacing: -.02em; }
-  .hero .tag { font-size: 1.15rem; margin: 0; opacity: .95; }
-  /* Offizielles App-Store-Badge: Grafik unverändert, nur Platzierung.
-     margin 20px > geforderter Freiraum (1/4 der Badge-Höhe = 13px bei 52px). */
-  /* Durchschnitt aus dem App Store im Kopf; Stand und Echtheits-Hinweis stehen im Block #reviews-h,
-     auf den die Zeile verlinkt. Weiss statt Orange: Orange Sterne verschwinden im Verlauf. */
-  /* Badge + Bewertung als Einheit: links das Badge (einzige Handlungsaufforderung), rechts die
-     Bewertung als ruhiger Text, kein Link. Am Handy steht die Bewertung zentriert darunter.
-     Bewusst ohne Anzahl der Bewertungen (noch wenige). Sterne exakt gefuellt: --fill = Schnitt/5.
-     Stand und Echtheits-Hinweis stehen im Block "Was Nutzer sagen". */
-  .hero .cta { display: flex; justify-content: center; align-items: center; gap: 16px; margin-top: 20px; flex-wrap: wrap; }
-  .hero .cta .store-badge { margin-top: 0; }
-  .hero .score { text-align: left; line-height: 1.25; padding-left: 16px; border-left: 1px solid rgba(255,255,255,.45); }
-  .hero .score strong { font-size: 1.35rem; margin-right: 4px; }
-  .hero .score .sub { font-size: .85rem; opacity: .88; }
-  .hero .sf { position: relative; display: inline-block; color: rgba(255,255,255,.38); letter-spacing: 1px; }
-  .hero .sf::before { content: "★★★★★"; position: absolute; left: 0; top: 0; width: var(--fill); overflow: hidden;
-                      color: #fff; white-space: nowrap; letter-spacing: 1px; }
-  .hero .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-  @media (max-width: 600px) { .hero .cta { gap: 12px; } .hero .score { padding-left: 12px; } }
-  @media (max-width: 360px) { .hero .score { border-left: 0; padding-left: 0; text-align: center; } }
-  .store-badge { display: inline-block; margin-top: 20px; line-height: 0; }
-  /* .hero img (App-Icon-Regel) vererbt border-radius/Schatten – fürs Badge neutralisieren,
-     sonst werden die Seiten des offiziellen Badges rund geclippt. */
-  .store-badge img { display: block; height: 52px; width: auto; border-radius: 0; box-shadow: none; }
+  /* ---------- Kopfbereich ---------- */
+  .hero { text-align: center; padding-top: 72px; padding-bottom: 8px; }
+  .appicon { width: 148px; height: 148px; border-radius: 22.5%; box-shadow: var(--shadow); }
+  .hero h1 { font-size: clamp(2.3rem, 5.4vw, 3.2rem); line-height: 1.05; letter-spacing: -.035em; color: var(--text); margin: 26px 0 14px; font-weight: 800; }
+  .lead { font-size: clamp(1.1rem, 2.2vw, 1.3rem); line-height: 1.4; color: var(--body); margin: 0 auto; max-width: 30ch; text-wrap: balance; }
+  .tagline { margin: 10px 0 0; color: var(--muted); font-size: .88rem; }
+  .cta { display: flex; justify-content: center; align-items: center; gap: 16px; margin-top: 30px; flex-wrap: wrap; }
+  .store-badge { display: inline-block; line-height: 0; }
+  .store-badge img { display: block; height: 52px; width: auto; }
+  .store-badge:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; border-radius: 10px; }
+  .score { text-align: left; line-height: 1.25; padding-left: 16px; border-left: 1px solid var(--line); color: var(--text); }
+  .score strong { font-size: 1.2rem; margin-right: 4px; }
+  .score .sub { font-size: .8rem; color: var(--muted); margin: 2px 0 0; }
+  .sf { position: relative; display: inline-block; color: var(--line); letter-spacing: 1px; }
+  .sf::before { content: "★★★★★"; position: absolute; left: 0; top: 0; width: var(--fill); overflow: hidden; color: var(--star); white-space: nowrap; letter-spacing: 1px; }
 
-  .langsw { display: inline-flex; align-items: center; gap: 4px; }
-  .langsw button { font: inherit; font-size: .82rem; background: transparent; border: 1px solid currentColor;
-                   color: inherit; border-radius: 999px; padding: 1px 8px; cursor: pointer; opacity: .6; }
-  .langsw button.on { opacity: 1; font-weight: 700; }
+  /* ---------- Montage (drei iPhones), unten bewusst angeschnitten ---------- */
+  .stage { padding-top: 48px; padding-bottom: 0; overflow: hidden; }
+  .fan { position: relative; max-width: 760px; margin: 0 auto; aspect-ratio: 100 / 65; perspective: 1600px; }
+  .fan .ph { position: absolute; top: 0; width: 34%; height: auto; border-radius: var(--r-device); background: #000;
+             box-shadow: var(--edge), var(--shadow); transition: transform 1.1s cubic-bezier(.2,.7,.1,1), opacity 1.1s ease; }
+  .fan .c { left: 33%; z-index: 3; }
+  .fan .l { left: 6%; z-index: 2; transform: translateY(9%) rotate(-7deg) scale(.9); }
+  .fan .r { right: 6%; z-index: 2; transform: translateY(9%) rotate(7deg) scale(.9); }
+  html.js .stage:not(.in) .fan .c { transform: translateY(18%) rotateX(24deg); opacity: 0; }
+  html.js .stage:not(.in) .fan .l { transform: translateY(30%) rotate(-2deg) scale(.86); opacity: 0; }
+  html.js .stage:not(.in) .fan .r { transform: translateY(30%) rotate(2deg) scale(.86); opacity: 0; }
 
-  .wrap { max-width: 760px; margin: 0 auto; padding: 20px; }
-  .card { background: #f5f5f7; border-radius: 18px; padding: 20px; }
-  @media (prefers-color-scheme: dark) { .card { background: #1c1c1e; } }
-  .card p { margin: 0; color: #8e8e93; font-size: .95rem; }
+  /* ---------- Abschnittsueberschriften: Symbol ueber dem Titel ---------- */
+  .h2wrap { display: flex; flex-direction: column; align-items: center; gap: 14px; margin: 0 0 16px; }
+  .h2wrap h2 { margin: 0; }
+  h2 { font-size: clamp(1.6rem, 3.2vw, 2rem); line-height: 1.12; letter-spacing: -.025em; color: var(--text); font-weight: 750; text-wrap: balance; }
+  .hic { width: 44px; height: 44px; flex: none; }
+  .hic-fig { display: inline-block; background: linear-gradient(135deg, var(--brand1), var(--brand2));
+             -webkit-mask: url(figure.png) center/contain no-repeat; mask: url(figure.png) center/contain no-repeat; }
+  .intro-text { margin: 0; color: var(--body); font-size: 1.05rem; }
+  .intro-text strong { color: var(--text); }
 
-  /* Funktionen: je Zeile ein App-Bild mit der passenden Funktion, abwechselnd links/rechts.
-     Am Handy Bild oben, Text darunter. Ein Klick aufs Bild vergroessert (Lightbox). */
-  .showcase { display: grid; gap: 64px; margin: 44px 0 0; }
-  .showcase .row { display: grid; grid-template-columns: 230px 1fr; gap: 48px; align-items: center; }
-  .showcase .row:nth-of-type(even) { grid-template-columns: 1fr 230px; }
+  /* ---------- Funktionen ---------- */
+  .showcase { display: grid; gap: 96px; margin: 72px auto 0; max-width: 900px; }
+  .showcase .row { display: grid; grid-template-columns: 250px 1fr; gap: 64px; align-items: center; }
+  .showcase .row:nth-of-type(even) { grid-template-columns: 1fr 250px; }
   .showcase .row:nth-of-type(even) .shot { order: 2; }
-  .showcase .zoom { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: 30px; }
-  .showcase .zoom:focus-visible { outline: 3px solid #FB5502; outline-offset: 4px; }
-  .showcase .shot img { display: block; width: 100%; height: auto; border-radius: 30px; background: #000;
-                        border: 1px solid rgba(128,128,128,.28);
-                        box-shadow: 0 24px 50px -18px rgba(251,85,2,.45), 0 8px 24px rgba(0,0,0,.18);
-                        transition: transform .25s ease; }
-  .showcase .zoom:hover img { transform: translateY(-4px); }
-  @media (prefers-reduced-motion: reduce) { .showcase .shot img { transition: none; } .showcase .zoom:hover img { transform: none; } }
-  /* Kontrast: #C2410C auf Weiss ca. 5:1, #FF8A4C auf Schwarz ca. 8:1 (Markenorange waere auf Weiss nur ~3:1). */
-  .kicker { margin: 0; font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #C2410C; }
-  @media (prefers-color-scheme: dark) { .kicker { color: #FF8A4C; } }
-  .showcase h3 { font-size: 1.65rem; line-height: 1.2; letter-spacing: -.02em; margin: 8px 0 10px; }
-  .showcase .copy p:not(.kicker) { margin: 0; color: #6e6e73; font-size: 1.05rem; }
-  .showcase .extras { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: -16px; }
-  .showcase .extras p:not(.kicker) { margin: 8px 0 0; color: #6e6e73; font-size: .97rem; }
-  @media (prefers-color-scheme: dark) { .showcase .copy p:not(.kicker), .showcase .extras p:not(.kicker) { color: #a1a1a6; } }
-  @media (max-width: 600px) {
-    .showcase { gap: 48px; margin-top: 34px; }
-    .showcase .row, .showcase .row:nth-of-type(even) { grid-template-columns: 1fr; gap: 22px; }
-    .showcase .row:nth-of-type(even) .shot { order: 0; }
-    .showcase .shot { width: 54%; margin: 0 auto; }
-    .showcase h3 { font-size: 1.4rem; }
-    .showcase .extras { grid-template-columns: 1fr; margin-top: -8px; }
+  .zoom { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: var(--r-device); }
+  .zoom:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
+  .shot img { display: block; width: 100%; height: auto; border-radius: var(--r-device); background: #000; box-shadow: var(--edge), var(--shadow); }
+  .kicker { margin: 0; font-size: .72rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--accent); }
+  .showcase h3 { font-size: clamp(1.35rem, 2.7vw, 1.7rem); line-height: 1.15; letter-spacing: -.025em; color: var(--text); margin: 10px 0 12px; }
+  .showcase .copy p:not(.kicker) { margin: 0; color: var(--muted); font-size: 1rem; }
+  .extras { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: -24px; }
+  .card { background: var(--card); border-radius: 22px; padding: 24px; border: 1px solid var(--line); }
+  .s3 .card { background: var(--card-alt); border-color: transparent; }
+  .extras p:not(.kicker) { margin: 10px 0 0; color: var(--muted); font-size: .94rem; }
+
+  /* ---------- Bewertungen ---------- */
+  .reviews { max-width: 900px; margin: 0 auto; }
+  .reviews .score { display: flex; justify-content: center; align-items: baseline; flex-wrap: wrap; gap: 4px 10px; margin: 0 0 32px;
+                    padding: 0; border: 0; text-align: center; color: var(--muted); }
+  .reviews .score .stars { color: var(--star); letter-spacing: 1px; }
+  .reviews .score strong { color: var(--text); font-size: 1rem; }
+  .reviews .quotes { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .reviews figure { margin: 0; display: flex; flex-direction: column; gap: 14px; }
+  .reviews blockquote { margin: 0; }
+  .reviews blockquote p { margin: 0; color: var(--text); font-size: .95rem; }
+  .reviews figcaption { font-size: .8rem; color: var(--muted); margin-top: auto; }
+  .reviews .note { font-size: .8rem; color: var(--muted); margin: 18px auto 0; max-width: 620px; text-align: center; }
+
+  /* ---------- Fragen ---------- */
+  .faq { max-width: 680px; margin: 0 auto; }
+  .faq details { border-bottom: 1px solid var(--line); }
+  .faq details:first-of-type { border-top: 1px solid var(--line); }
+  .faq summary { list-style: none; cursor: pointer; font-weight: 600; color: var(--text); font-size: 1rem; padding: 18px 34px 18px 0; position: relative; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; content: "+" / ""; position: absolute; right: 4px; top: 50%; transform: translateY(-50%);
+                        font-size: 1.4rem; font-weight: 400; color: var(--accent); width: 1ch; text-align: center; }
+  .faq details[open] summary::after { content: "–"; content: "–" / ""; }
+  .faq summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+  .faq p { margin: 0 0 18px; color: var(--muted); font-size: .95rem; }
+
+  /* ---------- Weitere Fragen -> Support ---------- */
+  .more { text-align: center; margin: 40px auto 0; }
+  .more p { margin: 0 0 14px; color: var(--muted); }
+
+  /* ---------- Einblenden beim Scrollen ---------- */
+  html.js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.1,1); }
+  html.js .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    html.js .reveal, html.js .stage .fan .ph { transition: none !important; opacity: 1 !important; }
+    html.js .reveal { transform: none !important; }
+    html.js .stage:not(.in) .fan .c { transform: none; }
+    html.js .stage:not(.in) .fan .l { transform: translateY(9%) rotate(-7deg) scale(.9); }
+    html.js .stage:not(.in) .fan .r { transform: translateY(9%) rotate(7deg) scale(.9); }
   }
-  /* Vergroesserung */
+  @media print {
+    html.js .reveal, html.js .stage .fan .ph { opacity: 1 !important; }
+    html.js .reveal, html.js .stage:not(.in) .fan .c { transform: none !important; }
+    header.top { position: static; }
+  }
+
+  /* ---------- Vergroesserung ---------- */
   dialog.lightbox { border: 0; padding: 0; background: transparent; max-width: 100vw; max-height: 100vh; overflow: visible; }
   dialog.lightbox::backdrop { background: rgba(0,0,0,.82); }
-  dialog.lightbox img { display: block; max-height: 90vh; max-width: 92vw; width: auto; height: auto;
-                        border-radius: 26px; box-shadow: 0 20px 60px rgba(0,0,0,.5); cursor: zoom-out; }
-  dialog.lightbox .close { position: fixed; top: 14px; right: 14px; width: 44px; height: 44px; border-radius: 50%;
-                           border: 0; background: rgba(255,255,255,.18); color: #fff; font-size: 1.5rem; line-height: 1; cursor: pointer; }
-  dialog.lightbox .close:focus-visible { outline: 3px solid #fff; }
+  dialog.lightbox img { display: block; max-height: 90vh; max-width: 92vw; width: auto; height: auto; border-radius: var(--r-device); cursor: zoom-out; }
+  dialog.lightbox .close { position: fixed; top: 14px; right: 14px; width: 44px; height: 44px; border-radius: 50%; border: 0;
+                           background: rgba(255,255,255,.18); color: #fff; font-size: 1.5rem; cursor: pointer; }
 
-  .intro { margin: 30px 0 0; }
-  .intro h2, .faq h2 { font-size: 1.35rem; letter-spacing: -.01em; margin: 0 0 8px; }
-  .intro p { margin: 0; color: #6e6e73; }
-  .intro p strong { color: #1c1c1e; }
-  @media (prefers-color-scheme: dark) { .intro p strong { color: #f5f5f7; } }
-  /* Bewertungen aus dem App Store: Durchschnitt mit Stand, wenige woertliche Zitate ohne Namen,
-     Hinweis nach § 5b Abs. 3 UWG. Bewusst KEIN AggregateRating-Markup (Google: keine Bewertungen
-     anderer Websites zusammenfassen). Werte beim Aktualisieren neu holen (itunes.apple.com/lookup). */
-  .reviews { margin: 34px 0 0; }
-  .reviews h2 { font-size: 1.35rem; letter-spacing: -.01em; margin: 0 0 6px; }
-  .reviews .score { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 10px; margin: 0 0 14px; color: #6e6e73; }
-  .reviews .score .stars { color: #FB5502; font-size: 1.15rem; letter-spacing: 1px; }
-  .reviews .score strong { color: #1c1c1e; font-size: 1.15rem; }
-  .reviews .quotes { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; }
-  .reviews blockquote { margin: 0; display: flex; flex-direction: column; gap: 10px; }
-  .reviews blockquote p { margin: 0; color: inherit; font-size: .97rem; }
-  .reviews blockquote footer { padding: 0; text-align: left; font-size: .82rem; color: #8e8e93; margin-top: auto; }
-  .reviews .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-  .reviews .note { font-size: .82rem; color: #8e8e93; margin: 12px 0 0; }
-  .reviews .note a { color: #FB5502; }
-  @media (prefers-color-scheme: dark) {
-    .reviews .score { color: #a1a1a6; }
-    .reviews .score strong { color: #f5f5f7; }
+  /* ---------- Handy (in em, damit grosse Schrift frueher umbricht) ---------- */
+  @media (max-width: 48em) {
+    .s { padding: 60px 20px; }
+    .hero { padding-top: 48px; }
+    .stage { padding-top: 40px; padding-bottom: 0; }
+    .appicon { width: 120px; height: 120px; }
+    .fan { max-width: 520px; aspect-ratio: 100 / 76; }
+    .fan .ph { width: 40%; } .fan .c { left: 30%; } .fan .l { left: 0; } .fan .r { right: 0; }
+    .showcase { gap: 64px; margin-top: 48px; }
+    .showcase .row, .showcase .row:nth-of-type(even) { grid-template-columns: 1fr; gap: 26px; }
+    .showcase .row:nth-of-type(even) .shot { order: 0; }
+    .showcase .shot { width: 56%; margin: 0 auto; }
+    .extras { grid-template-columns: 1fr; margin-top: -16px; }
   }
-  .faq { margin: 34px 0 30px; }
-  .faq details { border-bottom: 1px solid rgba(128,128,128,.25); }
-  .faq details:first-of-type { border-top: 1px solid rgba(128,128,128,.25); }
-  .faq summary { list-style: none; cursor: pointer; font-weight: 600; font-size: 1.02rem; padding: 14px 30px 14px 0;
-                 position: relative; }
-  .faq summary::-webkit-details-marker { display: none; }
-  .faq summary::after { content: "+"; position: absolute; right: 4px; top: 50%; transform: translateY(-50%);
-                        font-size: 1.4rem; font-weight: 400; color: #FB5502; line-height: 1; }
-  .faq details[open] summary::after { content: "–"; }
-  .faq summary:focus-visible { outline: 2px solid #FB5502; outline-offset: 2px; border-radius: 6px; }
-  .faq p { margin: 0 0 16px; color: #6e6e73; font-size: .97rem; }
-  .faq a { color: #FB5502; }
-  @media (prefers-color-scheme: dark) { .intro p, .faq p { color: #a1a1a6; } }
-
-  footer { text-align: center; color: #8e8e93; font-size: .9rem; padding: 10px 0 28px; }
-  footer a { color: #FB5502; text-decoration: none; white-space: nowrap; }
-  footer .row { margin-top: 6px; }
-  .nav-toggle { display: none; }
-  @media (max-width: 600px) {
-    .hero-inner { position: relative; }
-    .hero .nav-toggle { display: inline-block; position: absolute; top: 0; right: 0; z-index: 50;
-                        background: rgba(255,255,255,.20); border: 1px solid rgba(255,255,255,.65); color: #fff;
-                        border-radius: 10px; padding: 5px 11px; font-size: 1.15rem; line-height: 1; cursor: pointer; }
-    .hero nav { display: none; position: absolute; top: 44px; right: 0; left: 0; z-index: 49;
-                flex-direction: column; align-items: flex-start; gap: 14px; margin: 0 0 12px; padding: 16px;
-                background: #fff; border-radius: 14px; box-shadow: 0 10px 30px rgba(0,0,0,.22); }
-    .hero.navopen nav { display: flex; }
-    .hero nav a { color: #FB5502; opacity: 1; }
-    .hero nav a.active { text-decoration: underline; }
-    .hero .langsw button { border-color: #FB5502; color: #FB5502; }
-  }
+  @media (max-width: 360px) { .score { border-left: 0; padding-left: 0; text-align: center; } }
 </style>
 </head>
 <body>
-  <header class="hero">
-    <div class="hero-inner">
-      <div class="topbar">
-        <a class="brand" href="index.html"><img src="figure.png" alt="PushForm"> PushForm</a>
-        <button class="nav-toggle" type="button" aria-label="Menü / Menu" aria-expanded="false">☰</button>
-        <nav>
-          <a href="support.html" data-en="Support">Support</a>
-          <span class="langsw" role="group" aria-label="Sprache / Language"><button type="button" data-lang="de">DE</button><button type="button" data-lang="en">EN</button></span>
-        </nav>
-      </div>
-      <img src="icon.png" alt="PushForm App-Icon">
-      <h1>PushForm</h1>
-      <p class="tag" data-en="The push-up counter for iPhone: the camera counts, you train.">Der Liegestütz-Zähler fürs iPhone: Die Kamera zählt, du trainierst.</p>
-      <!-- Offizielles Apple-Badge (unverändert, Mindesthöhe 40px, Freiraum ≥ 1/4 Badge-Höhe;
-           siehe developer.apple.com/app-store/marketing/guidelines) -->
+<header class="site">
+  <div class="topbar">
+    <a class="brand" href="index.html"><span class="fig" aria-hidden="true"></span>PushForm</a>
+    <span class="langsw" role="group" aria-label="Sprache" data-en-label="Language"><button type="button" data-lang="de" lang="de" aria-label="Deutsch" aria-pressed="false">DE</button><button type="button" data-lang="en" lang="en" aria-label="English" aria-pressed="false">EN</button></span>
+  </div>
+</header>
+<main>
+  <section class="s s1 hero">
+    <img class="appicon" src="media/icon-296.png" alt="" width="148" height="148">
+    <h1>PushForm</h1>
+    <p class="lead" data-en="You do the push-ups. Your iPhone keeps count.">Du machst die Liegestütze, dein iPhone zählt mit.</p>
+    <p class="tagline" data-en="Free · No account · No ads">Kostenlos · Ohne Konto · Ohne Werbung</p>
       <div class="cta">
         <a class="store-badge" href="https://apps.apple.com/app/pushform-push-up-tracker/id6785243655" data-en='<img src="app-store-badge-en.svg" alt="Download on the App Store" height="52">'><img src="app-store-badge-de.svg" alt="Laden im App Store" height="52"></a>
         <div class="score" data-en='<div><strong>4.9</strong><span class="vh"> out of 5 stars</span> <span class="sf" style="--fill:98%" aria-hidden="true">★★★★★</span></div><div class="sub">on the App Store</div>'><div><strong>4,9</strong><span class="vh"> von 5 Sternen</span> <span class="sf" style="--fill:98%" aria-hidden="true">★★★★★</span></div><div class="sub">im App Store</div></div>
       </div>
+  </section>
+
+  <div class="s s1 stage">
+    <div class="fan" data-en='<img class="ph l" src="media/screens/en/3-trainingsplan.jpg" alt="" width="660" height="1434" loading="lazy"><img class="ph c" src="media/screens/en/1-kamera.jpg" alt="" width="660" height="1434" loading="lazy"><img class="ph r" src="media/screens/en/4-challenge.jpg" alt="" width="660" height="1434" loading="lazy">'><img class="ph l" src="media/screens/de/3-trainingsplan.jpg" alt="" width="660" height="1434" loading="lazy"><img class="ph c" src="media/screens/de/1-kamera.jpg" alt="" width="660" height="1434" loading="lazy"><img class="ph r" src="media/screens/de/4-challenge.jpg" alt="" width="660" height="1434" loading="lazy"></div>
+  </div>
+
+  <section class="s s3" id="funktionen">
+    <div class="narrow reveal">
+      <div class="h2wrap"><span class="hic hic-fig" aria-hidden="true"></span><h2 data-en="Count push-ups with your iPhone camera">Liegestütze zählen mit der iPhone-Kamera</h2></div>
+      <p class="intro-text" data-en="PushForm uses your iPhone’s camera to spot every rep and count your push-ups live. You also get a training plan, daily and yearly goals, streaks and a weekly challenge with other people. It’s free, with <strong>no account and no ads</strong>.">PushForm erkennt mit der iPhone-Kamera jede Wiederholung und zählt deine Liegestütze live mit. Dazu kommen ein Trainingsplan, Tages- und Jahresziele, Streaks und eine Wochen-Challenge mit anderen. Die App ist kostenlos und kommt <strong>ohne Konto und ohne Werbung</strong> aus.</p>
     </div>
-  </header>
-
-  <div class="wrap">
-    <section class="intro">
-      <h2 data-en="Count push-ups with your iPhone camera">Liegestütze zählen mit der iPhone-Kamera</h2>
-      <p data-en="PushForm is a free iPhone app that counts your push-ups automatically. Put your iPhone in front of you, the camera detects every rep and the app counts along live. On top you get a training plan, daily and yearly goals, streaks and a weekly challenge with others – <strong>no account, no ads</strong>.">PushForm ist eine kostenlose iPhone-App, die deine Liegestütze automatisch zählt. Du stellst das iPhone vor dich hin, die Kamera erkennt jede Wiederholung, und die App zählt live mit. Dazu bekommst du einen Trainingsplan, Tages- und Jahresziele, Streaks und eine wöchentliche Challenge mit anderen – <strong>ohne Konto und ohne Werbung</strong>.</p>
-    </section>
-
     <section class="showcase" aria-label="Funktionen / Features">
-      <article class="row">
-        <div class="shot" data-en='<button type="button" class="zoom" aria-label="Counting – enlarge"><img src="media/screens/en/1-kamera.jpg" alt="PushForm counting push-ups live with the camera" width="660" height="1434" loading="lazy"></button>'><button type="button" class="zoom" aria-label="Zählen – vergrößern"><img src="media/screens/de/1-kamera.jpg" alt="PushForm zählt Liegestütze live mit der Kamera" width="660" height="1434" loading="lazy"></button></div>
+      <article class="row reveal">
+        <div class="shot" data-en='<button type="button" class="zoom"><img src="media/screens/en/1-kamera.jpg" alt="PushForm counting push-ups live with the camera" width="660" height="1434" loading="lazy"><span class="vh"> – enlarge</span></button>'><button type="button" class="zoom"><img src="media/screens/de/1-kamera.jpg" alt="PushForm zählt Liegestütze live mit der Kamera" width="660" height="1434" loading="lazy"><span class="vh"> – vergrößern</span></button></div>
         <div class="copy">
           <p class="kicker" data-en="Counting">Zählen</p>
-          <h3 data-en="Auto-counting">Automatisch zählen</h3>
-          <p data-en="Set your iPhone down and start: the camera counts every push-up live – right on the device, nothing is recorded.">Stell dein iPhone hin und leg los: Die Kamera zählt jeden Liegestütz live mit – direkt auf dem Gerät, ohne Aufnahme.</p>
+          <h3 data-en="The camera counts for you">Die Kamera zählt für dich</h3>
+          <p data-en="Set your iPhone down and start. It counts every push-up live, right on the device. Nothing is recorded.">Stell dein iPhone hin und leg los. Es zählt jeden Liegestütz live mit, direkt auf dem Gerät. Aufgenommen wird dabei nichts.</p>
         </div>
       </article>
-      <article class="row">
-        <div class="shot" data-en='<button type="button" class="zoom" aria-label="Training plan – enlarge"><img src="media/screens/en/3-trainingsplan.jpg" alt="Training plan in PushForm with sessions and rest days" width="660" height="1434" loading="lazy"></button>'><button type="button" class="zoom" aria-label="Trainingsplan – vergrößern"><img src="media/screens/de/3-trainingsplan.jpg" alt="Trainingsplan in PushForm mit Sessions und Ruhetagen" width="660" height="1434" loading="lazy"></button></div>
+      <article class="row reveal">
+        <div class="shot" data-en='<button type="button" class="zoom"><img src="media/screens/en/3-trainingsplan.jpg" alt="Training plan in PushForm with sessions and rest days" width="660" height="1434" loading="lazy"><span class="vh"> – enlarge</span></button>'><button type="button" class="zoom"><img src="media/screens/de/3-trainingsplan.jpg" alt="Trainingsplan in PushForm mit Sessions und Ruhetagen" width="660" height="1434" loading="lazy"><span class="vh"> – vergrößern</span></button></div>
         <div class="copy">
           <p class="kicker" data-en="Training plan">Trainingsplan</p>
           <h3 data-en="A plan that grows with you">Ein Plan, der mitwächst</h3>
-          <p data-en="From your first test to your goal: the plan adapts to your performance and tells you what comes next.">Vom ersten Test bis zu deinem Ziel: Der Plan passt sich deiner Leistung an und sagt dir, was als Nächstes dran ist.</p>
+          <p data-en="You start with a test. From there, the plan adapts to how you’re doing and shows you what’s next.">Du startest mit einem Test. Danach passt sich der Plan deiner Leistung an und zeigt dir, was als Nächstes dran ist.</p>
         </div>
       </article>
-      <article class="row">
-        <div class="shot" data-en='<button type="button" class="zoom" aria-label="Yearly goal – enlarge"><img src="media/screens/en/2-jahresziel.jpg" alt="PushForm overview with daily target, yearly goal and streak" width="660" height="1434" loading="lazy"></button>'><button type="button" class="zoom" aria-label="Jahresziel – vergrößern"><img src="media/screens/de/2-jahresziel.jpg" alt="Übersicht in PushForm mit Tagesziel, Jahresziel und Streak" width="660" height="1434" loading="lazy"></button></div>
+      <article class="row reveal">
+        <div class="shot" data-en='<button type="button" class="zoom"><img src="media/screens/en/2-jahresziel.jpg" alt="PushForm overview with daily target, yearly goal and streak" width="660" height="1434" loading="lazy"><span class="vh"> – enlarge</span></button>'><button type="button" class="zoom"><img src="media/screens/de/2-jahresziel.jpg" alt="Übersicht in PushForm mit Tagesziel, Jahresziel und Streak" width="660" height="1434" loading="lazy"><span class="vh"> – vergrößern</span></button></div>
         <div class="copy">
           <p class="kicker" data-en="Yearly goal & streaks">Jahresziel & Streaks</p>
           <h3 data-en="Keep going, day by day">Dranbleiben, Tag für Tag</h3>
-          <p data-en="Yearly goal, daily target and streak keep you going – freezes save a missed day.">Jahresziel, Tagesziel und Streak halten dich dran – Freezes retten einen verpassten Tag.</p>
+          <p data-en="A yearly goal, a daily target and your streak keep you on track. If you miss a day, a freeze covers it.">Jahresziel, Tagesziel und Streak halten dich bei der Sache. Verpasst du mal einen Tag, rettet ihn ein Freeze.</p>
         </div>
       </article>
-      <article class="row">
-        <div class="shot" data-en='<button type="button" class="zoom" aria-label="Weekly challenge – enlarge"><img src="media/screens/en/4-challenge.jpg" alt="Weekly challenge leaderboard in PushForm" width="660" height="1434" loading="lazy"></button>'><button type="button" class="zoom" aria-label="Wochen-Challenge – vergrößern"><img src="media/screens/de/4-challenge.jpg" alt="Rangliste der Wochen-Challenge in PushForm" width="660" height="1434" loading="lazy"></button></div>
+      <article class="row reveal">
+        <div class="shot" data-en='<button type="button" class="zoom"><img src="media/screens/en/4-challenge.jpg" alt="Weekly challenge leaderboard in PushForm" width="660" height="1434" loading="lazy"><span class="vh"> – enlarge</span></button>'><button type="button" class="zoom"><img src="media/screens/de/4-challenge.jpg" alt="Rangliste der Wochen-Challenge in PushForm" width="660" height="1434" loading="lazy"><span class="vh"> – vergrößern</span></button></div>
         <div class="copy">
           <p class="kicker" data-en="Weekly challenge">Wochen-Challenge</p>
           <h3 data-en="A fresh start every week">Jede Woche ein neuer Start</h3>
-          <p data-en="Compete with others across six leagues – under a nickname. Only what the camera counted scores.">Miss dich in sechs Ligen mit anderen – unter einem Fantasienamen. Es zählt nur, was die Kamera gezählt hat.</p>
+          <p data-en="You can take on others under a nickname in one of six leagues. Only push-ups the camera counted go on the leaderboard.">Du kannst unter einem Fantasienamen in einer von sechs Ligen gegen andere antreten. Gewertet wird nur, was die Kamera gezählt hat.</p>
         </div>
       </article>
-      <article class="row">
-        <div class="shot" data-en='<button type="button" class="zoom" aria-label="Statistics – enlarge"><img src="media/screens/en/5-statistik.jpg" alt="Statistics in PushForm with monthly chart and records" width="660" height="1434" loading="lazy"></button>'><button type="button" class="zoom" aria-label="Statistik – vergrößern"><img src="media/screens/de/5-statistik.jpg" alt="Statistik in PushForm mit Monatsverlauf und Rekorden" width="660" height="1434" loading="lazy"></button></div>
+      <article class="row reveal">
+        <div class="shot" data-en='<button type="button" class="zoom"><img src="media/screens/en/5-statistik.jpg" alt="Statistics in PushForm with monthly chart and records" width="660" height="1434" loading="lazy"><span class="vh"> – enlarge</span></button>'><button type="button" class="zoom"><img src="media/screens/de/5-statistik.jpg" alt="Statistik in PushForm mit Monatsverlauf und Rekorden" width="660" height="1434" loading="lazy"><span class="vh"> – vergrößern</span></button></div>
         <div class="copy">
           <p class="kicker" data-en="Statistics">Statistiken</p>
-          <h3 data-en="See how far you have come">Sieh, wie weit du gekommen bist</h3>
-          <p data-en="Reports, records and your Year in Review every January.">Berichte, Rekorde und im Januar dein Jahresrückblick.</p>
+          <h3 data-en="See how far you’ve come">Sieh, wie weit du gekommen bist</h3>
+          <p data-en="Reports and records show your progress. Every January, you get your Year in Review.">Berichte und Rekorde zeigen deinen Fortschritt. Im Januar bekommst du deinen Jahresrückblick.</p>
         </div>
       </article>
-      <div class="extras">
+      <div class="extras reveal">
         <div class="card">
           <p class="kicker">Apple Health</p>
-          <p data-en="If you like, your workouts and active energy go straight to Apple Health.">Auf Wunsch landen deine Trainings samt aktiver Energie direkt in Apple Health.</p>
+          <p data-en="If you’d like, PushForm saves your workouts and active energy to Apple Health.">Wenn du möchtest, trägt PushForm deine Trainings und die aktive Energie in Apple Health ein.</p>
         </div>
         <div class="card">
           <p class="kicker" data-en="Private">Privat</p>
-          <p data-en="No account, no ads. Camera images and body data stay on your iPhone. Your workouts are backed up to your own iCloud – you can turn that off at any time.">Kein Konto, keine Werbung. Kamerabilder und Körperdaten bleiben auf deinem iPhone. Deine Trainings werden in deiner eigenen iCloud gesichert – das kannst du jederzeit abschalten.</p>
+          <p data-en="No account, no ads. Camera images and body data stay on your iPhone. Your workouts are backed up to your own iCloud. You can turn that off at any time.">Kein Konto, keine Werbung. Kamerabilder und Körperdaten bleiben auf deinem iPhone. Deine Trainings werden in deiner eigenen iCloud gesichert. Das kannst du jederzeit abschalten.</p>
         </div>
       </div>
     </section>
+  </section>
 
+  <section class="s s1" id="bewertungen">
     <section class="reviews" aria-labelledby="reviews-h">
-      <h2 id="reviews-h" data-en="What users say">Was Nutzer sagen</h2>
+      <div class="h2wrap"><svg class="hic" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FB5502"/><stop offset="1" stop-color="#FBC91C"/></linearGradient></defs><path fill="url(#g1)" d="M12 2.6l2.9 6 6.5.9-4.7 4.6 1.1 6.5L12 17.5l-5.8 3.1 1.1-6.5L2.6 9.5l6.5-.9z"/></svg><h2 id="reviews-h" data-en="What people say about PushForm">Was andere über PushForm sagen</h2></div>
       <p class="score">
         <span class="stars" aria-hidden="true">★★★★★</span>
         <strong data-en="4.9 out of 5 stars">4,9 von 5 Sternen</strong>
         <span data-en="on the App Store · as of 25 Nov 2026">im App Store · Stand 25.11.2026</span>
       </p>
-      <div class="quotes">
-        <blockquote class="card">
-          <p>„Die automatische Erkennung der Wiederholungen funktioniert sehr zuverlässig, insbesondere seit dem letzten Update. … Ich finde super, dass man die App ohne Anmeldung nutzen kann …“</p>
-          <footer data-en="App Store review in German · <span aria-hidden=&quot;true&quot;>★★★★★</span><span class=&quot;vh&quot;>5 out of 5 stars</span> · Aug 2026">App-Store-Bewertung · <span aria-hidden="true">★★★★★</span><span class="vh">5 von 5 Sternen</span> · August 2026</footer>
-        </blockquote>
-        <blockquote class="card">
-          <p>„Endlich eine geniale und übersichtliche App um die eigene Leistung bei den Liegestützen zu tracken! So wird man motiviert jeden Tag etwas zu tun …“</p>
-          <footer data-en="App Store review in German · <span aria-hidden=&quot;true&quot;>★★★★★</span><span class=&quot;vh&quot;>5 out of 5 stars</span> · Jul 2026">App-Store-Bewertung · <span aria-hidden="true">★★★★★</span><span class="vh">5 von 5 Sternen</span> · Juli 2026</footer>
-        </blockquote>
-        <blockquote class="card">
-          <p>„Für mich hat sich ein Ehrgeiz entwickelt wieviel schaffe ich und auch das ich meinen eigenen körperlichen Verlauf betrachten kann.“</p>
-          <footer data-en="App Store review in German · <span aria-hidden=&quot;true&quot;>★★★★★</span><span class=&quot;vh&quot;>5 out of 5 stars</span> · Jul 2026">App-Store-Bewertung · <span aria-hidden="true">★★★★★</span><span class="vh">5 von 5 Sternen</span> · Juli 2026</footer>
-        </blockquote>
+      <div class="quotes reveal">
+        <figure class="card"><blockquote><p lang="de">„Die automatische Erkennung der Wiederholungen funktioniert sehr zuverlässig, insbesondere seit dem letzten Update. … Ich finde super, dass man die App ohne Anmeldung nutzen kann …“</p></blockquote><figcaption data-en="App Store review in German · <span aria-hidden=&quot;true&quot;>★★★★★</span><span class=&quot;vh&quot;>5 out of 5 stars</span> · Aug 2026">App-Store-Bewertung · <span aria-hidden="true">★★★★★</span><span class="vh">5 von 5 Sternen</span> · August 2026</figcaption></figure>
+        <figure class="card"><blockquote><p lang="de">„Endlich eine geniale und übersichtliche App um die eigene Leistung bei den Liegestützen zu tracken! So wird man motiviert jeden Tag etwas zu tun …“</p></blockquote><figcaption data-en="App Store review in German · <span aria-hidden=&quot;true&quot;>★★★★★</span><span class=&quot;vh&quot;>5 out of 5 stars</span> · Jul 2026">App-Store-Bewertung · <span aria-hidden="true">★★★★★</span><span class="vh">5 von 5 Sternen</span> · Juli 2026</figcaption></figure>
+        <figure class="card"><blockquote><p lang="de">„Für mich hat sich ein Ehrgeiz entwickelt wieviel schaffe ich und auch das ich meinen eigenen körperlichen Verlauf betrachten kann.“</p></blockquote><figcaption data-en="App Store review in German · <span aria-hidden=&quot;true&quot;>★★★★★</span><span class=&quot;vh&quot;>5 out of 5 stars</span> · Jul 2026">App-Store-Bewertung · <span aria-hidden="true">★★★★★</span><span class="vh">5 von 5 Sternen</span> · Juli 2026</figcaption></figure>
       </div>
       <p class="note" data-en='Average and quotes are taken from the App Store, quoted verbatim and without names; we show a selection. Only people who downloaded the app can rate it there; PushForm does not check the ratings beyond that. <a href="https://apps.apple.com/de/app/pushform-push-up-tracker/id6785243655?see-all=reviews">All ratings on the App Store</a>'>Durchschnitt und Zitate stammen aus dem App Store, wörtlich und ohne Namen; gezeigt wird eine Auswahl. Bewerten kann dort nur, wer die App geladen hat; darüber hinaus prüft PushForm die Bewertungen nicht. <a href="https://apps.apple.com/de/app/pushform-push-up-tracker/id6785243655?see-all=reviews">Alle Bewertungen im App Store</a></p>
     </section>
+  </section>
 
+  <section class="s s3">
     <section class="faq">
-      <h2 data-en="Frequently asked questions">Häufige Fragen</h2>
+      <div class="h2wrap"><svg class="hic" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FB5502"/><stop offset="1" stop-color="#FBC91C"/></linearGradient></defs><path fill="url(#g2)" d="M4 3h16a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-7l-5 4v-4H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path fill="#fff" d="M11.1 13.2v-.4c0-1 .4-1.5 1.2-2.1.6-.4.9-.7.9-1.2 0-.6-.5-1-1.2-1-.8 0-1.3.5-1.3 1.2H9c0-1.7 1.2-2.8 3-2.8 1.8 0 3 1 3 2.5 0 1-.5 1.6-1.4 2.2-.6.4-.8.7-.8 1.2v.4h-1.7zm.9 3a1.1 1.1 0 1 1 0-2.2 1.1 1.1 0 0 1 0 2.2z"/></svg><h2 data-en="Frequently asked questions">Häufige Fragen</h2></div>
       <details>
         <summary data-en="How does PushForm count push-ups?">Wie zählt PushForm Liegestütze?</summary>
-        <p data-en="With your iPhone’s camera. The app detects your body position and counts every rep live. Everything is analysed on the device; no image or video is stored or transmitted.">Über die Kamera deines iPhones. Die App erkennt deine Körperhaltung und zählt jede Wiederholung live mit. Die Auswertung läuft komplett auf dem Gerät; es wird kein Bild und kein Video gespeichert oder übertragen.</p>
+        <p data-en="With your iPhone’s camera. The app follows your body position and counts every rep as you go. Everything is processed on your device. No images or video are stored or sent anywhere.">Mit der Kamera deines iPhones. Die App erkennt deine Körperhaltung und zählt jede Wiederholung live mit. Ausgewertet wird alles auf dem Gerät. Bilder oder Videos werden weder gespeichert noch übertragen.</p>
       </details>
       <details>
-        <summary data-en="What does PushForm cost?">Was kostet PushForm?</summary>
-        <p data-en="Nothing. PushForm is free and shows no ads.">Nichts. PushForm ist kostenlos und zeigt keine Werbung.</p>
+        <summary data-en="How much does PushForm cost?">Was kostet PushForm?</summary>
+        <p data-en="Nothing. PushForm is free and has no ads.">Nichts. PushForm ist kostenlos und zeigt keine Werbung.</p>
       </details>
       <details>
         <summary data-en="Do I need an account?">Brauche ich ein Konto?</summary>
-        <p data-en="No. You start without signing up. For backing up your workouts and for the weekly challenge the app uses your existing iCloud account.">Nein. Du startest ohne Registrierung. Für die Sicherung deiner Trainings und für die Wochen-Challenge nutzt die App dein vorhandenes iCloud-Konto.</p>
+        <p data-en="No, you can get started without signing up. For workout backups and the weekly challenge, the app uses the iCloud account you’re already signed in with on your iPhone.">Nein, du kannst ohne Registrierung loslegen. Für die Sicherung deiner Trainings und für die Wochen-Challenge nutzt die App das iCloud-Konto, mit dem du auf deinem iPhone angemeldet bist.</p>
       </details>
       <details>
         <summary data-en="What is the weekly challenge?">Was ist die Wochen-Challenge?</summary>
-        <p data-en="An optional leaderboard that starts afresh every week. You compete under a nickname in one of six leagues and can move up or down. Only push-ups counted by the camera score.">Eine freiwillige Rangliste, die jede Woche neu startet. Du trittst unter einem Fantasienamen in einer von sechs Ligen an und kannst auf- oder absteigen. Gewertet werden nur Liegestütze, die die Kamera gezählt hat.</p>
+        <p data-en="An optional leaderboard that resets every week. You compete under a nickname in one of six leagues and can move up or down. Only push-ups the camera counted are scored.">Eine freiwillige Rangliste, die jede Woche neu startet. Du trittst unter einem Fantasienamen in einer von sechs Ligen an und kannst auf- oder absteigen. Gewertet werden nur Liegestütze, die die Kamera gezählt hat.</p>
       </details>
       <details>
         <summary data-en="Which devices does PushForm run on?">Auf welchen Geräten läuft PushForm?</summary>
-        <p data-en="On iPhone with iOS 17 or later – including iPhone Duo, folded or unfolded. The app is available in German and English.">Auf dem iPhone ab iOS 17 – auch auf dem iPhone Duo, zugeklappt wie aufgeklappt. Die App gibt es auf Deutsch und Englisch.</p>
+        <p data-en="On iPhone with iOS 17 or later. That includes iPhone Duo, folded or unfolded. The app is available in German and English.">Auf dem iPhone mit iOS 17 oder neuer. Das gilt auch für das iPhone Duo, zugeklappt und aufgeklappt. Die App gibt es auf Deutsch und Englisch.</p>
       </details>
       <details>
         <summary data-en="What happens to my data?">Was passiert mit meinen Daten?</summary>
-        <p data-en="Camera images and body data stay on your iPhone. Your workouts are backed up to your own iCloud; you can turn that off at any time. See the <a href=&quot;privacy.html&quot;>Privacy Policy</a> for details.">Kamerabilder und Körperdaten bleiben auf deinem iPhone. Deine Trainings werden in deiner eigenen iCloud gesichert; das kannst du jederzeit abschalten. Mehr dazu steht in der <a href="privacy.html">Datenschutzerklärung</a>.</p>
+        <p data-en="Camera images and body data stay on your iPhone. Your workouts are backed up to your own iCloud. You can turn that off at any time. You’ll find the details in the <a href=&quot;privacy.html&quot;>Privacy Policy</a>.">Kamerabilder und Körperdaten bleiben auf deinem iPhone. Deine Trainings werden in deiner eigenen iCloud gesichert. Das kannst du jederzeit abschalten. Mehr dazu steht in der <a href="privacy.html">Datenschutzerklärung</a>.</p>
       </details>
     </section>
-
-    <footer>
+    <div class="more">
+      <p data-en="Still have questions?">Noch Fragen?</p>
+      <a class="btn" href="support.html" data-en="Contact support">Zum Support</a>
+    </div>
+  </section>
+</main>
+<footer class="site site-foot">
       © 2026 PushForm
       <div class="row">
         <a href="index.html" data-en="Home">Start</a> ·
@@ -412,10 +387,9 @@
         <a href="impressum.html" data-en="Imprint">Impressum</a>
       </div>
     </footer>
-  </div>
 
-<dialog class="lightbox" aria-label="Vergrößertes Bild / Enlarged image">
-  <button type="button" class="close" aria-label="Schließen / Close">×</button>
+<dialog class="lightbox" aria-label="Vergrößertes Bild" data-en-label="Enlarged image">
+  <button type="button" class="close" aria-label="Schließen" data-en-label="Close">×</button>
   <img alt="">
 </dialog>
 <script>
@@ -454,7 +428,7 @@
     nodes.forEach(function(n,i){n.innerHTML=l==='en'?n.getAttribute('data-en'):deTxt[i];});
     document.documentElement.lang=l;
     try{localStorage.setItem('pf_lang',l);}catch(e){}
-    btns.forEach(function(b){b.classList.toggle('on',b.getAttribute('data-lang')===l);});
+    btns.forEach(function(b){var on=b.getAttribute('data-lang')===l; b.classList.toggle('on',on); b.setAttribute('aria-pressed',on?'true':'false');}); document.querySelectorAll('[data-en-label]').forEach(function(n){ if(!n.dataset.deLabel) n.dataset.deLabel=n.getAttribute('aria-label'); n.setAttribute('aria-label', l==='en'?n.dataset.enLabel:n.dataset.deLabel); });
   }
   var q=(location.search.match(/[?&]lang=(de|en)/i)||[])[1];
   var init=q?q.toLowerCase():null;
@@ -466,7 +440,17 @@
     _tg.addEventListener('click',function(){var o=_hdr.classList.toggle('navopen');_tg.setAttribute('aria-expanded',o?'true':'false');});
     Array.prototype.forEach.call(_hdr.querySelectorAll('nav a'),function(a){a.addEventListener('click',function(){_hdr.classList.remove('navopen');_tg.setAttribute('aria-expanded','false');});});
   }
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&_hdr&&_hdr.classList.contains('navopen')){ _hdr.classList.remove('navopen'); _tg.setAttribute('aria-expanded','false'); _tg.focus(); } });
   apply(init);
+})();
+</script>
+<script>
+(function(){
+  var els=document.querySelectorAll('.reveal, .stage');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+  /* threshold 0: auch sehr hohe Bloecke (grosse Schrift, kleines Fenster) werden sicher sichtbar */
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0, rootMargin:'0px 0px -10% 0px'});
+  els.forEach(function(e){io.observe(e);});
 })();
 </script>
 </body>
