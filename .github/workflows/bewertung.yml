@@ -1,0 +1,41 @@
+# Traegt einmal pro Woche den App-Store-Durchschnitt in die Startseite ein
+# (Skript: .github/scripts/bewertung.py). Committet nur, wenn sich etwas geaendert
+# hat oder der "Stand" aelter als 30 Tage ist. Von Hand: Actions -> "Bewertung
+# aktualisieren" -> "Run workflow".
+name: Bewertung aktualisieren
+
+on:
+  schedule:
+    - cron: "17 5 * * 1"   # montags 05:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: bewertung
+  cancel-in-progress: false
+
+jobs:
+  aktualisieren:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - id: bewertung
+        run: python3 .github/scripts/bewertung.py
+
+      - if: steps.bewertung.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git commit -am "Bewertung aktualisiert: ${{ steps.bewertung.outputs.summary }}"
+          git push
+
+      # Pushes mit dem Job-Token loesen nicht immer einen neuen Pages-Build aus –
+      # deshalb ausdruecklich anfordern.
+      - if: steps.bewertung.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds" || echo "Pages-Build konnte nicht angefordert werden (baut beim naechsten Push)."
