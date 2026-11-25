@@ -140,6 +140,17 @@
   .hero .tag { font-size: 1.15rem; margin: 0; opacity: .95; }
   /* Offizielles App-Store-Badge: Grafik unverändert, nur Platzierung.
      margin 20px > geforderter Freiraum (1/4 der Badge-Höhe = 13px bei 52px). */
+  /* Durchschnitt aus dem App Store im Kopf; Stand und Echtheits-Hinweis stehen im Block #reviews-h,
+     auf den die Zeile verlinkt. Weiss statt Orange: Orange Sterne verschwinden im Verlauf. */
+  .hero .rating { margin: 14px 0 0; }
+  .hero .rating a { display: inline-flex; align-items: center; gap: 8px; color: #fff; text-decoration: none;
+                    font-weight: 600; font-size: .98rem; background: rgba(255,255,255,.18);
+                    border: 1px solid rgba(255,255,255,.35); border-radius: 999px; padding: 4px 14px; }
+  .hero .rating a:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+  .hero .rating .stars { letter-spacing: 1px; }
+  @media (max-width: 600px) { .hero .rating a { font-size: .9rem; padding: 4px 12px; gap: 6px; }
+                              .hero .rating .stars { letter-spacing: 0; } }
+  .hero .rating .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .store-badge { display: inline-block; margin-top: 20px; line-height: 0; }
   /* .hero img (App-Icon-Regel) vererbt border-radius/Schatten – fürs Badge neutralisieren,
      sonst werden die Seiten des offiziellen Badges rund geclippt. */
@@ -251,6 +262,7 @@
       <img src="icon.png" alt="PushForm App-Icon">
       <h1>PushForm</h1>
       <p class="tag" data-en="The push-up counter for iPhone: the camera counts, you train.">Der Liegestütz-Zähler fürs iPhone: Die Kamera zählt, du trainierst.</p>
+      <p class="rating"><a href="#reviews-h" data-en='<span class="stars" aria-hidden="true">★★★★★</span><span aria-hidden="true">4.9 · 15 App Store ratings</span><span class="vh">Rated 4.9 out of 5 stars from 15 ratings on the App Store – to the reviews</span>'><span class="stars" aria-hidden="true">★★★★★</span><span aria-hidden="true">4,9 · 15 App-Store-Bewertungen</span><span class="vh">Bewertet mit 4,9 von 5 Sternen aus 15 Bewertungen im App Store – zu den Bewertungen</span></a></p>
       <!-- Offizielles Apple-Badge (unverändert, Mindesthöhe 40px, Freiraum ≥ 1/4 Badge-Höhe;
            siehe developer.apple.com/app-store/marketing/guidelines) -->
       <a class="store-badge" href="https://apps.apple.com/app/pushform-push-up-tracker/id6785243655" data-en='<img src="app-store-badge-en.svg" alt="Download on the App Store" height="52">'><img src="app-store-badge-de.svg" alt="Laden im App Store" height="52"></a>
