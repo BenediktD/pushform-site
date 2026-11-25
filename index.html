@@ -185,6 +185,25 @@
   .intro p { margin: 0; color: #6e6e73; }
   .intro p strong { color: #1c1c1e; }
   @media (prefers-color-scheme: dark) { .intro p strong { color: #f5f5f7; } }
+  /* Bewertungen aus dem App Store: Durchschnitt mit Stand, wenige woertliche Zitate ohne Namen,
+     Hinweis nach § 5b Abs. 3 UWG. Bewusst KEIN AggregateRating-Markup (Google: keine Bewertungen
+     anderer Websites zusammenfassen). Werte beim Aktualisieren neu holen (itunes.apple.com/lookup). */
+  .reviews { margin: 34px 0 0; }
+  .reviews h2 { font-size: 1.35rem; letter-spacing: -.01em; margin: 0 0 6px; }
+  .reviews .score { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 10px; margin: 0 0 14px; color: #6e6e73; }
+  .reviews .score .stars { color: #FB5502; font-size: 1.15rem; letter-spacing: 1px; }
+  .reviews .score strong { color: #1c1c1e; font-size: 1.15rem; }
+  .reviews .quotes { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; }
+  .reviews blockquote { margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  .reviews blockquote p { margin: 0; color: inherit; font-size: .97rem; }
+  .reviews blockquote footer { padding: 0; text-align: left; font-size: .82rem; color: #8e8e93; margin-top: auto; }
+  .reviews .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .reviews .note { font-size: .82rem; color: #8e8e93; margin: 12px 0 0; }
+  .reviews .note a { color: #FB5502; }
+  @media (prefers-color-scheme: dark) {
+    .reviews .score { color: #a1a1a6; }
+    .reviews .score strong { color: #f5f5f7; }
+  }
   .faq { margin: 34px 0 30px; }
   .faq details { border-bottom: 1px solid rgba(128,128,128,.25); }
   .faq details:first-of-type { border-top: 1px solid rgba(128,128,128,.25); }
@@ -283,6 +302,30 @@
         <h3 data-en="Private">Privat</h3>
         <p data-en="No account, no ads. Camera images and body data stay on your iPhone. Your workouts are backed up to your own iCloud – you can turn that off at any time.">Kein Konto, keine Werbung. Kamerabilder und Körperdaten bleiben auf deinem iPhone. Deine Trainings werden in deiner eigenen iCloud gesichert – das kannst du jederzeit abschalten.</p>
       </div>
+    </section>
+
+    <section class="reviews" aria-labelledby="reviews-h">
+      <h2 id="reviews-h" data-en="What users say">Was Nutzer sagen</h2>
+      <p class="score">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <strong data-en="4.9 out of 5 stars">4,9 von 5 Sternen</strong>
+        <span data-en="15 ratings on the App Store in Germany · as of 25 Nov 2026">15 Bewertungen im App Store in Deutschland · Stand 25.11.2026</span>
+      </p>
+      <div class="quotes">
+        <blockquote class="card">
+          <p>„Die automatische Erkennung der Wiederholungen funktioniert sehr zuverlässig, insbesondere seit dem letzten Update. … Ich finde super, dass man die App ohne Anmeldung nutzen kann …“</p>
+          <footer data-en="App Store review in German · <span aria-hidden=&quot;true&quot;>★★★★★</span><span class=&quot;vh&quot;>5 out of 5 stars</span> · Aug 2026">App-Store-Bewertung · <span aria-hidden="true">★★★★★</span><span class="vh">5 von 5 Sternen</span> · August 2026</footer>
+        </blockquote>
+        <blockquote class="card">
+          <p>„Endlich eine geniale und übersichtliche App um die eigene Leistung bei den Liegestützen zu tracken! So wird man motiviert jeden Tag etwas zu tun …“</p>
+          <footer data-en="App Store review in German · <span aria-hidden=&quot;true&quot;>★★★★★</span><span class=&quot;vh&quot;>5 out of 5 stars</span> · Jul 2026">App-Store-Bewertung · <span aria-hidden="true">★★★★★</span><span class="vh">5 von 5 Sternen</span> · Juli 2026</footer>
+        </blockquote>
+        <blockquote class="card">
+          <p>„Für mich hat sich ein Ehrgeiz entwickelt wieviel schaffe ich und auch das ich meinen eigenen körperlichen Verlauf betrachten kann.“</p>
+          <footer data-en="App Store review in German · <span aria-hidden=&quot;true&quot;>★★★★★</span><span class=&quot;vh&quot;>5 out of 5 stars</span> · Jul 2026">App-Store-Bewertung · <span aria-hidden="true">★★★★★</span><span class="vh">5 von 5 Sternen</span> · Juli 2026</footer>
+        </blockquote>
+      </div>
+      <p class="note" data-en='Average and quotes are taken from the App Store, quoted verbatim and without names; we show a selection. Only people who downloaded the app can rate it there; PushForm does not check the ratings beyond that. <a href="https://apps.apple.com/de/app/pushform-push-up-tracker/id6785243655?see-all=reviews">All ratings on the App Store</a>'>Durchschnitt und Zitate stammen aus dem App Store, wörtlich und ohne Namen; gezeigt wird eine Auswahl. Bewerten kann dort nur, wer die App geladen hat; darüber hinaus prüft PushForm die Bewertungen nicht. <a href="https://apps.apple.com/de/app/pushform-push-up-tracker/id6785243655?see-all=reviews">Alle Bewertungen im App Store</a></p>
     </section>
 
     <section class="faq">
