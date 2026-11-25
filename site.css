@@ -1,6 +1,6 @@
-/* Gemeinsame Gestaltung aller Seiten (Startseite, Support, Datenschutz, Nutzungsbedingungen,
-   Impressum). Farben wie in der App: iOS-Systemgrau (systemGroupedBackground) mit weissen bzw.
-   dunkelgrauen Karten, Akzent Apple-System-Orange. Seitenspezifisches steht in der jeweiligen Seite. */
+/* Gemeinsame Gestaltung aller Seiten (Startseite, Datenschutz, Nutzungsbedingungen, Impressum).
+   Hell: warmer Cremeton passend zum App-Orange; dunkel: Schwarz mit dunkelgrauen Karten wie in der App.
+   Akzent Apple-System-Orange. Seitenspezifisches steht in der jeweiligen Seite. */
 
 /* ---------- Farbtoken (hell / dunkel) ---------- */
 :root { color-scheme: light dark;
@@ -12,7 +12,7 @@
   --accent: #C93400;         /* systemOrange mit erhoehtem Kontrast, fuer kleine Schrift (4,9:1 auf Creme) */
   --brand1: #FF9500; --brand2: #FFCC00; --star: #FF9F0A;
   --btn-bg: #FF9500; --btn-fg: #FFFFFF;   /* wie Color.brandKey (systemOrange) in der App */
-  --seg-track: rgba(150,90,30,.12); --seg-on: #FFFFFF;
+  --seg-track: rgba(150,90,30,.12); --seg-on: #FFFFFF; --seg-ring: rgba(120,70,20,.55);
   --r-device: 14% / 6.45%;
   --edge: 0 0 0 1px rgba(120,70,20,.12);
   --shadow: 0 30px 60px -24px rgba(70,35,0,.28), 0 10px 24px -12px rgba(70,35,0,.12); }
@@ -20,7 +20,7 @@
   --bg1: #000000; --bg3: #1C1C1E; --card: #1C1C1E; --card-alt: #2C2C2E;
   --text: #FFFFFF; --body: #E5E5EA; --muted: #98989F; --line: rgba(84,84,88,.65);
   --accent: #FFB340; --brand1: #FF9F0A; --btn-bg: #FF9F0A; --btn-fg: #FFFFFF;
-  --seg-track: rgba(118,118,128,.24); --seg-on: #636366;
+  --seg-track: rgba(118,118,128,.24); --seg-on: #636366; --seg-ring: rgba(255,255,255,.55);
   --edge: 0 0 0 1px rgba(255,255,255,.16);
   --shadow: 0 30px 60px -24px rgba(0,0,0,.85), 0 10px 24px -12px rgba(0,0,0,.6); } }
 
@@ -46,7 +46,7 @@ header.site { position: sticky; top: 0; z-index: 40; background: var(--bg1);
 .brand:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 8px; }
 
 /* Sprungmarken zu den Abschnitten der Startseite */
-.topnav { margin-left: auto; display: flex; align-items: center; gap: 22px; }
+.topnav { margin-left: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 22px; }
 .topnav a { color: var(--body); text-decoration: none; font-size: .88rem; font-weight: 500; padding: 8px 0; }
 .topnav a:hover { color: var(--text); text-decoration: underline; text-underline-offset: 4px; }
 .topnav a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
@@ -54,8 +54,8 @@ header.site { position: sticky; top: 0; z-index: 40; background: var(--bg1);
 @media (max-width: 48em) {
   html { scroll-padding-top: 7.5rem; }
   .topbar { flex-wrap: wrap; row-gap: 2px; }
-  .topnav { order: 3; width: 100%; margin-left: 0; justify-content: center; gap: 4px 22px; }
-  .topnav a { padding: 6px 2px; font-size: .85rem; }
+  .topnav { order: 3; width: 100%; margin-left: 0; justify-content: center; gap: 0 12px; }
+  .topnav a { padding: 10px 5px; font-size: .85rem; }
   .topnav + .langsw { margin-left: auto; }
 }
 
@@ -64,7 +64,9 @@ header.site { position: sticky; top: 0; z-index: 40; background: var(--bg1);
 .langsw button { font: inherit; font-size: .8rem; font-weight: 600; min-width: 48px; min-height: 36px; padding: 4px 12px;
                  border: 0; border-radius: 8px; background: transparent; color: var(--body); cursor: pointer;
                  transition: background-color .2s ease, box-shadow .2s ease; }
-.langsw button.on { background: var(--seg-on); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 1px rgba(0,0,0,.06); }
+.langsw button.on { background: var(--seg-on); color: var(--text); font-weight: 800;
+                    box-shadow: 0 0 0 1px var(--seg-ring), 0 1px 3px rgba(0,0,0,.12); }
+html:not(.js) .langsw { display: none; }   /* ohne Skript kein Sprachwechsel – dann auch keine Knoepfe */
 .langsw button:focus-visible { outline: 3px solid var(--accent); outline-offset: 1px; }
 @media (prefers-reduced-motion: reduce) { .langsw button { transition: none; } }
 @media (max-width: 48em) { .langsw button { min-height: 44px; } }
@@ -77,22 +79,28 @@ header.site { position: sticky; top: 0; z-index: 40; background: var(--bg1);
 
 /* ---------- Fuss ---------- */
 footer.site-foot { text-align: center; color: var(--muted); font-size: .88rem; padding: 40px 20px 48px; border-top: 1px solid var(--line); }
-footer.site-foot a { color: var(--muted); text-decoration: none; white-space: nowrap; }
+footer.site-foot a { color: var(--muted); text-decoration: none; white-space: nowrap; display: inline-block; padding: 12px 4px; }
 footer.site-foot a:hover, footer.site-foot a:focus-visible { color: var(--text); text-decoration: underline; }
 footer.site-foot .row { margin-top: 8px; }
 
-/* ---------- Textseiten (Support, Datenschutz, Nutzungsbedingungen, Impressum) ----------
+/* ---------- Textseiten (Datenschutz, Nutzungsbedingungen, Impressum) ----------
    Der Inhalt steht direkt im body (das Sprachskript teilt DE/EN an den body-Kindern),
    deshalb wird jedes Kind auf die Lesebreite begrenzt. */
-body.doc > :not(header):not(footer):not(script):not(dialog) { max-width: 760px; margin-left: auto; margin-right: auto; padding-left: 20px; padding-right: 20px; }
+body.doc > :where(:not(header, footer, script, dialog, .skip-target)) { max-width: 760px; margin-left: auto; margin-right: auto; padding-left: 20px; padding-right: 20px; }
 body.doc > ul, body.doc > ol { padding-left: calc(20px + 1.4em); }
 body.doc > h1:first-of-type, body.doc > h1#en { margin-top: 56px; }
+body.doc h1, body.doc h2 { overflow-wrap: anywhere; -webkit-hyphens: auto; hyphens: auto; }
 body.doc h1 { font-size: clamp(1.7rem, 3.6vw, 2.2rem); line-height: 1.15; letter-spacing: -.025em; color: var(--text); font-weight: 750; margin-bottom: 8px; }
 body.doc h2 { font-size: 1.2rem; line-height: 1.25; letter-spacing: -.01em; color: var(--text); margin-top: 2.2rem; }
-body.doc h3 { font-size: 1.02rem; color: var(--text); margin-top: 1.6rem; }
 body.doc p, body.doc li { color: var(--body); }
 body.doc .meta { color: var(--muted); font-size: .88rem; }
 body.doc hr { border: 0; border-top: 1px solid var(--line); margin: 4rem auto; }
-body.doc table { border-collapse: collapse; width: 100%; }
-body.doc th, body.doc td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
 body.doc footer.site-foot { margin-top: 64px; }
+
+/* ---------- Direkt zum Inhalt (Tastatur) ---------- */
+.skip { position: absolute; left: 12px; top: -60px; z-index: 60; background: var(--text); color: var(--bg1); padding: 10px 16px; border-radius: 10px; text-decoration: none; font-weight: 600; }
+.skip:focus { top: 10px; }
+.skip-target:focus { outline: none; }
+
+/* ---------- Druck ---------- */
+@media print { header.site { position: static; -webkit-backdrop-filter: none; backdrop-filter: none; } .langsw, .topnav, .skip { display: none; } }

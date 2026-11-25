@@ -9,15 +9,18 @@
 <meta name="robots" content="noindex, nofollow, noarchive">
 <title>PushForm – Impressum</title>
 <link rel="stylesheet" href="site.css">
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body class="doc">
 <header class="site">
+  <a class="skip" href="#inhalt" data-en="Skip to content">Zum Inhalt</a>
   <div class="topbar">
     <a class="brand" href="index.html"><span class="fig" aria-hidden="true"></span>PushForm</a>
     <nav class="topnav" aria-label="Bereiche" data-en-label="Sections"><a href="index.html#funktionen" data-en="Features">Features</a><a href="index.html#bewertungen" data-en="Reviews">Bewertungen</a><a href="index.html#fragen" data-en="Support">Support</a></nav>
     <span class="langsw" role="group" aria-label="Sprache" data-en-label="Language"><button type="button" data-lang="de" lang="de" aria-label="Deutsch" aria-pressed="false">DE</button><button type="button" data-lang="en" lang="en" aria-label="English" aria-pressed="false">EN</button></span>
   </div>
 </header>
+<span id="inhalt" class="site skip-target" tabindex="-1"></span>
 
 
 <h1>Impressum</h1>
@@ -109,11 +112,6 @@ Email: <a href="mailto:pushform@icloud.com">pushform@icloud.com</a></p>
   if(!init){try{init=localStorage.getItem('pf_lang');}catch(e){}}
   if(!init)init=(navigator.language||'en').toLowerCase().indexOf('de')===0?'de':'en';
   btns.forEach(function(b){b.addEventListener('click',function(){apply(b.getAttribute('data-lang'));});});
-  var _hdr=document.querySelector('header'), _tg=document.querySelector('.nav-toggle');
-  if(_tg&&_hdr){
-    _tg.addEventListener('click',function(){var o=_hdr.classList.toggle('navopen');_tg.setAttribute('aria-expanded',o?'true':'false');});
-    Array.prototype.forEach.call(_hdr.querySelectorAll('nav a'),function(a){a.addEventListener('click',function(){_hdr.classList.remove('navopen');_tg.setAttribute('aria-expanded','false');});});
-  }
   apply(init);
 })();
 </script>
