@@ -133,14 +133,6 @@
      "@type": "Answer",
      "text": "Im Challenges-Reiter über dein Profil. Dabei wird dein Profil sofort gelöscht, ebenso deine älteren Wochenstände; die Wochenstände der laufenden und der letzten Woche bleiben unter deinem Fantasienamen in der Rangliste dieser beiden Wochen stehen, bis wir sie beim regelmäßigen Aufräumen löschen: Wochenstände nach 13 Wochen, Profile nach sechs Monaten ohne Nutzung (das Aufräumen läuft einmal im Monat). Das gilt auch, wenn du die App löschst, ohne die Challenge zu verlassen. Wenn deine Challenge-Daten sofort entfernt werden sollen, verlasse die Challenge in der App, bevor du die App löschst – wir können die Einträge keiner Person sicher zuordnen."
     }
-   },
-   {
-    "@type": "Question",
-    "name": "Wie erreiche ich euch?",
-    "acceptedAnswer": {
-     "@type": "Answer",
-     "text": "Schreib einfach an pushform@icloud.com. Ob Frage, Feedback oder ein Problem mit der App – wir helfen gern weiter."
-    }
    }
   ]
  }
@@ -232,6 +224,12 @@
   .faq summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
   .faq p { margin: 0 0 18px; color: var(--muted); font-size: .95rem; }
 
+  /* ---------- Kontakt-Karte unter den Fragen ---------- */
+  .more { text-align: center; max-width: 680px; margin: 48px auto 0; padding: 36px 28px; display: flex; flex-direction: column; align-items: center; }
+  .more h3 { margin: 14px 0 8px; font-size: 1.35rem; letter-spacing: -.02em; color: var(--text); }
+  .more p { margin: 0 0 22px; color: var(--muted); max-width: 42ch; }
+  .more .mail { margin: 12px 0 0; font-size: .85rem; }
+
   /* ---------- Einblenden beim Scrollen ---------- */
   html.js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.1,1); }
   html.js .reveal.in { opacity: 1; transform: none; }
@@ -276,7 +274,7 @@
 <header class="site">
   <div class="topbar">
     <a class="brand" href="index.html"><span class="fig" aria-hidden="true"></span>PushForm</a>
-    <nav class="topnav" aria-label="Bereiche" data-en-label="Sections"><a href="#funktionen" data-en="Features">Funktionen</a><a href="#bewertungen" data-en="Reviews">Bewertungen</a><a href="#fragen" data-en="FAQ">Fragen</a></nav>
+    <nav class="topnav" aria-label="Bereiche" data-en-label="Sections"><a href="#funktionen" data-en="Features">Features</a><a href="#bewertungen" data-en="Reviews">Bewertungen</a><a href="#fragen" data-en="Support">Support</a></nav>
     <span class="langsw" role="group" aria-label="Sprache" data-en-label="Language"><button type="button" data-lang="de" lang="de" aria-label="Deutsch" aria-pressed="false">DE</button><button type="button" data-lang="en" lang="en" aria-label="English" aria-pressed="false">EN</button></span>
   </div>
 </header>
@@ -411,11 +409,14 @@
         <summary data-en="How do I leave the weekly challenge and delete my challenge data?">Wie verlasse ich die Wochen-Challenge und lösche meine Challenge-Daten?</summary>
         <p data-en="On the Challenges tab via your profile. This deletes your profile at once, along with your older weekly scores; the scores of the current and the previous week remain in the ranking of those two weeks under your nickname, until we delete them in our regular cleanup: weekly scores after 13 weeks, profiles after six months without use (the cleanup runs once a month). This also applies if you delete the app without leaving the challenge. If you want your challenge data removed right away, leave the challenge in the app before you delete the app – we cannot reliably match entries to a person.">Im Challenges-Reiter über dein Profil. Dabei wird dein Profil sofort gelöscht, ebenso deine älteren Wochenstände; die Wochenstände der laufenden und der letzten Woche bleiben unter deinem Fantasienamen in der Rangliste dieser beiden Wochen stehen, bis wir sie beim regelmäßigen Aufräumen löschen: Wochenstände nach 13 Wochen, Profile nach sechs Monaten ohne Nutzung (das Aufräumen läuft einmal im Monat). Das gilt auch, wenn du die App löschst, ohne die Challenge zu verlassen. Wenn deine Challenge-Daten sofort entfernt werden sollen, verlasse die Challenge in der App, bevor du die App löschst – wir können die Einträge keiner Person sicher zuordnen.</p>
       </details>
-      <details>
-        <summary data-en="How can I reach you?">Wie erreiche ich euch?</summary>
-        <p data-en="Just write to &lt;a href=&quot;mailto:pushform@icloud.com&quot;&gt;pushform@icloud.com&lt;/a&gt;. Questions, feedback or a problem with the app – we’re happy to help.">Schreib einfach an <a href="mailto:pushform@icloud.com">pushform@icloud.com</a>. Ob Frage, Feedback oder ein Problem mit der App – wir helfen gern weiter.</p>
-      </details>
     </section>
+    <div class="more card reveal">
+      <svg class="hic" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="g3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF9500"/><stop offset="1" stop-color="#FFCC00"/></linearGradient></defs><path fill="url(#g3)" d="M3 5.5A2.5 2.5 0 0 1 5.5 3h13A2.5 2.5 0 0 1 21 5.5v9a2.5 2.5 0 0 1-2.5 2.5H13l-4.5 4v-4h-3A2.5 2.5 0 0 1 3 14.5z"/><path fill="#fff" d="M7 8.2h10v1.6H7zm0 3.2h7v1.6H7z"/></svg>
+      <h3 data-en="Still have questions?">Noch Fragen?</h3>
+      <p data-en="Questions, feedback or a problem with the app? Just write to us – we’re happy to help.">Ob Frage, Feedback oder ein Problem mit der App: Schreib uns einfach, wir helfen gern weiter.</p>
+      <a class="btn" href="mailto:pushform@icloud.com" data-en="Send an email">E-Mail schreiben</a>
+      <p class="mail" data-en="pushform@icloud.com">pushform@icloud.com</p>
+    </div>
   </section>
 </main>
 <footer class="site site-foot">
