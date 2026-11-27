@@ -136,7 +136,15 @@
 ]
 </script>
 <link rel="stylesheet" href="site.css">
-<script>document.documentElement.classList.add('js');</script>
+<script>document.documentElement.classList.add('js');
+// Groesstes Element (mittleres iPhone) frueh laden: Die deutsche Fassung steht
+// im HTML, die englische tauscht das Sprachskript erst am Seitenende ein –
+// deshalb hier dieselbe Sprachwahl wie dort und die englische vorladen.
+(function(){var q=(location.search.match(/[?&]lang=(de|en)/i)||[])[1],l=q?q.toLowerCase():null;
+if(!l){try{l=localStorage.getItem('pf_lang');}catch(e){}}
+if(l!=='de'&&l!=='en')l=(navigator.language||'en').toLowerCase().indexOf('de')===0?'de':'en';
+if(l==='en'){var k=document.createElement('link');k.rel='preload';k.as='image';k.href='media/screens/en/1-kamera.jpg';k.setAttribute('fetchpriority','high');document.head.appendChild(k);}})();
+</script>
 <style>
   .s { padding: 88px 20px; }
   .s1 { background: var(--bg1); } .s3 { background: var(--bg3); }
@@ -272,18 +280,18 @@
 </header>
 <main id="inhalt" class="skip-target" tabindex="-1">
   <section class="s s1 hero">
-    <img class="appicon" src="media/icon-296.png" alt="" width="148" height="148">
+    <img class="appicon" src="media/icon-296.jpg" alt="" width="148" height="148">
     <h1>PushForm</h1>
     <p class="lead" data-en="You do the push-ups. Your iPhone keeps count.">Du machst die Liegestütze, dein iPhone zählt mit.</p>
     <p class="tagline" data-en="Free · No account · No ads">Kostenlos · Ohne Konto · Ohne Werbung</p>
       <div class="cta">
-        <a class="store-badge" href="https://apps.apple.com/app/pushform-push-up-tracker/id6785243655" data-en='<img src="app-store-badge-en.svg" alt="Download on the App Store" height="52">'><img src="app-store-badge-de.svg" alt="Laden im App Store" height="52"></a>
+        <a class="store-badge" href="https://apps.apple.com/app/pushform-push-up-tracker/id6785243655" data-en='<img src="app-store-badge-en.svg" alt="Download on the App Store" width="156" height="52">'><img src="app-store-badge-de.svg" alt="Laden im App Store" width="156" height="52"></a>
         <div class="score" data-en='<div><strong>4.9</strong><span class="vh"> out of 5 stars</span> <span class="sf" style="--fill:98%" aria-hidden="true">★★★★★</span></div><div class="sub">on the App Store</div>'><div><strong>4,9</strong><span class="vh"> von 5 Sternen</span> <span class="sf" style="--fill:98%" aria-hidden="true">★★★★★</span></div><div class="sub">im App Store</div></div>
       </div>
   </section>
 
   <div class="s s1 stage">
-    <div class="fan" data-en='<img class="ph l" src="media/screens/en/3-trainingsplan.jpg" alt="" width="660" height="1434" loading="lazy"><img class="ph c" src="media/screens/en/1-kamera.jpg" alt="" width="660" height="1434" loading="lazy"><img class="ph r" src="media/screens/en/4-challenge.jpg" alt="" width="660" height="1434" loading="lazy">'><img class="ph l" src="media/screens/de/3-trainingsplan.jpg" alt="" width="660" height="1434" loading="lazy"><img class="ph c" src="media/screens/de/1-kamera.jpg" alt="" width="660" height="1434" loading="lazy"><img class="ph r" src="media/screens/de/4-challenge.jpg" alt="" width="660" height="1434" loading="lazy"></div>
+    <div class="fan" data-en='<img class="ph l" src="media/screens/en/3-trainingsplan.jpg" alt="" width="660" height="1434" loading="lazy"><img class="ph c" src="media/screens/en/1-kamera.jpg" alt="" width="660" height="1434" fetchpriority="high"><img class="ph r" src="media/screens/en/4-challenge.jpg" alt="" width="660" height="1434" loading="lazy">'><img class="ph l" src="media/screens/de/3-trainingsplan.jpg" alt="" width="660" height="1434" loading="lazy"><img class="ph c" src="media/screens/de/1-kamera.jpg" alt="" width="660" height="1434" fetchpriority="high"><img class="ph r" src="media/screens/de/4-challenge.jpg" alt="" width="660" height="1434" loading="lazy"></div>
   </div>
 
   <section class="s s3" id="funktionen">
@@ -467,7 +475,6 @@
   if(!init){try{init=localStorage.getItem('pf_lang');}catch(e){}}
   if(!init)init=(navigator.language||'en').toLowerCase().indexOf('de')===0?'de':'en';
   btns.forEach(function(b){b.addEventListener('click',function(){apply(b.getAttribute('data-lang'));});});
-  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&_hdr&&_hdr.classList.contains('navopen')){ _hdr.classList.remove('navopen'); _tg.setAttribute('aria-expanded','false'); _tg.focus(); } });
   apply(init);
 })();
 </script>
