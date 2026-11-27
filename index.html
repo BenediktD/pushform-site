@@ -255,9 +255,13 @@ if(l==='en'){var k=document.createElement('link');k.rel='preload';k.as='image';k
   /* ---------- Handy (in em, damit grosse Schrift frueher umbricht) ---------- */
   @media (max-width: 48em) {
     .s { padding: 60px 20px; }
-    .hero { padding-top: 48px; }
-    .stage { padding-top: 40px; padding-bottom: 0; }
-    .appicon { width: 120px; height: 120px; }
+    /* Kopfbereich kompakt, damit die iPhones auf dem Handy schon im ersten
+       Bild zu sehen sind (vorher standen sie fast ganz unter dem Rand). */
+    .hero { padding: 22px 20px 6px; }
+    .hero h1 { margin: 16px 0 10px; }
+    .cta { margin-top: 20px; }
+    .stage { padding-top: 22px; padding-bottom: 0; }
+    .appicon { width: 84px; height: 84px; }
     .fan { max-width: 520px; aspect-ratio: 100 / 76; }
     .fan .ph { width: 40%; } .fan .c { left: 30%; } .fan .l { left: 0; } .fan .r { right: 0; }
     .showcase { gap: 64px; margin-top: 48px; }
