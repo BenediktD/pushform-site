@@ -137,7 +137,7 @@
  }
 ]
 </script>
-<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="site.css?v=20261127">
 <script>document.documentElement.classList.add('js');
 // Groesstes Element (mittleres iPhone) frueh laden: Die deutsche Fassung steht
 // im HTML, die englische tauscht das Sprachskript erst am Seitenende ein –
@@ -436,6 +436,13 @@ if(l==='en'){var k=document.createElement('link');k.rel='preload';k.as='image';k
       </div>
     </footer>
 
+<aside class="dlbar" aria-label="App laden" data-en-label="Get the app">
+  <img src="media/icon-296.jpg" alt="" width="40" height="40">
+  <div class="dlt"><strong>PushForm</strong><span data-en="Free · iPhone">Kostenlos · iPhone</span></div>
+  <a class="dlget" href="https://apps.apple.com/app/pushform-push-up-tracker/id6785243655" data-en="Get">Laden</a>
+  <button type="button" class="dlx" aria-label="Schließen" data-en-label="Close">×</button>
+</aside>
+
 <dialog class="lightbox" aria-label="Vergrößertes Bild" data-en-label="Enlarged image">
   <button type="button" class="close" aria-label="Schließen" data-en-label="Close">×</button>
   <img alt="">
@@ -493,6 +500,28 @@ if(l==='en'){var k=document.createElement('link');k.rel='preload';k.as='image';k
   /* threshold 0: auch sehr hohe Bloecke (grosse Schrift, kleines Fenster) werden sicher sichtbar */
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0, rootMargin:'0px 0px -10% 0px'});
   els.forEach(function(e){io.observe(e);});
+})();
+</script>
+<script>
+/* Download-Leiste nur auf dem iPhone: erscheint, wenn der App-Store-Knopf oben
+   aus dem Bild ist, verschwindet am Fuss der Seite und nach dem Schliessen
+   (fuer diesen Besuch). Apples Smart-App-Banner laesst sich nicht festhalten. */
+(function(){
+  var bar=document.querySelector('.dlbar');
+  if(!bar)return;
+  var test=/[?&]dlbar=1/.test(location.search);
+  if(!(/iPhone|iPod/.test(navigator.userAgent)||test)||!('IntersectionObserver' in window))return;
+  try{ if(sessionStorage.getItem('pf_dlbar_zu')==='1'&&!test) return; }catch(e){}
+  var badge=document.querySelector('.store-badge'), foot=document.querySelector('footer.site-foot');
+  var obenSichtbar=true, fussSichtbar=false, zu=false;
+  function zeigen(){ var an=!zu&&!obenSichtbar&&!fussSichtbar; bar.classList.toggle('on',an); bar.inert=!an; }
+  bar.inert=true;
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.target===badge) obenSichtbar=e.isIntersecting; else fussSichtbar=e.isIntersecting;
+  }); zeigen();},{threshold:0});
+  if(badge)io.observe(badge); else obenSichtbar=false;
+  if(foot)io.observe(foot);
+  bar.querySelector('.dlx').addEventListener('click',function(){ zu=true; zeigen(); try{sessionStorage.setItem('pf_dlbar_zu','1');}catch(e){} });
 })();
 </script>
 </body>
