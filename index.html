@@ -20,7 +20,6 @@
 <meta property="og:locale" content="de_DE">
 <meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary">
-<meta name="apple-itunes-app" content="app-id=6785243655">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"PushForm","alternateName":"PushForm App","url":"https://pushform.de/"}</script>
 <script type="application/ld+json">
 [
@@ -137,7 +136,7 @@
  }
 ]
 </script>
-<link rel="stylesheet" href="site.css?v=20261127">
+<link rel="stylesheet" href="site.css?v=20261127c">
 <script>document.documentElement.classList.add('js');
 // Groesstes Element (mittleres iPhone) frueh laden: Die deutsche Fassung steht
 // im HTML, die englische tauscht das Sprachskript erst am Seitenende ein –
@@ -438,7 +437,7 @@ if(l==='en'){var k=document.createElement('link');k.rel='preload';k.as='image';k
 
 <aside class="dlbar" aria-label="App laden" data-en-label="Get the app">
   <img src="media/icon-296.jpg" alt="" width="40" height="40">
-  <div class="dlt"><strong>PushForm</strong><span data-en="Free · iPhone">Kostenlos · iPhone</span></div>
+  <div class="dlt"><strong data-en="PushForm: Push-Up Tracker">PushForm: Liegestütze-Zähler</strong><span data-en="Camera Rep Counter &amp; Challenge">Tracker mit Kamera &amp; Challenge</span></div>
   <a class="dlget" href="https://apps.apple.com/app/pushform-push-up-tracker/id6785243655" data-en="Get">Laden</a>
   <button type="button" class="dlx" aria-label="Schließen" data-en-label="Close">×</button>
 </aside>
@@ -505,7 +504,9 @@ if(l==='en'){var k=document.createElement('link');k.rel='preload';k.as='image';k
 <script>
 /* Download-Leiste nur auf dem iPhone: erscheint, wenn der App-Store-Knopf oben
    aus dem Bild ist, verschwindet am Fuss der Seite und nach dem Schliessen
-   (fuer diesen Besuch). Apples Smart-App-Banner laesst sich nicht festhalten. */
+   (fuer diesen Besuch). Ersetzt Apples Smart-App-Banner (entfernt 27.11.2026:
+   Safari schob es nach "Start" halb unter die Statusleiste). Name, Untertitel
+   und "Laden" wie im App Store. */
 (function(){
   var bar=document.querySelector('.dlbar');
   if(!bar)return;
