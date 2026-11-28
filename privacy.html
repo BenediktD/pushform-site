@@ -27,9 +27,9 @@
 <p class="meta">Stand: 28. November 2026</p>
 
 <p>PushForm ist eine App zum Zählen und Verfolgen von Liegestützen. Datenschutz ist uns wichtig:
-<strong>Kamerabilder, Messwerte der Kamera (Körper- und Gesichtspunkte) und deine Körperdaten bleiben ausschließlich auf deinem Gerät. Deine Trainingsdaten liegen auf deinem Gerät und werden zusätzlich in deiner eigenen iCloud gesichert, solange die iCloud-Synchronisation eingeschaltet ist. Nimmst du an der Wochen-Challenge teil, wird deine Wochenzahl unter einem Fantasienamen für andere Teilnehmende sichtbar.</strong>
+<strong>Kamerabilder, Messwerte der Kamera und dein Körpergewicht bleiben ausschließlich auf deinem Gerät. Deine Trainingsdaten liegen auf deinem Gerät und werden zusätzlich in deiner eigenen iCloud gesichert, solange die iCloud-Synchronisation eingeschaltet ist. Nimmst du an der Wochen-Challenge teil, wird deine Wochenzahl unter einem Fantasienamen für andere Teilnehmende sichtbar.</strong>
 Es gibt kein Benutzerkonto und keine Werbung. Zur Verbesserung der App werden <strong>pseudonyme Nutzungsstatistiken</strong>
-erhoben (siehe unten; aus Kamera-Trainings nur grobe Zähl- und Ja/Nein-Angaben, etwa wie oft die App einen Hinweis gezeigt hat) – ohne Namen und ohne Werbe-ID; du kannst sie jederzeit in den App-Einstellungen abschalten.</p>
+erhoben (siehe unten) – ohne Namen und ohne Werbe-ID; du kannst sie jederzeit in den App-Einstellungen abschalten.</p>
 
 <h2>Verantwortlicher</h2>
 <p>Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) und anderer nationaler Datenschutzgesetze ist:<br>
@@ -61,7 +61,7 @@ Die App selbst erhebt keine solchen Server-Logfiles.</p>
   <li><strong>Kamerazugriff</strong> – wird ausschließlich in Echtzeit auf dem Gerät zur Erkennung der Liegestütz-Bewegung verwendet. Es werden <strong>keine Bilder oder Videos aufgenommen, gespeichert oder übertragen.</strong></li>
   <li><strong>Lokale Mitteilungen</strong> – nur Erinnerungen auf deinem Gerät.</li>
   <li><strong>Wochen-Challenge (nur bei Teilnahme)</strong> – eine pseudonyme Kennung, ein aus einer festen Wortliste gewürfelter Fantasiename, eine Farbe, Liga und Stufe, die Zahl verpasster Wochen sowie die Zahl deiner von der Kamera gezählten Liegestütze je Tag der Woche, siehe Abschnitt unten.</li>
-  <li><strong>Nutzungsstatistik</strong> – pseudonyme Ereignisse (welche Funktionen genutzt werden) mit einfachen Zahlen wie den Wiederholungen je Training und, bei Kamera-Trainings, wie oft nachgetippt wurde oder die App einen Hinweis gab, siehe Abschnitt unten.</li>
+  <li><strong>Nutzungsstatistik</strong> – pseudonyme Nutzungsereignisse, siehe Abschnitt unten.</li>
 </ul>
 
 <h2>Apple Health (HealthKit)</h2>
@@ -82,29 +82,20 @@ und ausschließlich lokal auf deinem Gerät.</p>
 
 <h2>Nutzungsstatistik</h2>
 <p>Zur Verbesserung der App erfassen wir, <strong>welche Funktionen wie oft genutzt werden</strong> (z. B.
-„Training gespeichert", „Bericht geöffnet"), und einfache Zahlen dazu: die <strong>Zahl der Wiederholungen je Training</strong>,
-bei Kamera-Trainings außerdem, wie viele davon von Hand nachgetippt wurden, ob die Kamera freigegeben war und
-kalibriert werden konnte und wie lange das ungefähr dauerte, wie oft Hinweise und Sicherungen der Kamera-Zählung
-eingegriffen haben und wie oft das Training unterbrochen wurde (z. B. durch einen Anruf oder den Wechsel in eine
-andere App) – alles in groben Stufen, ohne Bilder und ohne Körper- oder Gesichtspunkte. Einige dieser Angaben
-beruhen darauf, dass die App auf dem Gerät die Lage deines Kopfes auswertet (z. B. ob das iPhone unter deinem
-Gesicht stand); übertragen wird nur das Ergebnis, nicht die Messung. Außerdem erfassen wir
-die Ergebnisse von Tests im Trainingsplan und der Wochen-Challenge (Wiederholungen), deine Einschätzung einer Plan-Einheit (zu leicht / passend / zu schwer), die Länge deiner Streak,
-die Zahl deiner Freezes, die Größenordnung deines Jahresziels, aus der Wochen-Challenge außerdem Liga, Stufe,
-ungefähre Platzierung (z. B. „obere Hälfte“) und die Gruppengröße in Stufen sowie den Stand einzelner Einstellungen (z. B. ob die iCloud-Synchronisation eingeschaltet ist, ob du an der
-Challenge teilnimmst und ob Apple Health verbunden ist – nur als Status, ohne Werte aus Apple Health). Jedes
-Ereignis trägt den Zeitpunkt, zu dem es entstanden ist (Datum und Uhrzeit). Diese Ereignisse enthalten keinen
-Namen, keine E-Mail, weder deinen Fantasienamen noch deine Kennung aus der Challenge, keine Körperdaten, keine Daten aus Apple Health und keine Werbe-ID (IDFA). Als Kennung dient eine
-zufällig erzeugte, gerätegebundene ID, die vor der Übertragung als <strong>gesalzener Hashwert</strong> (SHA-256)
-gebildet wird; wir können sie keinem Namen, keiner E-Mail-Adresse und keiner Apple-ID zuordnen. Zusätzlich trägt jedes Ereignis eine zufällige Kennung der jeweiligen Sitzung, die bei jedem Öffnen der App neu entsteht. Es findet <strong>kein app-übergreifendes Tracking</strong> statt.
-Die Verarbeitung erfolgt über <strong>TelemetryDeck</strong> (TelemetryDeck GmbH, Deutschland), einen
-datenschutzfreundlichen Analyse-Dienst. Die Statistik ist <strong>standardmäßig aktiv</strong>, auch schon beim ersten Start der App; du kannst sie jederzeit
+„Training gespeichert", „Bericht geöffnet"), und einfache Kennzahlen dazu – etwa die <strong>Zahl der Wiederholungen je Training</strong>,
+Angaben zu Trainingsplan, Zielen, Streak und Wochen-Challenge sowie den Stand einzelner Einstellungen und
+Berechtigungen (z. B. ob Apple Health verbunden ist – nur als Status). Bei Kamera-Trainings erfassen wir zusätzlich,
+überwiegend in groben Stufen, wie das Training ablief (Zählung, Einrichten der Kamera, Unterbrechungen; z. B. ob von
+Hand nachgetippt werden musste oder die App einen Hinweis zur Position gab). Übertragen werden nur solche Ergebnisse
+der Auswertung auf dem Gerät – <strong>keine Bilder und keine Messwerte zu Körper oder Gesicht</strong>. Jedes Ereignis trägt den Zeitpunkt seiner Entstehung.
+Diese Ereignisse enthalten keinen
+Namen, keine E-Mail, weder deinen Fantasienamen noch deine Kennung aus der Challenge, kein Körpergewicht, keine Daten aus Apple Health und keine Werbe-ID (IDFA). Als Kennung dient eine
+zufällig erzeugte, gerätegebundene ID, die nur als <strong>Hashwert</strong> übertragen wird, dazu eine zufällige Kennung je Sitzung; wir können sie keinem Namen, keiner E-Mail-Adresse und keiner Apple-ID zuordnen. Es findet <strong>kein app-übergreifendes Tracking</strong> statt.
+Die Verarbeitung erfolgt über <strong>TelemetryDeck</strong> (TelemetryDeck GmbH, Deutschland). Die Statistik ist <strong>standardmäßig aktiv</strong>, auch schon beim ersten Start der App; du kannst sie jederzeit
 in den App-Einstellungen unter „Nutzungsstatistik“ <strong>abschalten</strong>.</p>
-<p>Zusätzlich übermittelt die App <strong>technische Angaben zum Gerät</strong>: Modellbezeichnung und Prozessorarchitektur, iOS-Version,
-App-Version, Sprach- und Regionseinstellung, Schreibrichtung, Zeitzone, Bildschirmgröße, Darstellung (hell/dunkel), Ausrichtung des Geräts
-(hochkant/quer), Laufumgebung (z. B. App Store oder TestFlight), Einstellungen der Bedienungshilfen (nur an/aus,
-z. B. „Bewegung reduzieren“, und die Schriftgröße), das Datum der ersten Nutzung sowie die Nutzungshäufigkeit
-(Zahl der Sitzungen und Nutzungstage, Sitzungsdauer). Diese Angaben nutzen wir nicht, um dich zu identifizieren; sie
+<p>Zusätzlich übermittelt die App <strong>technische Angaben zu Gerät und App</strong> (z. B. Modell, iOS- und App-Version,
+Sprache, Region und Zeitzone, Bildschirm- und Bedienungshilfe-Einstellungen) sowie allgemeine Angaben zur
+Nutzungshäufigkeit (z. B. Zahl der Sitzungen, erste Nutzung). Diese Angaben nutzen wir nicht, um dich zu identifizieren; sie
 dienen dazu, Fehler einzugrenzen und die App für die tatsächlich genutzten Geräte zu optimieren.</p>
 <p>Mit TelemetryDeck besteht ein Vertrag zur Auftragsverarbeitung gemäß Art. 28 DSGVO.</p>
 
@@ -164,7 +155,7 @@ der App ist deshalb der verlässliche Weg.</p>
 <h2>Rechtsgrundlage der Verarbeitung</h2>
 <p>Soweit überhaupt personenbezogene Daten verarbeitet werden: Die Nutzung von Apple Health und Kamera erfolgt
 auf Grundlage deiner <strong>Einwilligung</strong> (Art. 6 Abs. 1 lit. a DSGVO), die du jederzeit widerrufen
-kannst; das gilt auch für die Teilnahme an der Wochen-Challenge. Die aus der Kamera-Zählung abgeleiteten Angaben der Nutzungsstatistik (siehe dort) beruhen dagegen wie die übrige Statistik auf unserem berechtigten Interesse. Die pseudonyme Nutzungsstatistik erfolgt auf Grundlage unseres <strong>berechtigten Interesses</strong> an der Verbesserung der App (Art. 6 Abs. 1 lit. f DSGVO); sie ist standardmäßig aktiv und jederzeit in den App-Einstellungen abschaltbar (Widerspruch nach Art. 21 DSGVO).
+kannst; das gilt auch für die Teilnahme an der Wochen-Challenge. Die pseudonyme Nutzungsstatistik (auch soweit sie Angaben zur Kamera-Zählung enthält) erfolgt auf Grundlage unseres <strong>berechtigten Interesses</strong> an der Verbesserung der App (Art. 6 Abs. 1 lit. f DSGVO); sie ist standardmäßig aktiv und jederzeit in den App-Einstellungen abschaltbar (Widerspruch nach Art. 21 DSGVO).
 Die iCloud-Synchronisation beruht auf Art. 6 Abs. 1 lit. b DSGVO (Funktionsumfang der App, siehe oben).
 Die Verarbeitung findet
 <strong>innerhalb der EU</strong> statt; eine Übermittlung in Drittländer erfolgt insoweit nicht (zum Hosting der Website, zur iCloud-Synchronisation und zur Wochen-Challenge siehe oben).</p>
@@ -173,7 +164,7 @@ Die Verarbeitung findet
 <p>Trainings-, Körper- und Health-Daten bleiben auf deinem Gerät, bis du sie löschst oder die App entfernst.
 In deiner iCloud gesicherte Daten bleiben dort, bis du sie über „Aus iCloud löschen“ entfernst (siehe unten).
 Für die Angaben der Wochen-Challenge siehe den Abschnitt „Wochen-Challenge“.
-Nutzungsstatistiken werden aggregiert und nur so lange wie für die Auswertung erforderlich aufbewahrt.</p>
+Die pseudonymen Ereignisse der Nutzungsstatistik werden bei TelemetryDeck nur so lange gespeichert, wie sie für die Auswertung erforderlich sind, und danach gelöscht.</p>
 
 <h2>Deine Rechte</h2>
 <p>Du hast – soweit anwendbar – das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung,
@@ -210,8 +201,8 @@ für Datenschutzaufsicht (BayLDA)</strong>, Promenade 18, 91522 Ansbach (<a href
 <p class="meta">Last updated: November 28, 2026</p>
 
 <p>PushForm is an app for counting and tracking push-ups. We care about your privacy:
-<strong>camera images, camera measurements (body and face points) and your body data stay exclusively on your device. Your workout data is stored on your device and additionally backed up to your own iCloud while iCloud Sync is on. If you take part in the weekly challenge, your weekly count becomes visible to other participants under a nickname.</strong> There is no user account
-and no ads. To improve the app we collect <strong>pseudonymous usage statistics</strong> (see below; from camera workouts only coarse counts and yes/no details, such as how often the app showed a hint) – no name
+<strong>camera images, camera measurements and your body weight stay exclusively on your device. Your workout data is stored on your device and additionally backed up to your own iCloud while iCloud Sync is on. If you take part in the weekly challenge, your weekly count becomes visible to other participants under a nickname.</strong> There is no user account
+and no ads. To improve the app we collect <strong>pseudonymous usage statistics</strong> (see below) – no name
 and no advertising ID; you can switch them off at any time in the app settings.</p>
 
 <h2>Controller</h2>
@@ -243,7 +234,7 @@ The app itself collects no such server log files.</p>
   <li><strong>Camera access</strong> – used only in real time on-device to detect the push-up movement. <strong>No images or video are recorded, stored, or transmitted.</strong></li>
   <li><strong>Local notifications</strong> – reminders on your device only.</li>
   <li><strong>Weekly challenge (only if you take part)</strong> – a pseudonymous identifier, a nickname drawn from a fixed word list, a color, league and tier, the number of missed weeks, and the number of camera-counted push-ups per day of the week; see the section below.</li>
-  <li><strong>Usage statistics</strong> – pseudonymous events (which features are used) with simple numbers such as reps per workout and, for camera workouts, how often reps were tapped in by hand or the app showed a hint; see the section below.</li>
+  <li><strong>Usage statistics</strong> – pseudonymous usage events; see the section below.</li>
 </ul>
 
 <h2>Apple Health (HealthKit)</h2>
@@ -263,29 +254,21 @@ with your <strong>explicit consent</strong> (Art. 9(2)(a) GDPR in conjunction wi
 
 <h2>Usage statistics</h2>
 <p>To improve the app we record <strong>which features are used and how often</strong> (e.g. “workout saved”,
-“report opened”), together with simple numbers: the <strong>number of reps per workout</strong>, for camera
-workouts also how many of them were tapped in by hand, whether camera access was granted and the camera could be
-calibrated and roughly how long that took, how often hints and safeguards of the camera counting stepped in, and
-how often the workout was interrupted (e.g. by a call or by switching to another app) – all in coarse ranges,
-without images and without body or face points. Some of these details are based on the app evaluating the
-position of your head on the device (e.g. whether the iPhone was below your face); only the result is transmitted,
-not the measurement. We also record the results of
-tests in the training plan and of the weekly challenge (reps), your rating of a plan session (too easy / right / too hard), the length of your streak, the number of your freezes,
-the size range of your yearly goal, from the weekly challenge also league, tier, approximate placement (e.g. “top
-half”) and group size in ranges, and the state of some
-settings (e.g. whether iCloud Sync is on, whether you take part in the challenge and whether Apple Health is
-connected – as a status only, without any values from Apple Health). Each event carries the time at which it
-occurred (date and time of day). These events contain no name, no email, neither your challenge nickname nor your challenge identifier,
-no body data, no data from Apple Health, and no advertising identifier (IDFA). The identifier is a randomly generated, device-bound ID that is turned into a
-<strong>salted hash</strong> (SHA-256) before transmission; we cannot link it to a name, email address or Apple ID. Each event also carries a random identifier of the current session, which is created anew each time the app is opened.
+“report opened”), together with simple metrics – such as the <strong>number of reps per workout</strong>, details on
+the training plan, goals, streak and weekly challenge, and the state of some settings and permissions (e.g. whether
+Apple Health is connected – status only). For camera workouts we also record, mostly in coarse ranges, how the workout
+went (counting, camera setup, interruptions; e.g. whether reps had to be tapped in by hand or the app showed a
+positioning hint). Only such results of the on-device analysis are transmitted – <strong>no images and no body or face
+measurements</strong>. Each event carries the time it occurred.
+These events contain no name, no email, neither your challenge nickname nor your challenge identifier,
+no body weight, no data from Apple Health, and no advertising identifier (IDFA). The identifier is a randomly generated, device-bound ID that is only transmitted as a
+<strong>hash</strong>, plus a random identifier per session; we cannot link them to a name, email address or Apple ID.
 There is <strong>no cross-app tracking</strong>. Processing is done via <strong>TelemetryDeck</strong>
-(TelemetryDeck GmbH, Germany), a privacy-friendly analytics service. Statistics are <strong>on by default</strong>, starting with the first launch of the app;
+(TelemetryDeck GmbH, Germany). Statistics are <strong>on by default</strong>, starting with the first launch of the app;
 you can <strong>switch them off</strong> at any time in the app settings under “Usage statistics”.</p>
-<p>In addition, the app transmits <strong>technical details about your device</strong>: model name and processor architecture, iOS version,
-app version, language/region setting, text direction, time zone, screen size, appearance (light/dark), device orientation
-(portrait/landscape), runtime environment (e.g. App Store or TestFlight), accessibility settings (on/off only, e.g.
-“Reduce Motion”, and the text size), the date of first use and how often the app is used (number of sessions and
-days of use, session length). We do not use this information to identify you; it helps us narrow
+<p>In addition, the app transmits <strong>technical details about the device and the app</strong> (e.g. model, iOS and
+app version, language, region and time zone, display and accessibility settings) as well as general information on
+how often the app is used (e.g. number of sessions, first use). We do not use this information to identify you; it helps us narrow
 down errors and optimize the app for the devices actually in use.</p>
 <p>A data processing agreement pursuant to Art. 28 GDPR is in place with TelemetryDeck.</p>
 
@@ -341,14 +324,14 @@ reliable way.</p>
 
 <h2>Legal basis</h2>
 <p>Where personal data is processed at all: use of Apple Health and the camera is based on your <strong>consent</strong>
-(Art. 6(1)(a) GDPR), which you can withdraw at any time; the same applies to taking part in the weekly challenge. The details derived from camera counting that go into the usage statistics (see there) are, like the rest of the statistics, based on our legitimate interest. Usage statistics are based on our <strong>legitimate interest</strong> in improving the app (Art. 6(1)(f) GDPR); they are on by default and can be switched off at any time in the app settings (right to object, Art. 21 GDPR).
+(Art. 6(1)(a) GDPR), which you can withdraw at any time; the same applies to taking part in the weekly challenge. Usage statistics (including details on camera counting) are based on our <strong>legitimate interest</strong> in improving the app (Art. 6(1)(f) GDPR); they are on by default and can be switched off at any time in the app settings (right to object, Art. 21 GDPR).
 iCloud Sync is based on Art. 6(1)(b) GDPR (part of what the app does, see above).
 Processing of the app data takes place <strong>within the EU</strong>; no transfer to third countries occurs in this respect (for website hosting, iCloud Sync and the weekly challenge, see above).</p>
 
 <h2>Data retention</h2>
 <p>Workout, body and health data stay on your device until you delete them or remove the app. Data backed up to
 your iCloud stays there until you remove it via “Delete from iCloud” (see below). For the weekly-challenge data, see
-the section “Weekly challenge”. Usage statistics are aggregated and kept only as long as needed for analysis.</p>
+the section “Weekly challenge”. The pseudonymous usage events are stored by TelemetryDeck only as long as needed for analysis and are then deleted.</p>
 
 <h2>Your rights</h2>
 <p>Where applicable, you have the right to access, rectification, erasure, restriction of processing, data
